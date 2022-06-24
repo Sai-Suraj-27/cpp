@@ -1,0 +1,168 @@
+Merge sort:
+1. Divide the vector/array into 2 parts
+2. Get both the parts sorted via recursion
+3. Merge the sorted parts using pointers on both of the arrays. 
+
+This is through recursive, divid & conquer method.
+-> At every level, N elements are being merged, total no.of levels = log2(N), so the total complexity will be N*log2(N)
+-> Space complexity = O(N).
+
+For In-place merge sort
+-> Extra space is not required.
+
+
+
+
+
+
+// All subset related qns are like:
+print all the possible subsets of the given string => Then what
+we should observe is that all these subsets are like either
+by considering some elements or like ignoring some elements of 
+the set.
+
+
+* use these fns related to substr:
+1.
+s1 = "Geeks" 
+cout << s1.substr(3, 2);
+this will print => "ks"
+As the 1st argument = 3 = the index of k in s1;
+and length of the substring to be printed = 2nd 
+argument = 2 so, extra 1 char will be added to make
+length = 2
+
+2.
+To get a sub-string after a character,
+s1 = "Geeks for geeks";
+int pos = s1.find("k")
+This will give the index of the element(char) k in
+the string s1.
+cout << s1.substr(pos + 1); 
+Then this will print "s for geeks" as it will start from pos+1 and print
+upto the end of the string s1;
+
+
+3.
+How to get a sub-string before a character? 
+s1 = "Geeks for geeks";
+int pos = s1.find("k")
+This will give the index of the element(char) k in
+the string s1.
+cout << s1.substr(0, pos);
+This will print "Gee" it will print the string with chars from index 0
+to index before pos
+
+** So, basically s.substr(a,b) returns a string that is a substring of s and it's start index is = a, and it's total length will be = b ** 
+
+
+Trees:
+-> Non linear D.s
+
+Node, Root, children, parent, siblings, ancestor, descendent, leafs
+
+Root -> Tree's top node or node where the tree basically starts.
+child and parent relation is just by observing we can see/say.
+siblings -> nodes with same parents.
+ancestor -> Take a particular Node and consider only all of it's upper nodes along which it came.... they all are the ancestors of that node.
+descendent is just opposite of ancestor .... just for a given node if you come down along that way..then all of them are descendents of that node.
+leafs -> Nodes with no children or basically the nodes present at the bottom of the tree.
+
+Binay Tree -> A Trees in which any node taken will have <=2 children is called a Binay tree. That is any node in a binary tree can have [0/1/2] children.
+
+Blue print of a node:
+
+node            This is for a binary tree(only left&right as max child for any node == 2) if it has one child only then left/right one will point to NULL;
+{
+    int data;                        
+    Node *left;
+    Node * right;
+}
+
+For a n-array tree. 
+node
+{
+    int data;
+    list<node*> child;        ** For n-children we can store the nodes in a list.  **
+}
+
+queue<node*> q;  // We use node* type of queue to solve most of the problems related to level order traversal or similarly BFS(breadth first search).
+queue is a FIFO type ds it means the element that gets inserted 1st will get removed first.
+
+In queue 1st element that is inserted will be the 1st element that will be popped when we use the q.pop() command.
+queue<int> gquiz;
+    gquiz.push(10);
+    gquiz.push(20);
+    gquiz.push(30);  for example after pushing 10,20,30 into the queue, The queue will look like: 10 20 30
+Now, if we use gquiz.size() we will get -> 3
+gquiz.front() we will get -> 10 
+gquiz.back() we will get -> 30
+gquiz.pop() The queue will become -> 20 30   As we said the 1st element that is inserted will be popped.
+
+#Note:
+Inorder traversal -> LNR
+preorder traversal -> NLR
+postorder traversal -> LRN
+
+Here in the 3 traversals: L-> left part me jao
+                          R -> Right part me jao
+                          N -> Simply print the current node
+
+
+// IN GFG Practice in the class solution, if we declared a vector<int> v outside the class,
+as a global variable and use the vector inside the solution class then it is
+not updating properly, I guess the vector should not be declared globally
+but rather inside the class solution as, it solved the problem that is occuring.
+
+To get updated vector returned from a fn or To, just update a vector by sending it to 
+some fn, we have to not just send it but we have use  vector<int> &v. as the parameter in that fn.
+so that a copy of the vector is not created rather the original vector gets modified/updates.
+
+
+**NOTE** 
+Some times in contests when they ask us to do mod of the ans when ans is comming so big, we have to actually
+do ans%mod in each step while calculating the final ans.
+like this: 
+for(int i=0;i<c;i++)
+{
+    j=(j*2)%mod;
+}
+It will be wrong if we calculate j completely and then output as cout << j%mod << endl;
+** %mod should be done in the middle steps of calculation of ans(here -> j) also**
+
+-> Code chef qn: Check the corner case of s[0] == '1' && s[n-2] == '0', so that we can start checking pairs of '01' from index 0 to index n-3; 
+    To find the total no.of integers of the main array that can be maximum in the array.
+
+-> Code chef qn: For greedy algorithm related qn just try with 5-10 different types of inputs and check (verify) the ans for each input make 
+    changes in the code as required, for each input if does not match with the calculated output, Finally the correct ans will eventually come.
+
+-> map data structure can not have duplicate keys means a key can only occur once but its value can be changed any no.of times,
+   it can be incremented or decreased....etc
+
+-> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

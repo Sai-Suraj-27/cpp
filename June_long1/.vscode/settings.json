@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "random": "cpp",
+        "xiosbase": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "set": "cpp",
+        "ios": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}

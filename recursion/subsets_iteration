@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+#define sz(x) (int)x.size()
+#define all(x) (x).begin(), (x).end()
+#define F(i, a, n) for (ll i = a; i < n; i++)
+#define B(i, a, n) for (ll i = n - 1; i >= a; i--)
+#define ll long long int
+#define ld long double
+#define pb push_back
+#define mp make_pair
+#define vll vector<ll>
+using namespace std;
+
+/* inline bool isPalindrome(const string& s) {
+    return equal(s.begin(), s.end(), s.rbegin());
+}*/
+
+vector<vector<ll>> subsets(vll v)
+{
+    vector<vector<ll>> v1;
+
+    vll v2;
+    v1.pb(v2);
+    for (i = 0; i < n; i++)
+    {
+        ll k = sz(v1);
+        for (i = 0; i < n; i++)
+        {
+        }
+    }
+}
+
+int main()
+{
+    // your code goes here.
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+
+    ll i, n, k;
+
+    // As we saw recursive approach now we will see one iterative approach to print all the subsets of an array.
+
+    vll v;
+    cin >> n;
+    for (i = 0; i < n; i++)
+    {
+        cin >> k;
+        v.pb(k);
+    }
+
+    for (i = 0; i < sz(v1); i++)
+    {
+        cout << v1[i] << endl;
+    }
+
+    return 0;
+}
