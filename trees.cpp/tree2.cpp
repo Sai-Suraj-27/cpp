@@ -94,6 +94,7 @@ void lot_BST(node* root)
 
 }
 
+// Note: Inorder of BST is sorted...
 void inorder(node* root)
 {
     if(root==NULL)
@@ -127,8 +128,27 @@ void postorder(node* root)
     cout << root->data << " ";
 }
 
+ll min_bst(node* root)
+{
+    node* temp = root;
+    while(temp->left != NULL)
+    {
+        temp = temp -> left;
+    }
+    return temp->data;
+}
 
-node* del_node_in_BST(node* root, ll d)
+ll max_bst(node* root)
+{
+    node* temp = root;
+    while(temp-> right != NULL)
+    {
+        temp = temp -> right;
+    }
+    return temp->data;
+}
+
+node* del_node_bst(node* root, ll d)
 {
     if(root == NULL)
     {
@@ -136,45 +156,56 @@ node* del_node_in_BST(node* root, ll d)
     }
     if(root->data == d)
     {
-        // 0 child
+        // we have to cover the different casees here:
+
+        // if -> 0 child
         if(root->left == NULL && root->right == NULL)
         {
             delete root;
             return NULL;
         }
 
-        // 1 child
-        else if(root->left!= NULL)
+        // If -> only 1 child
+        
+        // left one:
+        if(root->left != NULL && root->right == NULL)
         {
             node* temp = root->left;
             delete root;
             return temp;
         }
-        else if(root->right == NULL)
+        // right one:
+        if(root->left == NULL && root->right != NULL)
         {
             node* temp = root->right;
             delete root;
             return temp;
         }
 
-        // 2 child
-        else
+        // If there are 2 children: both left & right then we have
+        // replace our root node with max value from left subtree
+        // or min value from right subtree:
+
+        if(root->left != NULL && root->right != NULL)
         {
-            
+            ll reqmax = max_bst(root -> left);
+            root->data = reqmax;
+            root->left = del_node_bst(root->left, reqmax);
+            return root;
         }
     }
-    else if(d < root->data)
+    else if(root->data > d)
     {
-        root -> left = del_node_in_BST(root->left);
+        root->left = del_node_bst(root->left,d);
         return root;
     }
-    else if(d > root->data)
+    else if(root->data < d)
     {
-        root -> right = del_node_in_BST(root->right);
+        root->right = del_node_bst(root->right,d);
         return root;
     }
-}
 
+}
 
 
 
@@ -185,11 +216,13 @@ int main()
     root = build_bst(root);
 
     // 10 8 21 7 27 5 4 3 -1
+    // 50 20 70 10 30 90 110 -1
     cout << "lot of our tree: " << endl;
     lot_BST(root);
     cout << endl;
 
-    // Note: Inorder of BST is sorted...
+    // Note: Inorder (LNR) of BST is sorted...
+
     cout << "inorder of our tree: " << endl;
     inorder(root);
     cout << endl;
@@ -201,11 +234,37 @@ int main()
     cout << "postorder of our tree: " << endl;
     postorder(root);
 
+    cout << "Min value of the tree is: " << endl;
+    cout << min_bst(root) << endl;
 
+    cout << "Max value of the tree is: " << endl;
+    cout << max_bst(root) << endl;
 
+    // 100 50 110 25 70 120 60 115 -1
 
+    // deleted one node
+    root = del_node_bst(root, 10);
 
+    cout << "lot of our tree: " << endl;
+    lot_BST(root);
+    cout << endl;
 
+    cout << "inorder of our tree: " << endl;
+    inorder(root);
+    cout << endl;
+
+    cout << "preorder of our tree: " << endl;
+    preorder(root);
+    cout << endl;
+
+    cout << "postorder of our tree: " << endl;
+    postorder(root);
+
+    cout << "Min value of the tree is: " << endl;
+    cout << min_bst(root) << endl;
+
+    cout << "Max value of the tree is: " << endl;
+    cout << max_bst(root) << endl;
 
     return 0;
 }
