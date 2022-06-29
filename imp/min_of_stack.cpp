@@ -12,9 +12,6 @@ using namespace std;
 
 
 
-
-
-
 int main()
 {
 
@@ -26,20 +23,26 @@ int main()
     ll k;
     ll n;
     cin >> n;
-    ll mini = 10000000;
+    ll mini = INT_MAX;
     for(i=0;i<n;i++)
     {
         cin >> k;
         st.push({k,min(k,mini)});
-        if(k<mini)
-        {
-            mini = k;
-        }
+        mini = min(k,mini);
     }
     cout << st.top().second << endl;
-    
+
+    queue<ll> q;
+    ll mini2 = INT_MAX;
+
+    for(i=0;i<n;i++)
+    {
+        cin >> k;
+        
+    }
     return 0;
 }
 
 
 // Create a stack with pair<int,int> as type, and insert new element in 1st int and min of all in second int.
+// Same with queue and dequeue also...

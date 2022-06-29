@@ -28,19 +28,20 @@ int main()
     {
         cin >> k;
         dq.push_front({k,min(k,mini)});
-        if(k<mini)
-        {
-            mini = k;
-        }
+        mini = min(mini,k);
     }
     auto it = dq.rbegin();
     cout << (*it).first << " " << (*it).second; cout << endl;
+    dq.pop_back();
     cout << (dq.back()).first << " " << (dq.back()).second;   cout << endl;
+    dq.pop_front();
     cout << (dq.front()).first << " " << (dq.front()).second;   cout << endl;
     auto it1 = dq.rend();
-    // cout << (*it1).first << " " << (*it1).second;  generates random numbers as dq.rend() points to position with no value in it (1 position before the front most element).
+    cout << (*it1).first << " " << (*it1).second;  // generates random numbers as dq.rend() points to position with no value in it (1 position before the front most element).
     // cout << dq.max_size() << endl;  Returns the maximum number of elements deque can contain.
     
+    
+
     return 0;
 }
 
