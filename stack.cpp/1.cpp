@@ -63,7 +63,29 @@ int main() {
     // Used in compiler syntax for checking matching brackets, braces.
     // Undo Mechanisms in text editors etc...
 
+
+    // Time Complexity, Asuming we implemented stack using a linked list.
+
+    /*
+    push - O(1)
+    pop  - O(1)
+    top  - O(1)
+    search - O(N)
+    size - O(1)
+    empty - O(1)
+    swap(st2) - ?
+    emplace - O(1)
+
+    While push() function inserts a copy of the value or the parameter passed to the function into the container at the top,
+    The emplace() function constructs a new element as the value of the parameter and then adds it to the top of the container.
+
     
+
+
+    */
+
+
+
     
     return 0;
 }
