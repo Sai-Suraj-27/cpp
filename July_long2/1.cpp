@@ -19,24 +19,14 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
-    
-    
+    ll t;
+    cin >> t;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    while(t--)
+    {
+        ll x,y;
+        cin >> x >> y;
+        cout << 4*x + y << endl;
+    }
     return 0;
 }
