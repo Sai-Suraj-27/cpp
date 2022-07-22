@@ -24,35 +24,41 @@ int main()
 
     while(t--)
     {
-        
+        ll x,y,n,r;
+        cin >> x >> y >> n >> r;
+        ll pre = 0,nor=0;
 
+        if(n*x > r)
+        {
+            cout << -1 << endl;
+        }
+        else
+        {
+            // pre + nor == n  --> (1)
+            // nor = n - pre;
+            // y*pre + x*nor <= r  ---> (2)
 
+            // y*pre + x*(n-pre) <= r;
+            // pre(y-x) <= r-n*x
 
+            // pre <= (r-n*x)/(y-x)
+            // pre = floor((r-n*x)/(y-x));
 
+            pre = floor((r-n*x)/(y-x));
+            nor = n - pre;
+            if(n*y <= r)
+            {
+                cout << 0 << " " << n << endl;
+            }
+            else if(pre > n)
+            {
+                cout << n << " " << 0 << endl;
+            }
+            else
+                cout << nor << " " << pre << endl;
 
-
-
-
-
-
+        }
     }
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     return 0;
 }
