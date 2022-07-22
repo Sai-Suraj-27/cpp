@@ -27,9 +27,62 @@ int main()
         ll n,m;
         cin >> n >> m;
 
-        
+        // 1 <= a, b <= m;
+        // __gcd(a,b) >= n
 
-        
+        if(m==n)
+        {
+            cout << m << " " << m << endl;
+        }
+        else
+        {
+            // without loss of generality lets find a,b such that a<=b;
+            // So, now both a,b should be >= n;
+            // as if atleast 1 of them is < n; then __gcd(a,b) will be < n;
+
+            // Hence both a&b >= n && <=m;
+
+            if(m%n == 0)
+            {
+                cout << n << " " << m << endl;
+            }
+            else
+            {
+                ll a=m,b=n;
+                while(true)
+                {
+                    if((m-1)%n == 0)
+                    {
+                        m--;
+                    }
+                    else if(m%(n+1) == 0)
+                    {
+                        n++;
+                    }
+                    else if((m-1)%(n+1) == 0)
+                    {
+                        m--;
+                        n++;
+                    }
+                }
+                while(true)
+                {
+                    if(m%n != 0)
+                    {
+                        m--;
+                    }
+                    if(m%n != 0)
+                    {
+                        n++;
+                    }
+                }
+
+            }
+            // now we should find n,m such that m%n == 0 and m-n is max;
+            
+
+
+        }
         
 
 
