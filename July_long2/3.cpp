@@ -24,36 +24,29 @@ int main()
 
     while(t--)
     {
+        ll a,b,n;
+        cin >> a >> b >> n;
+
+        // min(x) such that x >= n and x%a ==0, x%b != 0 
+        int init_diff = n%a;
+        if(init_diff != 0)
+            n = n - init_diff + a;
         
-
-
-
-
-
-
-
-
-
-
+        if(a%b == 0)
+        {
+            cout << -1 << endl;
+        }
+        else if(n%b != 0)
+        {
+            cout << n << endl;
+        }
+        else
+        {
+            // (n + k(a))%b != 0 find min such k>=0
+            // -> n%b !=0 or ka % b != 0;
+            cout << n+a << endl;  
+        }
     }
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     return 0;
 }
