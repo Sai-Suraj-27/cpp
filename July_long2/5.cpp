@@ -46,53 +46,35 @@ int main()
 
             // Hence both a&b >= n && <=m;
             // now we should find n,m such that m%n == 0 and m-n is max;
-            
-            /*
-            ll n1,m1,n2,m2,n3,m3;
-            n1 = cn(n,m).first;
-            m1 = cn(n,m).second;
-            n2 = cm(n,m).first;
-            m2 = cm(n,m).second;
-            n3 = cboth(n,m).first;
-            m3 = cboth(n,m).second;
-            ll d1 = abs(m1-n1);
-            ll d2 = abs(m2-n2);
-            ll d3 = abs(m3-n3);
-            if(d1 >= d2 && d1 >= d3)
-            {
-                cout << n1 << " " << m1 << endl;
-            }
-            else if(d2 >= d1 && d2 >= d3)
-            {
-                cout << n2 << " " << m2 << endl;
-            }
-            else
-            {
-                cout << n3 << " " << m3 << endl;
-            }
-            */
+
             // 10 79
             // 11 73
-            ll rem = m%n;
-            ll q = m/n;
+            // 11 91
+            // 10 85
+            // 10 95, 10 971
             
-            while(m%n !=0)
+            ll a=n,b=m;
+            ll diff = 0;
+            ll curr_diff = 0;
+            ll i = n;
+            for(i=n;i<=m;i++)
             {
-                rem = m%n;
-                q = m/n;
-                
-                if(rem < q)
+                // ll q = m/i;
+                if(m-i < diff)
                 {
-                    m--;
+                    break;
                 }
-                else
+                ll rem = m%i;
+                curr_diff = (m-rem)-i;
+                if(curr_diff >= diff)
                 {
-                    n++;
+                    a = i;
+                    b = m-rem;
+                    diff = curr_diff;
                 }
             }
-            cout << n << " " << m << endl;
-        }
-        
+            cout << a << " " << b << endl;
+        }        
     }
 
     return 0;
