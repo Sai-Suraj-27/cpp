@@ -34,6 +34,10 @@ int main()
         {
             cout << m << " " << m << endl;
         }
+        else if(m%n == 0)
+        {
+            cout << n << " " << m << endl;
+        }
         else
         {
             // without loss of generality lets find a,b such that a<=b;
@@ -41,55 +45,56 @@ int main()
             // as if atleast 1 of them is < n; then __gcd(a,b) will be < n;
 
             // Hence both a&b >= n && <=m;
-
-            if(m%n == 0)
+            // now we should find n,m such that m%n == 0 and m-n is max;
+            
+            /*
+            ll n1,m1,n2,m2,n3,m3;
+            n1 = cn(n,m).first;
+            m1 = cn(n,m).second;
+            n2 = cm(n,m).first;
+            m2 = cm(n,m).second;
+            n3 = cboth(n,m).first;
+            m3 = cboth(n,m).second;
+            ll d1 = abs(m1-n1);
+            ll d2 = abs(m2-n2);
+            ll d3 = abs(m3-n3);
+            if(d1 >= d2 && d1 >= d3)
             {
-                cout << n << " " << m << endl;
+                cout << n1 << " " << m1 << endl;
+            }
+            else if(d2 >= d1 && d2 >= d3)
+            {
+                cout << n2 << " " << m2 << endl;
             }
             else
             {
-                ll a=m,b=n;
-                while(true)
-                {
-                    if((m-1)%n == 0)
-                    {
-                        m--;
-                    }
-                    else if(m%(n+1) == 0)
-                    {
-                        n++;
-                    }
-                    else if((m-1)%(n+1) == 0)
-                    {
-                        m--;
-                        n++;
-                    }
-                }
-                while(true)
-                {
-                    if(m%n != 0)
-                    {
-                        m--;
-                    }
-                    if(m%n != 0)
-                    {
-                        n++;
-                    }
-                }
-
+                cout << n3 << " " << m3 << endl;
             }
-            // now we should find n,m such that m%n == 0 and m-n is max;
+            */
+            // 10 79
+            // 11 73
+            ll rem = m%n;
+            ll q = m/n;
             
-
-
+            while(m%n !=0)
+            {
+                rem = m%n;
+                q = m/n;
+                
+                if(rem < q)
+                {
+                    m--;
+                }
+                else
+                {
+                    n++;
+                }
+            }
+            cout << n << " " << m << endl;
         }
         
-
-
-
-
-
     }
 
     return 0;
 }
+
