@@ -11,16 +11,17 @@
 ll mod = 1e9 + 7;
 ll modulo = 998244353;
 using namespace std;
-
+ll fac[100000];
 ll fact(ll n)
 {
     ll c = 1;
-    for(i=1;i<=n;i++)
+    fac[0] = c;
+    for(ll i=1;i<=n;i++)
     {
         c *= i;
         c = c%modulo;
+        fac[i] = c;
     }
-    return c;
 }
 
 ll solve(ll zeros, ll ones, ll &c)
@@ -35,7 +36,10 @@ ll solve(ll zeros, ll ones, ll &c)
         return c;
     }
 
- 
+    for(ll i=1;i<ones;i++)
+    {
+        if()
+    }
 
 
 
