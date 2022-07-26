@@ -12,39 +12,31 @@ ll mod = 1e9 + 7;
 using namespace std;
 template <typename T>
 
-
 class graph
 {
     public:
-        unordered_map<T, list<T> > mp;
+        unordered_map<T, list<T> > adj;
 
-        void addEdge(T u, T v, bool type)
+        void add_edge(T u, T v, bool type)
         {
-            // type = false -> undirected graph
-            // type = true  -> Directed graph
-
-            // mp[i] = a list, list<int> 
-
-            mp[u].push_back(v);
+            adj[u].pb(v);
             if(!type)
             {
-                // An undirected graph;
-                mp[v].push_back(u);
+                adj[v].pb(u);
             }
         }
         void printgraph()
         {
-            for(auto i: mp)
+            for(int i=0;i<sz(adj);i++)
             {
-                cout << i.first << "->";
-                for(auto j: i.second)
+                cout << i << "->";
+                for(auto j : adj[i])
                 {
                     cout << j << " ";
                 }
-                cout << "\n";
+                cout << "\n";   
             }
         }
-
 };
 
 
@@ -60,19 +52,20 @@ int main() {
 
     // Implementing using adjacecny list.
 
-    ll n,m;
+    
+    int n,m;
     cin >> n >> m;
 
-    ll i=0,j=0,k;
-    ll u,v;
     graph<int> g;
-
-    for(i=0;i<m;i++)
+    int u,v;
+    for(int i=0;i<m;i++)
     {
         cin >> u >> v;
-        g.addEdge(u,v,false);
+        g.add_edge(u,v,false);
     }
     g.printgraph();
+
+    
 
 	
 	
