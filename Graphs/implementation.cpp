@@ -40,6 +40,32 @@ class graph
 };
 
 
+void bfs(vector<set<int>> &adj, unordered_map<int,bool> &visited, int root, vector<int> &bfs_g)
+{
+    queue<int> q;
+    q.push(root);
+    visited[root] = true;
+
+    while(!q.empty())
+    {
+        int temp = q.front();
+        q.pop();
+        bfs_g.push_back(temp);
+        
+        // push all the neighbours of this node;
+        for(auto i: adj[temp])
+        {
+            if(!visited[i])
+            {
+                q.push(i);
+                visited[i] = true;
+            }
+        }
+    }
+}
+
+
+
 int main() {
 	// your code goes here.
     ios_base::sync_with_stdio(0);
@@ -55,19 +81,54 @@ int main() {
     
     int n,m;
     cin >> n >> m;
-
+    cout << n << m;
     graph<int> g;
+    vector<set<int>> adj;
     int u,v;
     for(int i=0;i<m;i++)
     {
         cin >> u >> v;
         g.add_edge(u,v,false);
+        adj[u].insert(v);
+        adj[v].insert(u);
     }
     g.printgraph();
 
     
 
-	
+
+    // BFS -> A traversal technique.
+    // Take care of disconnected componenets...also;
+
+    unordered_map<int,bool> visited;
+    
+    queue<int> q;
+    vector<int> bfs_g;
+
+    for(int i=0;i<n;i++)
+    {
+        if(!visited[i])
+        {
+            bfs(adj,visited,i,bfs_g);
+        }
+    }
+
+    for(auto i: bfs_g)
+    {
+        cout << i << " ";
+    }
+
+    // DFS -> Another traversal technique.
+
+
+
+
+
+
+    // Cycle detection in undirected graphs, using BFS & DFS.
+
+
+
 	
 	return 0;
 }
