@@ -49,17 +49,22 @@ int main()
                 c1++;
             }
         } 
-        
-        vector<vector<int>> vs(k);        
-        ll n1=0,n0=0;
-        
+        // cout << c0 << c1 << endl;
         ll smaller = min(c0,c1);
         ll diff = abs(c0-c1);
         // now all k subsequences have 0 diff
 
         ll rem = n-(2*smaller);
-
-        cout << (rem/k + rem%k) << endl;
+        ll ourmax = 0;
+        n = rem;
+        if(n % k == 0)
+            ourmax += n/k;
+        else
+            ourmax += (((n-(n % k))/k) + 1);
+        
+       
+        cout << ourmax << endl;
+        
     }
     
     
