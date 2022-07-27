@@ -8,7 +8,6 @@ int main()
     int n;
     cin >> n;
     int k;
-    vector<int> v2;
     int minIndex = -1;
     for(int i=0;i<n;i++)
     {
