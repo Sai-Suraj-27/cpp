@@ -30,40 +30,44 @@ int main()
         ll x,y,z;
         cin >> x >> y >> z;
 
-        if(min(x,y) != z)
-        {
-            // min = b
-            if(x==y)
-            {
-                cout << "yes" << endl;
-            }
-            else
-            {
-                cout << "no" << endl;
-            }
-        }
-        else if(min(y,z) != x)
-        {
-            if(y==z)
-            {
-                cout << "yes" << endl;
-            }
-            else
-                cout << "no" << endl;
-        }
-        else if(min(z,x) != y)
+        if(x<y)
         {
             if(x==z)
             {
                 cout << "yes" << endl;
             }
             else
+            {
                 cout << "no" << endl;
+            }
+        }
+        else if(x>y)
+        {
+            if(y==z)
+            {
+                cout << "yes" << endl;
+            }
+            else
+            {
+                cout << "no" << endl;
+            }
         }
         else
         {
-            cout << "yes" << endl;
+            if(x==y && y==z)
+            {
+                cout << "yes" << endl;
+            }
+            else if(z>x)
+            {
+                cout << "yes" << endl;
+            }
+            else
+            {
+                cout << "no" << endl;
+            }
         }
+
 
 
         
