@@ -27,12 +27,39 @@ int main()
     
     while(t--)
     {
+        ll n,k;
+        cin >> n >> k;
+
+        string s;
+        cin >> s;
+
+        // all subsequences should have f(a) as min as possible.
+
+        ll i,j;
+        ll maxdiff = -1;
+        ll c0=0,c1=0;
+        for(i=0;i<n;i++)
+        {
+            if(s[i] == '0')
+            {
+                c0++;
+            }
+            else
+            {
+                c1++;
+            }
+        } 
         
+        vector<vector<int>> vs(k);        
+        ll n1=0,n0=0;
         
-        
-        
-        
-        
+        ll smaller = min(c0,c1);
+        ll diff = abs(c0-c1);
+        // now all k subsequences have 0 diff
+
+        ll rem = n-(2*smaller);
+
+        cout << (rem/k + rem%k) << endl;
     }
     
     
