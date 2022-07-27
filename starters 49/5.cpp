@@ -27,12 +27,41 @@ int main()
     
     while(t--)
     {
-        
-        
-        
-        
-        
-        
+        ll n;
+        cin >> n;
+
+        vll v;
+        ll i,j,k;
+
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+
+        sort(all(v));
+
+        ll m = 0;
+        ll newmax = 0;
+        i=0;
+        while(!(equal(v.begin() + 1, v.end(), v.begin())))
+        {
+            k = v[n-1];
+            v.pop_back();
+            n--;
+            newmax = v[n-1];
+            for(i=0;i<n-1;i++)
+            {
+                ll diff = newmax - v[i];
+                v[i] += min(k,diff);
+                k -= min(k,diff);
+                if(k==0)
+                    break;
+            }
+            m++;
+        }
+        cout << m << endl;
+    
     }
     
     
