@@ -38,11 +38,34 @@ int main()
             cin >> k;
             v.pb(k);
         }
-
-        
-        
-        
-        
+        vll v1;
+        ll c = 0;
+        k=0;
+        sort(all(v));
+        while(i<n)
+        {
+            k = upper_bound(all(v),v[i]) - lower_bound(all(v),v[i]);
+            v1.pb(k);
+            i+=k;
+        }
+        sort(all(v1));
+        c = v1[sz(v1)-1];
+        if(sz(v1) >=2)
+        {
+            k = v1[sz(v1)-2];
+        }
+        else
+        {
+            k=0;
+        }
+        if(c%2 == 1)
+        {
+            cout << max(c/2 + 1,k) << endl;
+        }
+        else
+        {
+            cout << max(c/2,k) << endl;
+        }
         
         
     }
