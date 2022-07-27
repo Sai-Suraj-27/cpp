@@ -30,14 +30,28 @@ int main()
         ll n;
         cin >> n;
 
-        ll i=0,j=0;
+        ll i=0,j=0,k;
+        vll v;
 
+        string s;
+        cin >> s;
+
+        string r;
+        cin >> r;
+        ll c=0;
         for(i=0;i<n;i++)
         {
-            
+            if(s[i]!=r[i])
+            {
+                c++;
+            }
         }
-        
-        
+        if(c%2==0)
+        {
+            cout << 1 << endl;
+        }
+        else
+            cout << 0 << endl;
         
         
         
