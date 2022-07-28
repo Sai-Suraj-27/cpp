@@ -1,16 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
-ll mod = 1e9 + 7;
+long long mod = 1e9 + 7;
 
 
-vector<int> parent(mod);
-vector<int> sizes(mod);
+vector<int> parent(1000000);
+vector<int> sizes(1000000);
 
 void make(int x)
 {
     parent[x] = x;
     // Created a new independent node with it's parent = itself.
-    sizes(x) = 1;
+    sizes[x] = 1;
 }
 
 int find(int x)
@@ -20,8 +20,7 @@ int find(int x)
     {
         return x;
     }
-    else
-        parent[x] = find(parent[x]);
+    parent[x] = find(parent[x]);
 }
 
 
@@ -32,7 +31,7 @@ void Union(int a, int b)
     // finding the topmost parents of a & b and then attaching one of the under other.
     if(a!=b)
     {
-        if(sizes(a) < sizes(b))
+        if(sizes[a] < sizes[b])
         {
             swap(a,b);
             // a will be bigger now;
@@ -66,9 +65,29 @@ int main()
     // Otherwise with full optimization -> T.C ~ O(1)
 
 
-    
+    long long n;
+	cin >> n;
 
+	long long k;
+	cin >> k;
+    long long c = 0;
+	long long u,v,i,j;
 
+    for(i=1;i<=n;i++)
+    {
+        make(i);
+    }
+	for(i=1;i<=k;i++)
+	{
+		cin >> u >> v;
+        Union(u,v);
+	}
+    for(i=1;i<=n;i++)
+    {
+        if(find(i) == i)
+            c++;
+    }
+    cout << c << endl;
 
     return 0;
 }
