@@ -59,11 +59,14 @@ int main()
     // In the future calls of find(x);
 
     
+    // T.C => O(alpha(n)); => Ackerman function.
+    // Amortized T.C, which means -> after using the function good number of times, time complexity is almost constant in this case of DSU, ~ O(4);
+
+    // Wihtout path compression -> T.C = O(log N);
+    // Otherwise with full optimization -> T.C ~ O(1)
 
 
-
-
-
+    
 
 
 
