@@ -1,6 +1,36 @@
 #include<bits/stdc++.h>
 using namespace std;
+ll mod = 1e9 + 7;
 
+
+vector<int> parent(mod);
+
+void make(int x)
+{
+    parent[x] = x;
+    // Created a new independent node with it's parent = itself
+}
+
+int find(int x)
+{
+    // Top most parent of x;
+    if(parent[x] == x)
+    {
+        return x;
+    }
+    else
+        find(parent[x]);
+}
+
+
+void Union(int a, int b)
+{
+    a = find(a);
+    b = find(b);
+    // finding the topmost parents of a & b and then attaching one of the under other.
+    if(a!=b)
+        parent[b] = a;
+}
 
 
 int main()
