@@ -28,6 +28,51 @@ using namespace std;
 // Using 1-based indexing;
 
 
+class fenwickTree
+{
+    public:
+        vector<ll> bit;
+        ll n;
+
+        fenwickTree(ll n)
+        {
+            n = n + 1;
+            bit.assign(n+1,0);
+        }
+
+        fenwickTree(vector<ll> v) : fenwickTree(v.size())
+        {
+            for(ll i=0;i<v.size();i++)
+            {
+                add(i,v[i]);
+            }
+        }
+
+        ll sum(ll i)
+        {
+            ll res=0;
+            for(++i; i > 0; i -= (i&(-i)))
+            {
+                res += bit[i];
+            }
+            return res;
+        }
+        
+        ll range_sum(ll l, ll r)
+        {
+            return sum(r) - sum(l-1);
+        }
+
+        void add(ll i, ll x)
+        {
+            for(++i; i<n; i += (i&(-i)))
+            {
+                bit[i] += x;
+            }
+        }
+
+};
+
 
 
 
@@ -75,9 +120,14 @@ int main()
         There is a simple way to do this... we can find all those j's by starting with i and flipping the last unset bit, if we call this 
         operation h(j) then, h(j) = (j) || (j+1).
 
-        
 
     */
+
+    ll n;
+    cin >> n;
+
+    vector<ll> v;
+    fenwickTree(v);
 
 
 
