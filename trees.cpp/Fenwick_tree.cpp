@@ -16,6 +16,20 @@ using namespace std;
 }*/
 
 
+// Only 1 array T to handle all our queries, we don't need to model an actual tree with nodes and edges.
+// The last set bit of 'i' can be extracted using i&(-i)   so, => g(i) = i - (i & (-i)); -> g(i) is same as i except with last set bit of i set to zero;
+// For 1 <= i <= N, T[i] stores sum of (j+1 to i) where j = removelastbit(i); 
+
+// *** that is T[j] stores the sum of [g(i)+1, i]; ***
+
+// And it's not hard to see, that you need to change all values T[j] in the sequence i, h(i), h(h(i)), ... when you want to update A[j];
+// h(i) = i + (i & (-i));
+
+// Using 1-based indexing;
+
+
+
+
 
 
 
