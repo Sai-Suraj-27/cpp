@@ -46,17 +46,10 @@ int main()
         ll Index = -1;
         for(i=0;i<n-1;i++)
         {
-            currmin = INT_MAX;
-            Index = -1;
-            for(j=i;j<n;j++)
-            {
-                // cout << v[j] << " ";
-                if(v[j] < currmin)
-                {
-                    Index = j;
-                    currmin = v[Index];
-                }
-            }
+            currmin = *min_element(v.begin() + i, v.end());
+
+            Index = find(all(v), currmin) - v.begin();
+
             // cout << i << " " << Index << endl;
             reverse(v.begin() + i, v.begin() + Index + 1);
             
