@@ -45,14 +45,30 @@ int main()
     {
         ll n;
         cin >> n;
-
+        vll v(n + 1);
+        ll c = 1;
+        ll j = 1,k=n;
+        for(int i=n;i>=1;i--)
+        {
+            if(c==1)
+            {
+                v[k] = i;
+                k--;
+                c = 0;
+            }
+            else
+            {
+                v[j] = i;
+                j++;
+                c=1;
+            }
+        }
+        for(int i=1; i<=n;i++)
+        {
+            cout << v[i] << " ";
+        }
         
-        
-        
-        
-        
-        
-        
+        cout << "\n";
         
     }
     
