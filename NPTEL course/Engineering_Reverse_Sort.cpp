@@ -40,14 +40,56 @@ int main()
         
         // Not possible case;
         ll p = (n*(n+1)/2);
+
         if(c < n-1 || c > p-1)
         {
             cout << "Case #" << x << ":" << " " << "IMPOSSIBLE" << endl;
         }
         else
         {
-            
+            ll x = c - (n-1);
+            vector<ll> pos(n+1);
+            vll final(n+1);
+            i=1;
+            int num_rev = 0;
+            while(x>0)
+            {
+                pos[i] = min(n,x+i);
+                x -= min(n,x+i) - i;
+                // cout << x << " ";
+                i++;
+                num_rev++;
+            }
+            while(i<=n)
+            {
+                pos[i] = i;
+                i++;
+            }
+            for(i=1;i<=n && i<=num_rev;i++)
+            {
+                cout << pos[i] << " ";
 
+                if(i%2 == 1)
+                {
+                    final[pos[i]] = i;
+                }
+                else
+                {
+                    final[n-pos[i] + 1] = i;
+                }
+            }
+            cout << endl;
+            for(i=1;i<=n;i++)
+            {
+                if(final[i] == 0)
+                {
+                    final[i] = n-i;
+                }
+            }
+            for(i=1;i<=n;i++)
+            {
+                cout << final[i] << " ";
+            }
 
 
 
@@ -70,8 +112,8 @@ int main()
 
 
 
-        cout << "Case #" << x << ":" << " " << cost << endl;
-        x++;
+        //cout << "Case #" << x << ":" << " " << cost << endl;
+        //x++;
     }
     
     
