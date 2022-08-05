@@ -43,15 +43,35 @@ int main()
     
     while(t--)
     {
+        ll n;
+        cin >> n;
+
+        // qn -> will the given code terminate for a given number 2<= n <= pow(10,14); ?
         
-        
-        
-        
-        
-        
-        
-        
+        // we have to find some pattern to say yes or no...
+        ll i = 0;
+        while(n>1 && i<pow(10,6))
+        {
+            if(n%2==0)
+            {
+                n = n/2;
+            }
+            else
+            {
+                n = 3*n + 3;
+            }
+            i++;
+        }
+        cout << i << " " << n << endl;
     }
+
+    // From the observations made for some numbers
+    // also from the given code we can clearly see that if n is
+    // a power of 2 then it will surely become 1 in log2(n) steps
+
+    // Between 2 & 10 only 2,4,8 terminate all other numbers go into some sort of never ending loop.
+    
+      
     
     
  
