@@ -51,50 +51,35 @@ int main()
             vector<ll> pos(n+1);
             vll final(n+1);
             i=1;
-            int num_rev = 0;
-            while(x>0)
+            int num_rev = -1;
+            for(i=0;i<n;i++)
             {
-                pos[i] = min(n,x+i);
-                x -= min(n,x+i) - i;
+                pos[i] = min(n-1,x+i);
+                x -= min(n-1,x+i) - i;
                 // cout << x << " ";
-                i++;
-                num_rev++;
-            }
-            while(i<=n)
-            {
-                pos[i] = i;
-                i++;
-            }
-            for(i=1;i<=n && i<=num_rev;i++)
-            {
-                cout << pos[i] << " ";
+                
+                for(i=0;i<n;i++) final[i] = 0;
+                final[pos[i]] = -1;
 
-                if(i%2 == 1)
+                j = i-1;
+                while(j>=0)
                 {
-                    final[pos[i]] = i;
+                    reverse(final.begin() + j, final.begin() + pos[j] + 1);
                 }
-                else
+
+                for(j=0;j<n;j++)
                 {
-                    final[n-pos[i] + 1] = i;
+                    if(final[j] == -1)
+                    {
+                        num_rev = j;
+                    }
                 }
-            }
-            cout << endl;
-            for(i=1;i<=n;i++)
-            {
-                if(final[i] == 0)
-                {
-                    final[i] = n-i;
-                }
+                final[num_rev] = i+1;
             }
             for(i=1;i<=n;i++)
             {
                 cout << final[i] << " ";
             }
-
-
-
-
-
 
         }
 
