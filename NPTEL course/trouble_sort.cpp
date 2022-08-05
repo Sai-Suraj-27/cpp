@@ -46,28 +46,42 @@ int main()
         ll n;
         cin >> n;
         vll v;
-
+        vll odd;
+        vll eve;
         ll i,j,k;
         for(i=0;i<n;i++)
         {
             cin >> k;
             v.pb(k);
+            if(i%2==1)
+            {
+                odd.pb(k);
+            }
+            else
+            {
+                eve.pb(k);
+            }
         }
         // 3 numbers at a time...
         
-        bool done = false;
-        while(!done)
+        sort(all(odd));
+        sort(all(eve));
+        v.erase(all(v));
+        ll p=0,q=0;
+        for(i=0;i<n;i++)
         {
-            done = true;
-            for(i=0;i<n-2;i++)
+            if(i%2==1 && p<sz(odd))
             {
-                if(v[i] > v[i+2])
-                {
-                    done = false;
-                    swap(v[i],v[i+2]);
-                }
+                v.pb(odd[p]);
+                p++;
+            }
+            else if(i%2==0 && q<sz(eve))
+            {
+                v.pb(eve[q]);
+                q++;
             }
         }
+
         if(is_sorted(all(v)))
         {
             cout << "Case #" << x << ":" << " " << "OK" << endl;
@@ -85,12 +99,8 @@ int main()
 
         }    
         
-
         x++;
     }
-    
-    
- 
-	
+
 	return 0;
 }
