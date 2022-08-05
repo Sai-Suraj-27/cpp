@@ -49,20 +49,13 @@ int main()
         // qn -> will the given code terminate for a given number 2<= n <= pow(10,14); ?
         
         // we have to find some pattern to say yes or no...
-        ll i = 0;
-        while(n>1 && i<pow(10,6))
+        
+        if(log2(n) == ceil(log2(n)) and ((n)^(n-1)&n) == n)
         {
-            if(n%2==0)
-            {
-                n = n/2;
-            }
-            else
-            {
-                n = 3*n + 3;
-            }
-            i++;
+            cout << "YES" << endl;
         }
-        cout << i << " " << n << endl;
+        else
+            cout << "NO" << endl;
     }
 
     // From the observations made for some numbers
@@ -70,9 +63,25 @@ int main()
     // a power of 2 then it will surely become 1 in log2(n) steps
 
     // Between 2 & 10 only 2,4,8 terminate all other numbers go into some sort of never ending loop.
-    
-      
-    
+
+    /*
+    Now if n is not a power of 2;
+    1. If n is odd
+        then in the 1st step it will become 3*(n+1);
+        which means it becomes a multiple of 3, now as we will
+        never divide by 3 again it will always have a factor of 3
+
+    Hence it will never terminate.
+
+    2. If n is even (not power of 2)
+        Now at some step after getting continuosly divided by 2 it will become odd
+        since it is not a power of 2;
+        And now it is same as the above case, It will never terminate.
+
+    */
+
+    // So finally the answer is:
+    // N will terminate only when n is a pow of 2;    
     
  
 	
