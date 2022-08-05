@@ -40,17 +40,53 @@ int main()
   
     ll t;
     cin >> t;
-    
+    ll x = 1;
     while(t--)
     {
+        ll n;
+        cin >> n;
+        vll v;
+
+        ll i,j,k;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+        // 3 numbers at a time...
         
+        bool done = false;
+        while(!done)
+        {
+            done = true;
+            for(i=0;i<n-2;i++)
+            {
+                if(v[i] > v[i+2])
+                {
+                    done = false;
+                    swap(v[i],v[i+2]);
+                }
+            }
+        }
+        if(is_sorted(all(v)))
+        {
+            cout << "Case #" << x << ":" << " " << "OK" << endl;
+        }
+        else
+        {
+            for(i=0;i<n-1;i++)
+            {
+                if(v[i] > v[i+1])
+                {
+                    cout << "Case #" << x << ":" << " " << i << endl;
+                    break;
+                }
+            }
+
+        }    
         
-        
-        
-        
-        
-        
-        
+
+        x++;
     }
     
     
