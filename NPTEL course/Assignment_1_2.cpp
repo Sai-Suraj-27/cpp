@@ -65,36 +65,11 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 
 
 
-void find_points(ll n, ll &points)
-{
-    if(n==1)
-    {
-        return;
-    }
-    else
-    {
-        if(n%2==0)
-        {
-            n = n/2;
-            points += pow(n,2);
-            find_points(n,points);
-            find_points(n,points);
-        }
-        else
-        {
-            n = floor(n/2);
-            points += (n*(n+1));
-
-            find_points(n,points);
-            find_points(n+1,points);
-        }
-        return;
-    }
 
 
 
 
-}
+
 
 
 
@@ -105,25 +80,42 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
+    ll n;
+    cin >> n;
 
+    vll v(n);
 
-    while(t--)
+    ll i=0,k;
+    while(true)
     {
-        ll n;
-        cin >> n;
+        k = i*(i+1)/2;
+        k = k%n;
 
-        ll points = 0;
-
-        find_points(n,points);        
-
-        cout << points << endl;
-
+        if(v[k] == 1)
+        {
+            break;
+        }
+        else
+        {
+            v[k] = 1;
+        }
+        i++;
     }
 
-
-
-
+    for(i=0;i<n;i++)
+    {
+        if(v[i] != 1)
+        {
+            cout << "NO" << endl;
+            break;
+        }
+    }
+    if(i==n)
+    {
+        cout << "YES" << endl;
+    }
+    
+ 
+	
 	return 0;
 }
