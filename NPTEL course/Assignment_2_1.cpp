@@ -83,13 +83,49 @@ int main()
 
     while(t--)
     {
+        ll n,x;
+        cin >> n >> x;
+
+
+        vll v;
+        ll i,j,k;
+        vll v1;
+        for(i=0;i<2*n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+
+        sort(all(v));
         
-        
-        
-        
-        
-        
-        
+        for(i=n;i<2*n;i++)
+        {
+            v1.pb(v[i]);
+        }
+      
+        for(i=0;i<n;i++)
+        {
+            ll height_required = v[i] + x;
+            // cout << height_required << " ";
+            if(lower_bound(all(v1),height_required) != v1.end())
+            {
+                v1.erase(lower_bound(all(v1),height_required));
+                // cout << sz(v1) << " ";
+                // cout << v1[lower_bound(all(v1),height_required) - v1.begin()] << endl;
+            }
+            else
+            {
+                break;
+            }
+        }
+        if(i==n)
+        {
+            cout << "YES" << endl;
+        }
+        else
+        {
+            cout << "NO" << endl; 
+        }
 
     }
 
