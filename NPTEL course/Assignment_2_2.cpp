@@ -83,14 +83,44 @@ int main()
 
     while(t--)
     {
+        ll n,q;
+        cin >> n >> q;
+
+        vll v;
+        ll i,j,k;
+
+        vll prefix_sum(n);
+        ll psum = 0;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+
+        sort(all(v));
+        for(i=n-1;i>=0;i--)
+        {
+            k = v[i];
+            psum += k;
+            prefix_sum[(n-1)-i] = psum;
+        }
+        ll x;
+        // for(auto j: prefix_sum) cout << j << " ";
+        // cout << endl;
         
-        
-        
-        
-        
-        
-        
-        
+        while(q--)
+        {
+            cin >> x;
+
+            if(lower_bound(all(prefix_sum),x) == prefix_sum.end())
+            {
+                cout << -1 << endl;
+            }
+            else
+            {
+                cout << lower_bound(all(prefix_sum),x) - prefix_sum.begin() + 1 << endl;
+            }
+        }
 
     }
 
