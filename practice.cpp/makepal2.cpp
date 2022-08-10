@@ -32,12 +32,31 @@ int main()
 
         string s;
         cin >> s;
+        string s0 = "",s1 = "";
+        ll c0 = 0,c1=0;
 
-        ll c = 0;
-
+        for(i=0;i<n;i++)
+        {
+            if(s[i] == '0')
+            {
+                c0++;
+                s0 += "0";
+            }
+            else
+            {
+                c1++;
+                s1 += "1";
+            }
+        }
         
-        
-        
+        if(c1<c0)
+        {
+            cout << s0 << endl;
+        }
+        else
+        {
+            cout << s1 << endl;
+        }
         
         
         

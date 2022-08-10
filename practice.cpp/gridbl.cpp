@@ -30,17 +30,15 @@ int main()
         ll n,m;
         cin >> n >> m;
 
-        ll k = min(m,n);
-        ll l = max(m,n);
-        if(k==1)
+        ll total_area = n*m;
+        if(m%2==0 && n%2 == 0)
         {
-            cout << l << endl;
+            cout << 0 << endl;
         }
         else
         {
-           cout << m*n - 4*((m/2)*(n/2)) << endl;
+           cout << total_area - 4*((m/2)*(n/2)) << endl;
         }
-        
     }
 	
 	return 0;
