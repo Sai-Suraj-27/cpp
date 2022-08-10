@@ -85,37 +85,36 @@ void pairsort(vll &a, vll &b, ll n)
 
 }
 
-ll median(vll v)
+ll median(vll a)
 {
-    ll n = sz(v);
+    ll n = sz(a);
 
-    ll k; 
-    if(n%2 == 0)
+    if (n % 2 == 0)
     {
-        k = n/2;
-    }
-    else
-    {
-        k = (n/2)+1;
-    }
-    //cout << k << endl;
-    return v[k-1];
+
+        nth_element(a.begin(),
+                    a.begin() + n / 2,
+                    a.end());
+  
+        nth_element(a.begin(),
+                    a.begin() + (n - 1) / 2,
+                    a.end());
+  
+        return (a[(n - 1) / 2]
+                        + a[n / 2])
+               / 2;
 
 }
 
 void solve(vll &v, vll &v1, ll n)
 {
-
-    if(n==1)
-        return;
     ll k = median(v);
-    //cout << k <<  "->";
     v1[n] = k;
-    auto it = find(all(v),k);
-    v.erase(it);
+    v.remove(k);
 
     solve(v,v1,n-1);
-    return;
+
+
 
 }
 
@@ -147,10 +146,10 @@ int main()
         vll v1(n+1);
 
         solve(v,v1,n);
-        v1[1] = n;
-        for(i=1;i<=n;i++) 
+
+        for(auto j: v1) 
         {
-            cout << v1[i] << " ";
+            cout << j << " ";
         }
         cout << endl;
         
