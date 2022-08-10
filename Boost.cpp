@@ -50,6 +50,10 @@ ll long_power_long(ll x, ll n)
 }
 
 
+ll lcm(ll a, ll b)
+{
+    return (a*b)/__gcd(a,b);
+}
 
 // TO REMOVE ALL NUMS ALSO THEN USE "isalpha" instead of "isalnum".
 // To apply this -> str.erase(it,str.end());
@@ -63,7 +67,23 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 // std::rotate(nums.begin(),nums.begin() + n-(k%n), nums.end()); to rotate vector to right k steps.
 // if we want an element at index 'Z' to become 1st element after rotations we replace n-(k&n) with z;
 
+void pairsort(vll &a, vll &b, ll n)
+{
+    vector<pair<ll,ll>> v(n);
 
+    for(int i=0;i<n;i++)
+    {
+        v[i] = {a[i],b[i]};
+    }
+    sort(all(v));
+
+    for(int i=0;i<n;i++)
+    {
+        a[i] = v[i].first;
+        b[i] = v[i].second;
+    }
+
+}
 
 
 
