@@ -77,51 +77,16 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
+
+    // Priority queue can be implemented with other DS's also, not only heap.
+    // It is used in Dijkstra's shortest part algorithm.
+    // used in Huffman coding which is often used for Loss less data compression.
+    // BFS algorithms like A*
+    // In minimum spanning Tree algorithm. on directed graphs...
 
 
-    while(t--)
-    {
+    
 
-        ll n,m;
-        cin >> n >> m;
-
-        vll v(n+1);
-        ll i,j,k;
-        
-        for(i=0;i<=n;i++)
-        {
-            v[i] = i;
-        }
-
-        ll x,y;
-        while(m--)
-        {
-            cin >> x >> y;
-            k = find(all(v),x) - v.begin();
-
-            if(1<=k && k<=n)
-            {
-                continue;
-            }
-            else if(k > y)
-            {
-                swap(v[k], v[find(all(v),y) - v.begin()]);
-            }
-
-
-
-
-
-        }
-        
-        
-        
-        
-        
-
-    }
 
 
 
