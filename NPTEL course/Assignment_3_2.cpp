@@ -104,64 +104,68 @@ int main()
 
         sort(all(v));
         sort(all(v1));
-
-        if(m!=n)
+        ll c = 0;
+        
+        ll prev = v[0];
+        while(true)
         {
-            if(m>n)
+            if(upper_bound(all(v1),prev) != v1.end() && c%2==0)
             {
-                cout << "Biswas" << endl;
-                cout << "Biswas" << endl;
+                prev = v1[upper_bound(all(v1), prev) - v1.begin()];
+                v1.erase(upper_bound(all(v1), prev));
+                c++;
+            }
+            else if(c%2==1 && upper_bound(all(v),prev) != v.end())
+            {
+                prev = v[upper_bound(all(v),prev) - v.begin()];
+                v.erase(upper_bound(all(v),prev));
+                c++;
             }
             else
             {
-                cout << "Ankita" << endl;
-                cout << "Ankita" << endl;
+                break;
             }
+        }
+        if(c%2==1)
+        {
+            cout << "Biswas" << endl;
         }
         else
         {
-            for(i=1;i<n;i++)
-            {
-                k = v[i];
-                if(upper_bound(all(v1),k) != v1.end() && k > upper_bound(all(v1), ))
-                {
-                    v.erase(upper_bound(all(v1), k));
-                }
-                else
-                {
-                    break;
-                }
-            }
-            if(i==n)
-            {
-                cout << "Biswas" << endl;
-            }
-            else
-            {
-                cout << "Ankita" << endl;
-            }
+            cout << "Ankita" << endl;
+        }
 
-            for(i=0;i<m;i++)
+        prev = v1[0];
+        c = 0;
+
+        while(true)
+        {
+            if(upper_bound(all(v),prev) != v.end() && c%2==0)
             {
-                k = v1[i];
-                if(upper_bound(all(v),k) != v.end())
-                {
-                    v1.erase(upper_bound(all(v), k));
-                }
-                else
-                {
-                    break;
-                }
+                prev = v[upper_bound(all(v), prev) - v.begin()];
+                v.erase(upper_bound(all(v), prev));
+                c++;
             }
-            if(i==m)
+            else if(c%2==1 && upper_bound(all(v1),prev) != v1.end())
             {
-                cout << "Ankita" << endl;
+                prev = v1[upper_bound(all(v1),prev) - v1.begin()];
+                v1.erase(upper_bound(all(v1),prev));
+                c++;
             }
             else
             {
-                cout << "Biswas" << endl;
+                break;
             }
         }
+        if(c%2==1)
+        {
+            cout << "Ankita" << endl;
+        }
+        else
+        {
+            cout << "Biswas" << endl;
+        }
+
     }
 
 
