@@ -80,14 +80,88 @@ int main()
 
     while(t--)
     {
+        ll n;
+        cin >> n;
+
+        vll v;
+        ll i,j,k;
         
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
 
+        ll m;
+        cin >> m;
 
+        vll v1;
+        for(i=0;i<m;i++)
+        {
+            cin >> k;
+            v1.pb(k);
+        }
 
+        sort(all(v));
+        sort(all(v1));
 
+        if(m!=n)
+        {
+            if(m>n)
+            {
+                cout << "Biswas" << endl;
+                cout << "Biswas" << endl;
+            }
+            else
+            {
+                cout << "Ankita" << endl;
+                cout << "Ankita" << endl;
+            }
+        }
+        else
+        {
+            for(i=1;i<n;i++)
+            {
+                k = v[i];
+                if(upper_bound(all(v1),k) != v1.end() && k > upper_bound(all(v1), ))
+                {
+                    v.erase(upper_bound(all(v1), k));
+                }
+                else
+                {
+                    break;
+                }
+            }
+            if(i==n)
+            {
+                cout << "Biswas" << endl;
+            }
+            else
+            {
+                cout << "Ankita" << endl;
+            }
 
-
-
+            for(i=0;i<m;i++)
+            {
+                k = v1[i];
+                if(upper_bound(all(v),k) != v.end())
+                {
+                    v1.erase(upper_bound(all(v), k));
+                }
+                else
+                {
+                    break;
+                }
+            }
+            if(i==m)
+            {
+                cout << "Ankita" << endl;
+            }
+            else
+            {
+                cout << "Biswas" << endl;
+            }
+        }
     }
 
 

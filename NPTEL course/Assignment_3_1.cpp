@@ -78,12 +78,34 @@ int main()
 
     while(t--)
     {
+        ll n,q;
+        cin >> n >> q;
+
+        vll v;
+
+        ll i,j,k;
         
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+        ll c = 0;
+        while(q--)        
+        {
+            ll si,sj;
 
+            cin >> si >> sj;
 
+            ll p1 = *find(v.end(),v.begin(), si);
+            ll p2 = *find(v.end(),v.begin(), sj);
 
-
-
+            ll p3 = *find(all(v), si);
+            ll p4 = *find(all(v), sj);
+            if(p1 < p2 || p3 < p4)
+                c++;
+        }
+        cout << c << endl;
 
 
     }
