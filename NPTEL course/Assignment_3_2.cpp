@@ -101,24 +101,46 @@ int main()
             cin >> k;
             v1.pb(k);
         }
-
-        sort(all(v));
-        sort(all(v1));
         ll c = 0;
         
-        ll prev = v[0];
+        // ll prev = v[0];
+        // c = 0;
+        // cout << "hehe";
+
+        if(*max_element(all(v)) != *max_element(all(v1)))
+        {
+            if(*max_element(all(v)) > *max_element(all(v1)))
+            {
+                cout << "Ankita" << endl;
+                cout << "Ankita" << endl;
+            }
+            else
+            {
+                cout << "Biswas" << endl;
+                cout << "Biswas" << endl;
+            }
+        }
+        else
+        {
+            cout << "Ankita" << endl;
+            cout << "Biswas" << endl;
+        }
+        
+        
+        
+        
+        
+        /*
         while(true)
         {
             if(upper_bound(all(v1),prev) != v1.end() && c%2==0)
             {
-                prev = v1[upper_bound(all(v1), prev) - v1.begin()];
-                v1.erase(upper_bound(all(v1), prev));
+                prev = *upper_bound(all(v1), prev);
                 c++;
             }
             else if(c%2==1 && upper_bound(all(v),prev) != v.end())
             {
-                prev = v[upper_bound(all(v),prev) - v.begin()];
-                v.erase(upper_bound(all(v),prev));
+                prev = *upper_bound(all(v),prev);
                 c++;
             }
             else
@@ -142,14 +164,12 @@ int main()
         {
             if(upper_bound(all(v),prev) != v.end() && c%2==0)
             {
-                prev = v[upper_bound(all(v), prev) - v.begin()];
-                v.erase(upper_bound(all(v), prev));
+                prev = *upper_bound(all(v), prev);
                 c++;
             }
             else if(c%2==1 && upper_bound(all(v1),prev) != v1.end())
             {
-                prev = v1[upper_bound(all(v1),prev) - v1.begin()];
-                v1.erase(upper_bound(all(v1),prev));
+                prev = *upper_bound(all(v1),prev);
                 c++;
             }
             else
@@ -165,11 +185,8 @@ int main()
         {
             cout << "Biswas" << endl;
         }
-
+        */
     }
-
-
-
 
 	return 0;
 }
