@@ -90,6 +90,9 @@ int main()
             cin >> k;
             v.pb(k);
         }
+        vll v1;
+        v1 = v;
+        reverse(v1.begin(),v1.end());
         ll c = 0;
         while(q--)        
         {
@@ -97,13 +100,21 @@ int main()
 
             cin >> si >> sj;
 
-            ll p1 = *find(v.end(),v.begin(), si);
-            ll p2 = *find(v.end(),v.begin(), sj);
+            // cout << find(all(v),si) - v.begin() << " ";
 
-            ll p3 = *find(all(v), si);
-            ll p4 = *find(all(v), sj);
-            if(p1 < p2 || p3 < p4)
+            ll p1 = n - 1 - (find(all(v1), sj) - v1.begin());
+            // ll p2 = find(all(v1), sj) - v1.begin();
+
+            ll p3 = find(all(v), si) - v.begin();
+            // ll p4 = find(all(v), sj) - v.begin();
+
+            // cout << p3 << " " << p1 << " ";
+
+            if(p3 <= p1)
+            {
                 c++;
+            }
+            // cout << c << endl;
         }
         cout << c << endl;
 
