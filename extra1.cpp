@@ -18,6 +18,13 @@ using namespace std;
     return equal(s.begin(), s.end(), s.rbegin());
 }*/
 
+bool cmp(ll a, ll b)
+{
+    return a < b;
+}
+
+
+
 template<typename T>
 bool allEqual(std::vector<T> const &v) {
     if (v.size() == 0) {
@@ -103,20 +110,20 @@ int main()
 
     while(t--)
     {
-        list<ll> ls;
+        priority_queue<ll> pq;
         ll n,k;
         cin >> n;
         for(ll i=0;i<n;i++)
         {
             cin >> k;
-            ls.push_back(k);
+            pq.push(k);
         }
-        ls.sort();
+        // sort();
 
         for(ll i=0;i<n;i++)
         {
-            cout << ls.front() << " ";
-            ls.pop_front();
+            cout << pq.top() << " ";
+            pq.pop();
         }
         cout << endl;
         
