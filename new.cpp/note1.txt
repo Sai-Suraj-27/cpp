@@ -26,6 +26,16 @@ x = x%m;
 if (x < 0) x += m;  Where generally m is = mod that is => 10^9 + 7;
 
 
+To generate all subsets, Recursively -> Include one element and continue + also excluding it + continue searching
+
+XOR gives 1 if 2 bits are opposite and 0 if both the bits are same.
+
+Note:
+The left bit shift x << k appends k zero bits to the number, and the right bit
+shift x >> k removes the k last bits from the number.
+Note that x << k corresponds to multiplying x by 2^k , and
+x >> k corresponds to dividing x by 2^k rounded down to an integer.
+
 
 
 
