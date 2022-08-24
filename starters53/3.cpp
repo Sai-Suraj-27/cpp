@@ -133,8 +133,22 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 
 
 
-
-
+ll diff(vll v)
+{
+    ll c= 0;
+    for(ll i=0;i<v.size()-1;i++)
+    {
+        if(v[i] != v[i+1])
+        {
+            c++;
+        }
+    }
+    if(v[0] != v[v.size()-1])
+    {
+        c++;
+    }
+    return c;
+}
 
 
 
@@ -166,7 +180,18 @@ int main()
             cin >> k;
             v.pb(k);
         }
-
+        if(diff(v) >= n)
+        {
+            cout << "BOB" << endl;
+        }
+        else if(diff(v) >= n/2)
+        {
+            cout << "Alice" << endl;
+        }
+        else
+        {
+            cout << "BOB" << endl;
+        }
         
 
 
