@@ -94,7 +94,7 @@ int main()
 			v.pb(j);
 		}
 
-		rotate(v.begin(),v.begin()+n-k,v.end());
+		rotate(v.begin(),v.begin()+n-(k%n),v.end());
         
         for(i=0;i<n;i++)
 		{
