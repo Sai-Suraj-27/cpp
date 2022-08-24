@@ -155,15 +155,85 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll a,b;
+        cin >> a >> b;
 
+        vector<vll> v(8, vll(8));;
+        v[a-1][b-1] = 1;
+        a--;
+        b--;
+        if(a==0 and b==0)
+        {
+           v[2][1] = 2; 
+        }
+        else if(a==7 and b==0)
+        {
+            v[5][1] = 2;
+        }
+        else if(a==0 and b==7)
+        {
+            v[2][6] = 2;
+        }
+        else if(a==7 and b==7)
+        {
+            v[5][6] = 2;
+        }
+        else if(a==0)
+        {
+            v[a+2][b-1] = 2;
+            v[a+2][b+1] = 2;
+        }
+        else if(a==7)
+        {
+            v[a-2][b-1] = 2;
+            v[a-2][b+1] = 2;
+        }
+        else if(b==0)
+        {
+            v[a-1][b+2] = 2;
+            v[a+1][b+2] = 2;
+        }
+        else if(b==7)
+        {
+            v[a-1][b-2] = 2;
+            v[a+1][b-2] = 2;
+        }
+        else if(a==1 and b<=5)
+        {
+            v[a+3][b-1] = 2;
+            v[a-1][b+2] = 2;
+        }
+        else if(a==1 and b>5)
+        {
+            v[a-1][b-2] = 2;
+            v[a+3][b+1] = 2;
+        }
+        else if(a==6 and b<=5)
+        {
+            v[a+1][b+2] = 2;
+            v[a-3][b-1] = 2;
+        }
+        else if(a==6 and b>5)
+        {
+            v[a+1][b-2] = 2;
+            v[a-3][b+1] = 2;
+        }
+        else
+        {
+            v[a+2][b-1] = 2;
+            v[a-2][b+1] = 2;
+        }
 
+        for(i=0;i<8;i++)
+        {
+            for(j=0;j<8;j++)
+            {
+                cout << v[i][j] << " ";
+            }
+            cout << endl;
+        }
 
-
-
-
-
-
+        cout << endl;
 
 
         
