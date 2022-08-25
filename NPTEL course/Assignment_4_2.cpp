@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
-#define sz(x) (int)x.size()
+#define sz(x) (ll)x.size()
 #define all(x) (x).begin(), (x).end()
 #define F(i,a,n) for(ll i=a;i<n;i++)
 #define B(i,a,n) for(ll i=n-1;i>=a;i--)
 #define setbits(x)  __builtin_popcountll(x)
 #define zrobits(x)  __builtin_ctzll(x)
 #define ps(x,y)  fixed<<setprecision(y)<<x
-#define ll long long int
+#define ll long long
 #define ld long double
 #define pb push_back
 #define mp make_pair
@@ -67,20 +67,20 @@ ll btd(string n)
 }
 
 // Short o(logn) code for btd
-// But this works only if input is in integer range;
+// But this works only if input is in lleger range;
 
 /*
-int btds(int n)
+ll btds(ll n)
 {
-    int num = n;
-    int dec_value = 0;
+    ll num = n;
+    ll dec_value = 0;
  
     // Initializing base value to 1, i.e 2^0
-    int base = 1;
+    ll base = 1;
  
-    int temp = num;
+    ll temp = num;
     while (temp) {
-        int last_digit = temp % 10;
+        ll last_digit = temp % 10;
         temp = temp / 10;
  
         dec_value += last_digit * base;
@@ -111,7 +111,7 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 
 
 // sort with lambdas
-// sort(v.begin(), v.end(), [](int a, int b) { return abs(a)<abs(b); });
+// sort(v.begin(), v.end(), [](ll a, ll b) { return abs(a)<abs(b); });
 
 
 
@@ -119,49 +119,6 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 // cout << "binary_num = " << stoll(binary_num, nullptr, 2) << "\n";
 // cout << "dec_num = " << stoll(dec_num, nullptr, 10) << "\n ";
   
-
-
-
-int sizes[N];
-int parent[N];
-
-
-void make(int x)
-{
-    parent[x] = x;
-    sizes[x] = 1;
-}
-
-
-int find(int a)
-{
-    if(parent[a] == a)
-    {
-        return a;
-    }
-    return parent[a] = find(parent[a]);
-}
-
-
-void Union(int a, int b)
-{
-    a = find(a);
-    b = find(b);
-
-    if(a!=b)
-    {
-        parent[b] = a;
-        int temp = sizes[a];
-        sizes[a] += sizes[b];
-        sizes[b] += temp;
-    }
-}
-
-
-
-
-
-
 
 
 int main()
@@ -183,23 +140,34 @@ int main()
         cin >> n;
 
         vll v;
-        
+        v.pb(0);
         for(i=0;i<n;i++)
         {
             cin >> k;
             v.pb(k);
         }
 
+        ll c=1;
         
+        ll x1=v[1];
+        vll v1;
+        for(ll i=1;i<=n;i++)
+        {
+            while(x1!=i)
+            {
+                x1=v[x1];
+                c++;
+            }
+            v1.pb(c);
+            c=1;
+            x1=v[i+1];
+        }
 
-
-
-
-
-
-
-
-
+        for(auto i: v1)
+        {
+            cout << i << " ";
+        }
+        cout << endl;
         
 
     }
