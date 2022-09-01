@@ -8,6 +8,7 @@ class Node
 {
     Node* links[26];
     bool flag = false;
+    unordered_map<string,int> mp;
     int cp = 0;
 
     bool containskey(char ch)
@@ -22,10 +23,9 @@ class Node
     {
         return links[ch-'a'];
     }
-
-    void declarecp(int n)
+    void freq(string word, freq)
     {
-        cp = n;
+        mp[]
     }
 
 
@@ -41,7 +41,7 @@ class trie
         root = new Node();
     }
 
-    void index(string word, )
+    void index(string word, int freq)
     {
 
     }

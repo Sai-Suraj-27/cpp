@@ -1,57 +1,81 @@
-#include<bits/stdc++.h>
-#define ll long long
-#define vll vector<ll>
-#define pb push_back
+#include <bits/stdc++.h>
 using namespace std;
 
 
 
 
 
+int bfs(int i,vector<int>adj[], vector<int> &vis){
 
 
+    vis[i]=1;
+    queue<int> q;
 
-int main()
-{
-    ll n;
-    cin >> n;
+    q.push(i);
+    int level=0;
 
-    vll v;
-    ll i,j,k;
-
-    for(i=0;i<n;i++)
+    while(!q.empty())
     {
-        cin >> k;
-        v.pb(k-(i+1));
+        int m = q.size();
+        for(int k=0;k<m;k++)
+        {
+            int cur = q.front();
+            q.pop();
+
+            for(auto itr:adj[cur])
+            {
+                if(!vis[itr])
+                {
+                    q.push(itr);
+                    vis[itr]=1;
+                }
+            }
+        }
+
+        level++;
+        
     }
 
-    // sigma (v[i]-i) - x shoud be min;
-// 10 8 6 4 2 0 -2 -4 -6 -8 -10
-// med = 0;
+    return level;
+}
 
-    sort(v.begin(),v.end());
+int main(){
 
-    ll med;
-    if(n%2==1)
+    int n;
+    cin>>n;
+
+    vector<int>parent(n+1,0);
+
+    for(int i=1;i<=n;i++)
     {
-        med = v[n/2];
-    }
-    else
-    {
-        med = v[n/2] + v[n/2 - 1];
+        cin>>parent[i];
     }
 
-    ll mint = 0;
+    vector<int>adj[n+1];
 
-    for(i=0;i<v.size();i++)
-    {
-        mint += abs(v[i]-med);
+    vector<int>v;
+
+    for(int i=1;i<=n;i++){
+
+        if(parent[i]!=-1)
+        adj[parent[i]].push_back(i);
+        else{
+            v.push_back(i);
+        }
+
+        
     }
-    cout << mint << endl;
+    vector<int> vis;
+    vis.resize(n+1,0);
 
+    int maxi =0;
+    
 
-
-
-
-    return 0;
+    for(auto i:v){
+        if(!vis[i]){
+           int cur =  bfs(i,adj,vis);
+           maxi = max(cur,maxi);
+        }
+    }
+    cout<<maxi;
 }
