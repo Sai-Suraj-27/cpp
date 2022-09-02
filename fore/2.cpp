@@ -1,100 +1,71 @@
-#include<bits/stdc++.h>
-#define ll long long
-#define vll vector<ll>
-#define pb push_back
+#include <bits/stdc++.h>
 using namespace std;
-ll mod = 1000000007;
 
-
-
-int main()
+int maxScore(vector<vector<int>> &v)
 {
+	sort(v.begin(), v.end(), [&](vector<int> &a, vector<int> &b)
+	{
+		if(a[0] == b[0])return a[1] < b[1];
+		return a[0] < b[0];
+	});
 
-    ll t;
-    cin >> t;
+	int N = v.size();
+	int max_profit = v[N - 1][2];
 
-    while(t--)
-    {
-        ll n;
-        cin >> n;
+	set<pair<int, int>> st;
 
-        vll v;
-        vll v1;
-        ll i,j,k;
+	st.insert({v[N - 1][0], v[N - 1][2]});
 
-        for(i=0;i<n;i++)
-        {
-            cin >> k;
-            v.pb(k);
-        }
-        for(i=0;i<n;i++)
-        {
-            cin >> k;
-            v1.pb(k);
-        }
+	for(int i = N - 2; i >= 0; i--)
+	{
+		auto it = st.lower_bound({v[i][1] + 1, -1});
+		
+		if(it != st.end())
+		{
+			max_profit = max(max_profit, it->second + v[i][2]);
+			auto it2 = st.lower_bound({v[i][0], -1});
+			if(it2 != st.end())
+			{
+				st.insert({v[i][0], max(v[i][2], it2->second)});
+			}
+			else
+			{
+				st.insert({v[i][0], max(it->second, v[i][2])});
+			}
+		}
+		else
+		{
+			max_profit = max(max_profit, v[i][2]);
+			auto it2 = st.lower_bound({v[i][0], -1});
+			
+			if(it2 != st.end())
+			{
+				st.insert({v[i][0], max(v[i][2], it2->second)});
+			}
+			else
+			{
+				st.insert({v[i][0], v[i][2]});
+			}
+		}
 
-        sort(v.begin(),v.end());
-        sort(v1.begin(),v1.end());
-        
-        ll c1 = 0;
-        
-        for(i=0;i<n;i++)
-        {
-            if(v[i] == 1)
-                c1+=1;
-        }
+	}
+	return max_profit;
 
-        priority_queue<ll,vector<ll>, greater<ll>> pq;
+}
 
-        for(i=0;i<n;i++)
-        {
-            pq.push(v1[i]);
-        }
-        i=0;
-        j=0;
-        while(v[i]==1 and !pq.empty())
-        {
-            if(pq.top() != 1)
-            {
-                v[i] = v[i] + pq.top();
-                i++;
-            }
-            pq.pop();
-        }
+int main() {
+	int N;
+	cin >> N;
+	vector<vector<int>> v(N, vector<int>(3));
+	for(int i = 0; i < N; i++)
+	{
+		cin >> v[i][0] >> v[i][1] >> v[i][2];
+	}
 
-        for(i=0;i<n;i++)
-        {
-            if(v1[i] != 1 and c1 > 0)
-            {
-                v1[i] = 0;
-                c1--;
-            }
-        }
+	cout << maxScore(v);
 
-        sort(v.begin(),v.end());
-        for(i=0;i<n;i++)
-        {
-            if(v[i] == 1 or v1[i]==1)
-            {
-                v[i] = v[i] + v1[i];
-            }
-            else if(v1[i] != 0)
-            {
-                v[i] = max(v[i] + v1[i], v[i]*v1[i]);
-            }
-        }
-        ll ans = 1;
-        for(i=0;i<n;i++)
-        {
-            ans *= v[i];
-            ans = ans%mod;
-        }
 
-        cout << ans << endl;
 
-    }
 
-    
-
-    return 0;
+	return 0;
 }
