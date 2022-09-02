@@ -71,11 +71,6 @@ int main()
             }
         }
 
-        //for(auto i: v) cout << i << " ";
-        //cout << endl;
-        //for(auto j: v1) cout << j << " ";
-        //cout << endl;
-
         sort(v.begin(),v.end());
         for(i=0;i<n;i++)
         {
@@ -97,17 +92,9 @@ int main()
 
         cout << ans << endl;
 
-
     }
 
-
-
-
-
-
-
-
-
+    
 
     return 0;
 }
