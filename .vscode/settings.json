@@ -19,7 +19,8 @@
         "random": "cpp",
         "bitset": "cpp",
         "utility": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "*.tcc": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
