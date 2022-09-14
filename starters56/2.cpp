@@ -130,9 +130,36 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 
 
 
+int cntSubArr(vll v, int k)
+{    
+    ll ans = 0;
+    ll n = v.size();
+    ll i=0,j=0;
+    while(i < n)
+    {   
+        ll curr_gcd = 0;
+        
+        for (j = i; j < n; j++)
+        {
+            curr_gcd = __gcd(curr_gcd, v[j]);
+            if(curr_gcd==k)
+            {
+                ans++;
+                break;
+            }
+        }
+        if(j==n)
+        {
+            i++;
+        }
+        else
+        {
+            i = j+1;
+        }
+    }
 
-
-
+    return ans;
+}
 
 
 
@@ -154,19 +181,66 @@ int main()
     while(t--)
     {
         
-        ll i,j,k;
+        ll i,j;
+        ll n,k;
+        cin >> n >> k;
+        ll p;
+        vll v;
+        ll tgcd = v[0];
+        ll mini = INT_MAX;
+        ll maxi = INT_MIN;
+        for(i=0;i<n;i++)
+        {
+            cin >> p;
+            v.pb(p);
+            mini = min(mini,p);
+            maxi = max(maxi,p);
+        }
+        for(i=1;i<n;i++)
+        {
+            tgcd = __gcd(tgcd,v[i]);
+        }
+
+        ll gsum = tgcd*k;
+
+        // gsum <= mini*(n);
+
+        bool ism=true;
         
+        for(i=0;i<n;i++)
+        {
+            if(v[i]%mini != 0)
+            {
+                ism = false;
+            }
+        }
+        if(ism)
+        {
+            gsum = mini*k;
 
+            if(cntSubArr(v,mini) >= k)
+            {
+                cout << "YES" << endl;
+            }
+            else
+            {
+                cout << "NO" << endl;
+            }
 
-
-
-
-
-
-
-
-
-        
+        }
+        else
+        {
+            gsum = k;
+            // cout << cntSubArr(v,1) << k << endl;
+            if(cntSubArr(v,1) >= k)
+            {
+                cout << "YES" << endl;
+            }
+            else
+            {
+                cout << "NO" << endl;
+            }
+        }
 
     }
 
