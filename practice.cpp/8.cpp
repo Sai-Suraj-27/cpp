@@ -155,9 +155,68 @@ int main()
     {
         
         ll i,j,k;
-        
-        
+        ll n,x;
+        cin >> n >> x;
 
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+        
+        sort(all(v));
+        ll sum = 0;
+        bool flag = false;
+        if(binary_search(all(v),x))
+        {
+            cout << "YES" << endl;
+        }
+        else if(v[0] > x)
+        {
+            cout << "NO" << endl;
+        }
+        else
+        {
+            i=0;
+            ll c=0;
+            while(i<n)
+            {
+                j=i;
+                sum = 0;
+                c=0;
+                while(j<n)
+                {
+                    sum += v[j];
+                    c++;
+
+                    if(sum/c == x)
+                    {
+                        cout << "YES" << endl;
+                        flag = true;
+                        break;
+                    }
+                    else if(sum/c > x)
+                    {
+                        break;
+                    }
+                    j++;
+                }
+                if(flag)
+                {
+                    break;
+                }
+                i++;
+            }
+            if(!flag)
+            {
+                cout << "NO" << endl;
+            }
+
+
+
+
+        }
 
 
 
