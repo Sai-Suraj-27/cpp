@@ -159,76 +159,40 @@ int main()
         cin >> n >> x;
 
         vll v;
+        ll maxi = LONG_MIN;
+        ll mini = LONG_MAX;
+        bool flag = false;
+        
         for(i=0;i<n;i++)
         {
             cin >> k;
             v.pb(k);
+            maxi = max(maxi,k);
+            mini = min(mini,k);
+            if(k==x)
+            {
+                flag = true;
+            }
         }
         
-        sort(all(v));
-        ll sum = 0;
-        bool flag = false;
-        if(binary_search(all(v),x))
+        if(flag)
         {
             cout << "YES" << endl;
         }
-        else if(v[0] > x)
-        {
-            cout << "NO" << endl;
-        }
         else
         {
-            i=0;
-            ll c=0;
-            while(i<n)
+            if(x>mini and x<maxi)
             {
-                j=i;
-                sum = 0;
-                c=0;
-                while(j<n)
-                {
-                    sum += v[j];
-                    c++;
-
-                    if(sum/c == x)
-                    {
-                        cout << "YES" << endl;
-                        flag = true;
-                        break;
-                    }
-                    else if(sum/c > x)
-                    {
-                        break;
-                    }
-                    j++;
-                }
-                if(flag)
-                {
-                    break;
-                }
-                i++;
+                cout << "YES" << endl;
             }
-            if(!flag)
+            else
             {
                 cout << "NO" << endl;
             }
-
-
-
-
         }
-
-
-
-
-
-
-
-
         
-
+        
+        
     }
-
-
 	return 0;
 }
