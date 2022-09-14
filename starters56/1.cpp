@@ -32,11 +32,11 @@ ll n_uniq(vector<ll> v)
     return distance(v.begin(),unique(v.begin(), v.end()));
 }
 
-// xor of a nber x with a nber with all 1's gives the nber with every bit of x flipped.
+// xor of a number x with a number with all 1's gives the number with every bit of x flipped.
 ll bit_all_1 = 4294967295;
+// xor with this bit to flip all the bits of our number;
 
-
-// Very large power very large nber modulo...
+// Very large power very large number using modulo...
 ll long_power_long(ll x, ll n)
 {
     ll result = 1;
@@ -69,7 +69,7 @@ ll btd(string n)
 // Short o(logn) code for btd
 // But this works only if input is in integer range;
 
-/*
+
 int btds(int n)
 {
     int num = n;
@@ -90,7 +90,6 @@ int btds(int n)
  
     return dec_value;
 }
-*/
 
 
 
@@ -155,19 +154,49 @@ int main()
     {
         
         ll i,j,k;
+        ll x,y,z;
+        cin >> x >> y >> z;
+        ll c=0;
+        ll m1 = max({x,y,z});
+        ll m2 = min({x,y,z});
+        ll m3 = x+y+z - m1 - m2;
         
-
-
-
-
-
-
-
-
-
-
+        x = m1;
+        y = m3;
+        z = m2;
         
-
+        if(x>1 and y>1)
+        {
+            c++;
+            x--;
+            y--;
+        }
+        if(x>1 and z>1)
+        {
+            c++;
+            x--;
+            z--;
+        }
+        if(y>1 and z>1)
+        {
+            c++;
+            y--;
+            z--;
+        }
+        if(x>0)
+        {
+            c++;
+        }
+        if(y>0)
+        {
+            c++;
+        }
+        if(z>0)
+        {
+            c++;
+        }
+        cout << c << endl;
+        
     }
 
 
