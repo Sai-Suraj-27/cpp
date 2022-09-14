@@ -298,7 +298,30 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 
 
 
+int stringLen(string str)
+{
 
+    map<int, int> mp;
+    mp[0] = -1;  
+     
+    int count_0 = 0, count_1 = 0;
+    int res = 0;
+    int i=0;
+    for (i=0; i<str.size(); i++)
+    {
+        if (str[i] == '0')
+            count_0++;
+        else
+            count_1++;
+        
+        if (mp.find(count_1 - count_0) != mp.end())
+            res = max(res, i - mp[count_1 - count_0]);       
+        else
+            mp[count_1 - count_0] = i;
+    }
+ 
+    return res;
+}
 
 
 
@@ -330,7 +353,13 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+
+        string s;
+        cin >> s;
+
+
 
 
 

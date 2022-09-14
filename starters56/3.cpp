@@ -123,17 +123,47 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 
 
 
+pair<int,int> maxLen(vll v, int n)
+{
+    unordered_map<int, int> hM;
+ 
+    int sum = 0;
+    int max_len = 0;
+    int ending_index = -1;
+ 
+    for (int i = 0; i < n; i++)
+        v[i] = (v[i] == 0) ? -1 : 1;
+ 
+    for (int i = 0; i < n; i++)
+    {
+        sum += v[i];
+        
+        if (sum == 0)
+        {
+            max_len = i + 1;
+            ending_index = i;
+        }
+ 
+        if (hM.find(sum) != hM.end())
+        {
+            if (max_len < i - hM[sum])
+            {
+                max_len = i - hM[sum];
+                ending_index = i;
+            }
+        }
+        else
+            hM[sum] = i;
+    }
+ 
+    for (int i = 0; i < n; i++)
+    {
+        v[i] = (v[i] == -1) ? 0 : 1;
+    }
 
-
-
-
-
-
-
-
-
-
-
+    return {ending_index - max_len + 1, ending_index};
+ 
+}
 
 
 
@@ -155,18 +185,83 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
 
-
-
-
-
-
-
-
-
+        string s;
+        cin >> s;
 
         
+        
+        
+        vector<vector<ll>> v2;
+        ll c = 0;
+        while(true)
+        {
+            if(sz(s) == 1)
+            {
+                break;
+            }
+
+            vll v;
+            for(i=0;i<n;i++)
+            {
+                if(s[i] == '0')
+                {
+                    v.pb(0);
+                }
+                else
+                {
+                    v.pb(1);
+                }
+            }
+
+            c++;
+            pair<int,int> pr = maxLen(v,n);
+            vll v3;
+            ll c0 =0;
+            ll c1 = 0;
+            
+            v3.pb(pr.first);
+            v3.pb(pr.second);
+
+
+            for(i=0;i<n;i++)
+            {
+                if((i<pr.first) or (i>pr.second))
+                {
+                    if(s[i] == '0')
+                    {
+                        c0++;
+                    }
+                    else
+                    {
+                        c1++;
+                    }
+                }
+            }
+            if(c0<=c1)
+                s.replace(s.begin()+pr.first,s.begin()+pr.second,"0");
+            else
+                s.replace(s.begin()+pr.first,s.begin()+pr.second,"1");
+            
+            if(c0<=c1)
+            {
+                v3.pb(0);
+            }
+            else
+            {
+                v3.pb(1);
+            }
+            v2.pb(v3);
+        }
+
+        cout << 1 << " " << c << endl;
+
+        for(i=0;i<sz(v2);i++)
+        {
+            cout << v2[i][0] + 1 << " " << v2[i][1] << " " << v2[i][2] << endl;
+        }
 
     }
 
