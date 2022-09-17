@@ -3,7 +3,7 @@
 #define vll vector<ll>
 #define pb push_back
 using namespace std;
-
+ll mod = pow(10,9) + 7;
 
 
 
@@ -36,8 +36,10 @@ int main()
             dp[i] += dp[i-j];
             j++;
         }
+        dp[i] = dp[i]%mod;
+        //cout << dp[i] << endl;
     }
-    cout << dp[n] << endl;
+    cout << dp[n]%mod << endl;
 
 
     return 0;
