@@ -6,47 +6,55 @@ using namespace std;
 
 
 
-
-ll solve(vll &dp, ll n, ll x, vll v)
-{
-    ll mini = LONG_MAX;
-    for(ll i=0;i<n;i++)
-    {
-        ll k = solve(dp,n,x-v[i],v);
-        mini = min(mini,k);
-    }
-    dp[x] += mini + 1;
-    
-    return dp[x];
-}
-
-
 int main()
 {
     // state: dp[i] = min no.of coins to make a sum = x;
     // Transition (equation):
     // dp[n] = min(dp[n-v[i]]) + 1; 
 
+    ll i,j,k;
+
     ll n,x;
     cin >> n >> x;
 
-    ll i,j,k;
     vll v;
-
     for(i=0;i<n;i++)
     {
         cin >> k;
         v.pb(k);
     }
 
-    vll dp(x+1);
+    vll dp(x);
+    dp[0] = 0;
+    ll mini = INT_MAX;
 
-    for(i=0;i<n;i++)
+    
+
+    for(i=1;i<=x;i++)
     {
-        dp[v[i]] = 1;
+        mini = INT_MAX;
+        
+        for(j=0;j<n;j++)
+        {
+            if(v[j] <= i)
+            {
+                k = 1 + dp[i-v[j]];
+                mini = min(mini,k);
+            }
+        }
+        dp[i] = mini;
     }
 
+    if(dp[x] != INT_MAX)
+    {
+        cout << dp[x] << endl;
+    }
+    else
+    {
+        cout << -1 << endl;
+    }
 
+    
 
 
 
