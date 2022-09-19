@@ -147,29 +147,28 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
+    ll t;
+    cin >> t;
 
-    ll n,x;
-    cin >> n >> x;
 
-    vll v;
-    for(i=0;i<n;i++)
+    while(t--)
     {
-        cin >> k;
-        v.pb(k);
+        
+        ll i,j,k;
+        
+
+
+
+
+
+
+
+
+
+
+        
+
     }
-
-    vll dp(x+1);
-    dp[0] = 1;
-
-    
-
-
-
-
-
-
-
-
 
 
 	return 0;

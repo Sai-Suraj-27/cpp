@@ -147,29 +147,52 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
+    ll t;
+    cin >> t;
 
-    ll n,x;
-    cin >> n >> x;
 
-    vll v;
-    for(i=0;i<n;i++)
+    while(t--)
     {
-        cin >> k;
-        v.pb(k);
+        
+        ll i,j,k;
+        ll n;
+        cin >> n;
+
+        string t;
+        cin >> t;
+
+        string s = "abcdefghijklmnopqrstuvwxyz";
+
+        string s1 = "";
+        i=n-1;
+        while(i>=0)
+        {
+            if(t[i] != '0')
+            {
+                int p = (int) t[i] - 48;
+                s1 = s.substr(p-1,1) + s1; 
+                //cout << p << " ";
+                i--;
+            }
+            else
+            {
+                char c1 = t[i-2];
+                char c2 = t[i-1];
+
+                int a = (int) c1 - 48;
+                int b = (int) c2 - 48;
+                // cout << a << " " << b << endl;
+                k = 10*a + b;
+                //cout << k << " ";
+                //cout << k << " ";
+                s1 = s.substr(k-1,1) + s1;
+                i-= 3;
+            }
+        }
+        cout << s1 << endl;
+        
+
     }
-
-    vll dp(x+1);
-    dp[0] = 1;
-
-    
-
-
-
-
-
-
-
-
 
 
 	return 0;
