@@ -154,15 +154,46 @@ int main()
     while(t--)
     {
         
-        ll i,j,k;
-        
+        ll i,j,p;
+        ll n,k;
+        cin >> n >> k;
+
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> p;
+            v.pb(p);
+        }        
+
+        // i%k = j%k
+
+        vll v1;
+        unordered_map<ll,vector<ll>> mp;
+
+        for(i=0;i<n;i++)
+        {
+            p = i%k;
+            mp[p].pb(v[i]);
+        }
+
+        //for(auto i: v1) cout << i << " ";
+        //cout << endl;
 
 
+        vll v2;
+        for(auto i: mp)
+        {
+            ll q = *max_element(all(i.second));
+            v2.pb(q);
+        }
 
-
-
-
-
+        sort(all(v2));
+        ll sum = 0;
+        for(i=0;i<k;i++)
+        {
+            sum += v2[i];
+        }
+        cout << sum << endl;
 
 
 

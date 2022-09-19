@@ -155,15 +155,76 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n,x,y;
+        cin >> n >> x >> y;
 
-
-
-
-
-
-
-
+        if(max(x,y) == 0)
+        {
+            cout << -1 << endl;
+        }
+        else if(x!=0 and y!= 0)
+        {
+            cout << -1 << endl;
+        }
+        else if(x!=0 and y==0)
+        {
+            if((n-1)%x != 0)
+            {
+                cout << -1;
+            }
+            else
+            {
+                j=1;
+                for(i=1;i<=n-1;i++)
+                {
+                    if(i==n-1)
+                    {
+                        cout << j;
+                    }
+                    else if(i%x==0)
+                    {
+                        cout << j << " ";
+                        if(j==1)
+                            j += x+1;
+                        else
+                            j += x;
+                    }
+                    else
+                        cout << j << " ";
+                }
+                
+            }
+            cout << endl;
+        }
+        else if(x==0 and y!=0)
+        {
+            if((n-1)%y !=0)
+            {
+                cout << -1;
+            }
+            else
+            {
+                j=1;
+                for(i=1;i<=n-1;i++)
+                {
+                    if(i==n-1)
+                    {
+                        cout << j;
+                    }
+                    else if(i%y==0)
+                    {
+                        cout << j << " ";
+                        if(j==1)
+                            j += y+1;
+                        else
+                            j += y;
+                    }
+                    else
+                        cout << j << " ";
+                }
+            }
+            cout << endl;
+        }
 
 
         
