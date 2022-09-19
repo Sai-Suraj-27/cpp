@@ -155,8 +155,64 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
 
+        vll v;
+        unordered_map<ll,vll> mp;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+            if(k%2==0)
+            {
+                mp[0].pb(k);
+            }
+            else
+            {
+                mp[1].pb(k);
+            }
+        }
+        ll c = 0;
+        vector<pair<ll,ll>> vp;
+
+        for(auto i:mp)
+        {
+            sort(all(i.second));
+        }
+        
+        if(is_sorted(all(v)))
+        {
+            cout << 0 << endl;
+        }
+        else
+        {
+            while(i<n-1)
+            {
+                if(v[i+1] < v[i])
+                {
+                    k = v[i];
+                    if(k%2==1)
+                    {
+                        
+                        i++;
+                    }
+                    else
+                    {
+                        if(v[i-1] <= v[i+1])
+                        {
+                            vp.pb{i,i+1};
+                            v[i] = v[i+1];
+                            i=0;
+                        }
+                    }
+                }
+                else
+                {
+                    i++;
+                }
+            }
+        }
 
 
 
