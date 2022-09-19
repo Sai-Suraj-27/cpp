@@ -147,53 +147,29 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll i,j,k;
-    ll n,x;
-    cin >> n;
+    ll t;
+    cin >> t;
 
 
-    vector<vll> v(n, vll(n));
-
-    for(i=0;i<n;i++)
+    while(t--)
     {
-        for(j=0;j<n;j++)
-        {
-            char ch;
-            cin >> ch;
-            v[i][j] = ch;
-        }
+        
+        ll i,j,k;
+        
+
+
+
+
+
+
+
+
+
+
+        
+
     }
 
-    vector<vll> dp(n, vll(n));
-    dp[0][0] = 1;
-
-    i=1;
-    while(i<n and v[i][0] != '*')
-    {
-        dp[i][0] = 1;
-        i++;
-    }
-
-    i=1;
-    while(i<n and v[0][i] != '*')
-    {
-        dp[i][0] = 1;
-        i++;
-    }
-
-    for(i=1;i<n;i++)
-    {
-        for(j=1;j<n;j++)
-        {
-            if(v[i][j] == '*')
-            {
-                dp[i][j] = 0;
-            }
-            else
-                dp[i][j] += dp[i-1][j] + dp[i][j-1];
-        }
-    }
-    cout << dp[n-1][n-1] << endl;
 
 	return 0;
 }
