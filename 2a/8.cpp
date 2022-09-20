@@ -147,29 +147,47 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
+    ll n;
+    cin >> n;
 
+    ll i,j,k;
 
-    while(t--)
+    // 4,7,44,47,74,77,444,447,474,477,744,747,774,777    
+
+    vll v;
+    v.pb(4);
+    v.pb(7);
+    v.pb(44);
+    v.pb(47);
+    v.pb(74);
+    v.pb(77);
+    v.pb(444);
+    v.pb(447);
+    v.pb(474);
+    v.pb(477);
+    v.pb(744);
+    v.pb(747);
+    v.pb(774);
+    v.pb(777);
+    
+    for(i=0;i<sz(v);i++)
     {
-        
-        ll i,j,k;
-        
-
-
-
-
-
-
-
-
-
-
-        
-
+        if(n%v[i] == 0)
+        {
+            break;
+        }
+    }
+    if(i==sz(v))
+    {
+        cout << "NO" << endl;
+    }
+    else
+    {
+        cout << "YES" << endl;
     }
 
 
+
+        
 	return 0;
 }
