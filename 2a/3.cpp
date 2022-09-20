@@ -147,28 +147,33 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
+    ll i,j,k;
+    string s;
+    cin >> s;
 
-
-    while(t--)
+    string s1 = "";
+    
+    for(i=0;i<sz(s);i++)
     {
-        
-        ll i,j,k;
-        
-
-
-
-
-
-
-
-
-
-
-        
-
+        s[i] = tolower(s[i]);
     }
+
+
+    for(i=0;i<sz(s);i++)
+    {
+        if(s[i] == 'a' or s[i] == 'e' or s[i] == 'i' or s[i] == 'o' or s[i] == 'u' or s[i] == 'y')
+        {
+            continue;
+        }
+        else
+        {
+            s1 += ".";
+            s1 += s[i];
+        }
+    }
+    cout << s1 << endl;
+
+
 
 
 	return 0;
