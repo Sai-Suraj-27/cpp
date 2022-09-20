@@ -147,28 +147,33 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
+    ll i,j,k;
+    ll l,m;
+    string s;
+    cin >> s;
 
+    i = find(all(s), 'h') - s.begin();
+    j = find(s.begin() + i, s.end(), 'e') - s.begin();
+    k = find(s.begin() + j, s.end(), 'l') - s.begin();
+    l = find(s.begin() + k + 1, s.end(), 'l') - s.begin();
+    m = find(s.begin() + k, s.end(), 'o') - s.begin();
 
-    while(t--)
+    // cout << i << j << k << l << m << endl;
+    ll n = sz(s);
+    // cout << n << endl;
+    if(i==n or j==n or k==n or l==n or m==n)
     {
-        
-        ll i,j,k;
-        
-
-
-
-
-
-
-
-
-
-
-        
-
+        cout << "NO" << endl;
     }
+    else
+    {
+        cout << "YES" << endl;
+    }
+
+
+
+
+
 
 
 	return 0;
