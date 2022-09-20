@@ -147,28 +147,36 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
+    ll n;
+    cin >> n;
+    
+    ll i,j,k;
 
-
-    while(t--)
+    vll v;
+    ll tsum = 0;
+    for(i=0;i<n;i++)
     {
-        
-        ll i,j,k;
-        
+        cin >> k;
+        v.pb(k);
+        tsum += k;
+    }    
 
+    sort(all(v));
 
-
-
-
-
-
-
-
-
-        
-
+    ll ms = 0;
+    ll c = 0;
+    i=sz(v)-1;
+    while(ms*2 <= tsum)
+    {
+        ms += v[i];
+        c++;
+        i--;
+        // cout << ms << " ";
     }
+
+    cout << c << endl;
+
+    
 
 
 	return 0;
