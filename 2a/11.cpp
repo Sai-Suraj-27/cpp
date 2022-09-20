@@ -147,28 +147,45 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
+    
+    ll i,j,k;
+    
+    ll n;
+    cin >> n;
 
-
-    while(t--)
+    vll v;
+    for(i=0;i<n;i++)
     {
-        
-        ll i,j,k;
-        
-
-
-
-
-
-
-
-
-
-
-        
-
+        cin >> k;
+        v.pb(k);
     }
+
+    j = max_element(all(v)) - v.begin();
+
+    for(i=j;i>0;i--)
+    {
+        swap(v[i],v[i-1]);
+    }
+    
+    // for(auto i: v) cout << i <<  " ";
+    // cout << endl;
+
+    reverse(all(v));
+    k = min_element(all(v)) - v.begin();
+
+    cout << j + k << endl;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	return 0;
