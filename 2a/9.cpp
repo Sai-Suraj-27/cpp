@@ -147,28 +147,27 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
+    ll i,j,k;
+    ll n;
+    cin >> n;
 
-
-    while(t--)
+    vll v;
+    unordered_map<ll,ll> mp;
+    for(i=0;i<n;i++)
     {
-        
-        ll i,j,k;
-        
-
-
-
-
-
-
-
-
-
-
-        
-
+        cin >> k;
+        v.pb(k);
+        mp[k] = i+1;
     }
+
+    for(i=0;i<n;i++)
+    {
+        cout << mp[i+1] << " ";
+    }
+    cout << endl;
+
+
+
 
 
 	return 0;
