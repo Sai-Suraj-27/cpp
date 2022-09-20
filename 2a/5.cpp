@@ -147,28 +147,35 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
+    ll i,j,k;
+
+    string s;
+    cin >> s;
 
 
-    while(t--)
+    k = count(all(s), '1');
+    string s1 = "";
+    while(k--)
     {
-        
-        ll i,j,k;
-        
-
-
-
-
-
-
-
-
-
-
-        
-
+        s1 += "1";
+        s1 += "+";
     }
+    k = count(all(s), '2');
+    while(k--)
+    {
+        s1 += "2";
+        s1 += "+";
+    }
+    k = count(all(s), '3');
+    while(k--)
+    {
+        s1 += "3";
+        s1 += "+";
+    }
+    s1 = s1.substr(0,sz(s1)-1);
+    cout << s1 << endl;
+
+
 
 
 	return 0;
