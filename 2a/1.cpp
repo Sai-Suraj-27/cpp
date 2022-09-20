@@ -127,45 +127,24 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 int main()
 {
 	// your code goes here.
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll w;
-    cin >> w;
+    ll n;
+    cin >> n;
 
     ll i,j,k;
     
-    if(w%2==1)
+    if(n%2==1 or n==2)
     {
         cout << "NO" << endl;
     }
     else
     {
-        if(w==2)
-        {
-            cout << "NO" << endl;
-        }
-        else
-        {
-            cout << "YES" << endl;
-        }
+        cout << "YES" << endl;
     }
 
 

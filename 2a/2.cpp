@@ -156,13 +156,22 @@ int main()
         
         ll i,j,k;
         
+        string s;
+        cin >> s;
 
-
-
-
-
-
-
+        string s1 = "";
+        if(sz(s) > 10)
+        {
+            s1 += s[0];
+            string s2 = to_string(sz(s)-2);
+            s1 += s2;
+            s1 += s[sz(s)-1];
+            cout << s1 << endl;
+        }
+        else
+        {
+            cout << s << endl;
+        }
 
 
 
