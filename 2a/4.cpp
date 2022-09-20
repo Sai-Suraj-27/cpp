@@ -147,27 +147,29 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
+        
+    
+    ll i,j,k;
+        
 
 
-    while(t--)
+    string s,s1;
+    cin >> s >> s1;
+
+    transform(all(s),s.begin(), ::tolower);
+    transform(all(s1),s1.begin(), ::tolower);
+
+    if(s==s1)
     {
-        
-        ll i,j,k;
-        
-
-
-
-
-
-
-
-
-
-
-        
-
+        cout << 0 << endl;
+    }
+    else if(s>s1)
+    {
+        cout << 1 << endl;
+    }
+    else
+    {
+        cout << -1 << endl;
     }
 
 
