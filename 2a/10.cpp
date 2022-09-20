@@ -147,28 +147,26 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
-
-
-    while(t--)
+    
+    ll i,j,k;
+    pair<ll,ll> pr;
+    for(i=0;i<5;i++)
     {
-        
-        ll i,j,k;
-        
-
-
-
-
-
-
-
-
-
-
-        
-
+        for(j=0;j<5;j++)
+        {
+            cin >> k;
+            if(k==1)
+            {
+                pr = {i,j};
+                break;
+            }   
+        }
     }
+    
+    cout << abs(pr.first-2) + abs(pr.second-2) << endl;
+
+
+
 
 
 	return 0;
