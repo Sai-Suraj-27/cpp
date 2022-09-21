@@ -147,29 +147,43 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
+    
+    ll i,j,k;
+    
+    ll a,b;
+    cin >> a >> b;
 
-
-    while(t--)
+    ll f=0,d=0,s=0;
+    if(a!=b)
     {
-        
-        ll i,j,k;
-        
-
-
-
-
-
-
-
-
-
-
-        
-
+        if((abs(a-b))%2 != 0)
+        {
+            d=0;
+        }
+        else
+        {
+            d=1;
+        }
     }
-
+    else if(a==b)
+    {
+        d = 6;
+    }
+    for(i=1;i<=6;i++)
+    {
+        j = abs(i-a);
+        k = abs(i-b);
+        if(j<k)
+        {
+            f++;
+        }
+        else if(k<j)
+        {
+            s++;
+        }
+    }
+    
+    cout << f << " " << d << " " << s << endl;
 
 	return 0;
 }
