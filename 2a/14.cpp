@@ -99,7 +99,7 @@ int btds(int n)
 // To apply this -> str.erase(it,str.end());
 
 /*
-auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
+auto it = std::remove_if(str.begin(), str.end(), [](char const &c){
         return !std::isaln(c);
     });
 */
@@ -140,7 +140,6 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 
 
 
-
 int main()
 {
 	// your code goes here.
@@ -149,14 +148,26 @@ int main()
   
     ll i,j,k;
     
+    string s,s1="";
+    cin >> s;   
 
+    i=0;
+    while(i<=sz(s)-3)
+    {
+        if(s.substr(s.begin()+i,3) != "WUB" and c==0)
+        {
+            s1 += s[i];
+            i++;
+        }
+        else if(s.substr(s.begin()+i,3) != "WUB" and c!=0)
+        {
 
-
-
-
-
-
-
+        }
+        else
+        {
+            c++;
+        }
+    }
 
 
 

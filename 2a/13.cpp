@@ -149,20 +149,35 @@ int main()
   
     ll i,j,k;
     
+    ll n;
+    cin >> n;
 
+    vector<pair<ll,ll>> vp;
 
+    vll home,guest;
 
+    while(n--)
+    {
+        cin >> i >> j;
+        vp.pb({i,j});
+        home.pb(i);
+        guest.pb(j);
+    }
 
+    sort(all(home));
+    sort(all(guest));
 
-
-
-
-
-
-
-
-
-
+    ll c = 0;
+    i=0;
+    while(i<sz(home))
+    {
+        if(binary_search(all(guest),home[i]))
+        {
+            c += upper_bound(all(guest),home[i]) - lower_bound(all(guest),home[i]);
+        }
+        i++;
+    }
+    cout << c << endl;
 
 
 
