@@ -149,19 +149,32 @@ int main()
   
     
     ll i,j,k;
+
+    ll n,c;
+    cin >> n >> c;
+
+    vll v;
+    for(i=0;i<n;i++)
+    {
+        cin >> k;
+        v.pb(k);
+    }
+    ll maxi = INT_MIN;
+    for(i=0;i<n-1;i++)
+    {
+        k = v[i] - v[i+1] - c;
+        maxi = max(maxi,k);
+    }
+
+    if(maxi <=0)
+    {
+        cout << 0 << endl;
+    }
+    else
+    {
+        cout << maxi << endl;
+    }
     
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
