@@ -150,7 +150,38 @@ int main()
     
     ll i,j,k;
     
-    
+    ll n;
+    cin >> n;
+
+    vector<pair<ll,ll>> vp;
+
+    vll l,r;
+
+    string s;
+    cin >> s;
+    ll cr=0,cl=0;
+
+    for(i=0;i<n;i++)
+    {
+        if(s[i] == 'R')
+        {
+            r.pb(i+1);
+        }
+        else
+        {
+            l.pb(i+1);
+        }
+    }
+
+    i=0,j=0;
+    if(sz(l)%2==0 and sz(r)%2==0)
+    {
+        
+    }
+
+
+
+
 
 
 

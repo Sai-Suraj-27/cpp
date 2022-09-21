@@ -150,16 +150,31 @@ int main()
     
     ll i,j,k;
     
-    
+    ll n;
+    cin >> n;
 
+    vector<pair<ll,ll>> vp;
 
+    for(i=0;i<n;i++)
+    {
+        cin >> j >> k;
+        vp.pb({j,k});
+    }
 
+    sort(all(vp));
 
-
-
-
-
-
+    for(i=0;i<sz(vp)-1;i++)
+    {
+        if(vp[i].second > vp[i+1].second)
+        {
+            cout << "Happy Alex" << endl;
+            break;
+        }
+    }
+    if(i==sz(vp)-1)
+    {
+        cout << "Poor Alex" << endl;
+    }
 
 
 
