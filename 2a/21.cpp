@@ -148,22 +148,20 @@ int main()
     cin.tie(0); cout.tie(0);
   
     
-    ll i,j,k;
+    ll i,j;
+
+    ll n, k, l, c, d, p, nl, np;
+
+    cin >> n >> k >> l >> c >> d >> p >> nl >> np;
+
+    ll total_drink = k*l;
     
+    ll a = total_drink/nl;
+    ll b = c*d;
+    ll m = p/np;
+
     
-
-
-
-
-
-
-
-
-
-
-
-
-
+    cout << min({a,b,m})/n << endl;
 
 
 	return 0;
