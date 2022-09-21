@@ -149,17 +149,32 @@ int main()
   
     
     ll i,j,k;
-    
-
-
-
-
-
-
-
-
-
-
+    ll n;
+    cin >> n;
+    ll c1=0,c2=0,a=-1,b=-1;
+    vll v;
+    for(i=0;i<n;i++)
+    {
+        cin >> k;
+        if(k%2==0)
+        {
+            c2++;
+            a = i;
+        }
+        else
+        {
+            c1++;
+            b = i;
+        }
+    }
+    if(c1==1)
+    {
+        cout << b+1 << endl;
+    }
+    else
+    {
+        cout << a+1 << endl;
+    }
 
 
 
