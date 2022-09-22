@@ -157,13 +157,92 @@ int main()
         ll i,j,k;
         
         
+        ll n;
+        cin >> n;
+
+        string s;
+        cin >> s;
         
+        ll c= 0;
+        vll v;
 
+        ll cpl = 0,cminus = 0;
 
+        for(i=0;i<n;i++)
+        {
+            if(s[i] == '+' or s[i] == '-')
+            {
+                c++;
+                if(s[i] == '+')
+                {
+                    cpl++;
+                }
+                else
+                {
+                    cminus++;
+                }
+            }
+            else
+            {
+                char ch = s[i];
+                v.pb(int(ch) - 48);
+            }
+        }
 
+        ll numbers = n-c;
+        ll extra = (n-c-1)-(c);
 
+        sort(all(v));
+        reverse(all(v));
 
+        // for(auto i: v) cout << i << " ";
+        // cout << endl;
 
+        // cout << cpl << " " << cminus << " " << extra <<  endl;
+
+        string s1 = "";
+        i=0;
+        s1 += to_string(v[i]);
+        i=1;
+        ll ex = extra;
+        
+        // cout << extra << endl;
+        
+        while(extra--)
+        {
+            s1 += to_string(v[i]);
+            i++;
+        }
+        if(cpl>0)
+        {
+            s1 += "+";
+            cpl--;
+        }
+        else if(cminus>0)
+        {
+            s1 += "-";
+            cminus--;
+        }
+        // cout << s1 << endl;
+
+        // cout << cpl << " " << cminus << endl;
+
+        while(i<sz(v))
+        {
+            s1 += to_string(v[i]);
+            if(cpl>0)
+            {
+                s1 += "+";
+                cpl--;
+            }
+            else if(cminus>0)
+            {
+                s1 += "-";
+                cminus--;
+            }
+            i++;
+        }
+        cout << s1 << endl;
 
 
 
