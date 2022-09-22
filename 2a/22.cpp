@@ -150,12 +150,34 @@ int main()
     
     ll i,j,k;
     
-    
+    ll a,b,c,d;
+    cin >> a >> b >> c >> d;
 
+    // M - a; c
+    // V - b; d
 
+    ll m = 3*a/10;
+    ll n = a - (a/250)*c;
 
+    ll mis = max(m,n);
 
+    m = 3*b/10;
+    n = b - (b/250)*d;
 
+    ll vas = max(m,n);
+
+    if(mis > vas)
+    {
+        cout << "Misha" << endl;
+    }
+    else if(vas > mis)
+    {
+        cout << "Vasya" << endl;
+    }
+    else
+    {
+        cout << "Tie" << endl;
+    }
 
 
 
