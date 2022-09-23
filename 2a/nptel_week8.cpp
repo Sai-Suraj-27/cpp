@@ -147,66 +147,47 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
+    ll i,j,k;
+    ll n,m;
+    cin >> n >> m;
 
+    vll v;
+    vll v1;
 
-    while(t--)
+    for(i=0;i<n;i++)
     {
-        
-        ll i,j,k;
-        
-        ll n;
-        cin >> n;
-
-        vll v;
-        for(i=0;i<n;i++)
-        {
-            cin >> k;
-            v.pb(k);
-        }
-
-        ll q;
-        cin >> q;
-
-        while(q--)
-        {
-            ll p;
-            cin >> p >> k;
-
-            ll sum = 0;
-            
-            ll hm = 0;
-            priority_queue<ll> pq;
-            
-            for(i=0;i<k;i++)
-            {
-                if(v[i]%p==0)
-                {
-                    hm++;
-                }
-                else if(v[i]%p != 0)
-                {
-                    sum += v[i];
-                }
-            }
-            
-            while(hm--)
-            {
-                sum += pq.top();
-                pq.pop(); 
-            }
-            cout << sum << endl;
-
-
-        }
-
-
-
-
-
-
+        cin >> k;
+        v.pb(k);
     }
+    for(i=0;i<m;i++)
+    {
+        cin >> k;
+        v1.pb(k);
+    }
+
+    sort(all(v));
+    sort(all(v1));
+
+    reverse(all(v));
+    reverse(all(v1));
+
+    ll c = 0;
+    i=0,j=0;
+    while(i<n && j<m)
+    {
+        if(v[i]<=v1[j])
+        {
+            i++;
+            j++;
+            c++;
+        }
+        else
+        {
+            i++;
+        }
+    }
+    cout << c << endl;
+
 
 
 	return 0;
