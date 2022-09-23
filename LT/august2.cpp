@@ -155,17 +155,46 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
 
+        vll v;
+        unordered_map<ll,ll> mp;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+            mp[k]++;
+        }
 
+        ll maxi = INT_MIN;
+        for(auto i: mp)
+        {
+            maxi = max(maxi,i.second);
+        }
 
-
-
-
-
-
-
-
+        if(n%2==0)
+        {
+            if(maxi > n/2)
+            {
+                cout << "NO" << endl;
+            }
+            else
+            {
+                cout << "YES" << endl;
+            }
+        }
+        else
+        {
+            if(maxi > n/2 + 1)
+            {
+                cout << "NO" << endl;
+            }
+            else
+            {
+                cout << "YES" << endl;
+            }
+        }
         
 
     }
