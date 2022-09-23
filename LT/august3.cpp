@@ -147,28 +147,20 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
-
-
-    while(t--)
+  
+    ll i,j,k;
+    ll n,c;
+    cin >> n >> c;
+    ll p =1;
+    for(i=0;i<=n-1;i++)
     {
-        
-        ll i,j,k;
-        
-
-
-
-
-
-
-
-
-
-
-        
-
+        p *= (c-i);
+        p %= mod;
+        // cout << i << " " << p << endl;
     }
+    cout << p << endl;
+
+    
 
 
 	return 0;
