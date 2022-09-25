@@ -157,17 +157,32 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
 
+        string s1,s;
+        cin >> s >> s1;
 
-
-
-
-
-
-
-
-
+        for(i=0;i<n;i++)
+        {
+            if(s[i] != s1[i] and ((s[i] == 'G' and s1[i] == 'B') or (s[i] == 'B' and s1[i] == 'G')))
+            {
+                continue;
+            }
+            else if(s[i]==s1[i])
+            {
+                continue;
+            }
+            else
+            {
+                cout << "NO" << endl;
+                break;
+            }
+        }
+        if(i==n)
+        {
+            cout << "YES" << endl;
+        }
         
 
     }
