@@ -157,45 +157,75 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+
+        string s;
         
-        ll a,b,c,d;
-        cin >> a >> b >> c >> d;
+        vector<string> v1;
+        vector<string> v2;
+        vector<string> v3;
 
-        double f = a/b;
-        double s = c/d;
+        unordered_map<string,ll> mp;
 
-        cout << f <<  " " << s << endl;
-
-        if(a*d == b*c)
+        for(i=0;i<n;i++)
         {
-            cout << 0 << endl;
+            cin >> s;
+            v1.pb(s);
+            mp[s]++;
         }
-        else if(f==0 or s==0)
+        for(i=0;i<n;i++)
         {
-            cout << 1 << endl;
+            cin >> s;
+            v2.pb(s);
+            mp[s]++;
         }
-        else
+        for(i=0;i<n;i++)
         {
-            // k = (f*s)/(__gcd(f,s));
-            ll count=0;
-            if(b==d)
+            cin >> s;
+            v3.pb(s);
+            mp[s]++;
+        }
+
+        ll a=0,b=0,c=0;
+
+        for(i=0;i<n;i++)
+        {
+            if(mp[v1[i]] == 1)
             {
-                k = (a*c)/(__gcd(a,c));
-                if(k==a or k==c)
-                    count++;
-                else
-                    count+=2;
+                a+=3;
             }
-            else if(a==c)
+            else if(mp[v1[i]]==2)
             {
-                k = (a*c)/(__gcd(a,c));
-                if(k==b or k==d)
-                    count++;
-                else
-                    count+=2;
+                a+=1;
             }
-            cout << count << endl;
         }
+
+        for(i=0;i<n;i++)
+        {
+            if(mp[v2[i]] == 1)
+            {
+                b+=3;
+            }
+            else if(mp[v2[i]]==2)
+            {
+                b+=1;
+            }
+        }
+
+        for(i=0;i<n;i++)
+        {
+            if(mp[v3[i]] == 1)
+            {
+                c+=3;
+            }
+            else if(mp[v3[i]]==2)
+            {
+                c+=1;
+            }
+        }
+
+        cout << a << " " << b << " " << c << endl;
 
     }
 
