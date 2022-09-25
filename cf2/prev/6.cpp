@@ -133,16 +133,6 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 
 
 
-
-
-
-
-
-
-
-
-
-
 int main()
 {
 	// your code goes here.
@@ -157,19 +147,58 @@ int main()
     {
         
         ll i,j,k;
+    
+        string s;
+        cin >> s;
+
+        vector<pair<ll,ll>> v;
+        ll f = s[0]-'a' + 1;
+        ll se = s[sz(s)-1] - 'a' + 1;
+    
+        //cout << f << " " << se << endl;
+
+        for(i=1;i<sz(s)-1;i++)
+        {
+            k = s[i] - 'a' + 1;
+            if(k >= min(f,se) and k<=max(se,f))
+                v.pb({k,i});
+        }
+
+        //for(auto i: v) cout << i.first << " ";
+        //cout << endl;
+
+        ll cost = 0;
+        ll mini = INT_MAX,minI = -1;
+        vll v1;
+
+        v1.pb(1);
+
+        while(sz(v)>0)
+        {
+            mini = INT_MAX;
+            ll mini2 = -1;
+            for(i=0;i<sz(v);i++)
+            {
+                if(abs(v[i].first-f) < mini)
+                {
+                    mini = abs(v[i].first-f);
+                    minI = i;
+                    mini2 = v[i].second;
+                }
+            }
+            v1.pb(mini2+1);
+            cost += mini;
+            f = v[minI].first;
+            v.erase(v.begin() + minI);
+        }
+
+        cost += abs(f-se);
+        v1.pb(sz(s));
+
+        cout << cost << " " << sz(v1) << endl;
+        for(auto i: v1) cout << i << " ";
+        cout << endl;
         
-
-
-
-
-
-
-
-
-
-
-        
-
     }
 
 
