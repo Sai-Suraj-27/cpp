@@ -156,8 +156,9 @@ int main()
     while(t--)
     {
         ll i,j,k;
-        ll n,c;
-        cin >> n >> c;
+        
+        ll n;
+        cin >> n;
 
         vll v;
         for(i=0;i<n;i++)
@@ -166,39 +167,60 @@ int main()
             v.pb(k);
         }
 
-        sort(all(v));
-        ll cost=0;
-        if(c<=1)
+        vll v1;
+        for(i=0;i<n;i++)
         {
-            cout << n_uniq(v) << endl;
+            cin >> k;
+            v1.pb(k);
         }
-        else
+
+        vector<double> v2;
+        double mini = INT_MAX;
+        double minI = -1;
+
+        ll a = *min_element(all(v));
+        ll b = *max_element(all(v));
+
+        ll maxtime = *max_element(all(v1));
+
+        for(i=a;i<=b;i++)
         {
-            i=0;
-            while(i<n)
+            for(j=1;j<=n;j++)
             {
-                k = upper_bound(all(v),v[i]) - lower_bound(all(v),v[i]);
-                if(k*1 <= c)
-                {
-                    cost += k*1;
-                    i+=k;
-                }
-                else
-                {
-                    cost += c;
-                    i+=k;
-                }
+                k = v1[j-1] + abs(v[j-1] - i) - ;
+                v2.pb(k);
             }
-            cout << cost << endl;
+            ll p = *max_element(all(v2));
+            if(p<mini)
+            {
+                minI = i;
+                mini = p;
+            }
+            v2.clear();
+        }   
+        double sum=0;
 
-
+        for(i=0;i<n;i++)
+        {
+            sum += v[i];
         }
-        
+        double avg = sum/n;
+        //cout << minI << "  " << avg << endl;
 
+        for(j=1;j<=n;j++)
+        {
+            double q = v1[j-1] + (double)abs(v[j-1] - avg);
+            v2.pb(q);
+        }
+        double p = *max_element(all(v2));
+        //cout << p << endl;
+        if(p< (double) mini)
+        {
+            minI = avg;
+            mini = (double) p;
+        }
 
-
-
-
+        cout << minI << endl;
 
 
 

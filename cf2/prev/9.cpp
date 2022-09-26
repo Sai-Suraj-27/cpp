@@ -128,8 +128,18 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 
 
 
-
-
+ll couns(string s)
+{
+    ll c=0;
+    for(int i=0;i<sz(s)-1;i++)
+    {
+        if(s[i] > s[i+1])
+        {
+            c++;
+        }
+    }
+    return c;
+}
 
 
 
@@ -156,45 +166,65 @@ int main()
     while(t--)
     {
         ll i,j,k;
-        ll n,c;
-        cin >> n >> c;
+        
+        string s;
+        cin >> s;
+        ll n =sz(s);
+        unordered_map<ll,ll> mp;
 
-        vll v;
-        for(i=0;i<n;i++)
+        for(i=0;i<sz(s);i++)
         {
-            cin >> k;
-            v.pb(k);
+            k = s[i] - 'a' + 1;
+            mp[k]++;
         }
 
-        sort(all(v));
-        ll cost=0;
-        if(c<=1)
+        // for(auto i: mp) cout << i.first << " " << i.second << endl;
+
+        string s1 = "";
+        char ch = *min_element(all(s));
+        //cout << ch << endl;
+
+        if(is_sorted(all(s)))
         {
-            cout << n_uniq(v) << endl;
+            cout << s << endl;
         }
         else
         {
-            i=0;
-            while(i<n)
+            for(i=0;i<sz(s);i++)
             {
-                k = upper_bound(all(v),v[i]) - lower_bound(all(v),v[i]);
-                if(k*1 <= c)
+                s1 += s[i];
+            }
+
+            sort(all(s1));
+            string s2="";
+            for(i=n-1;i>=0;i--)
+            {
+                if(s[i] != s1[i] and s1[i] != '9')
                 {
-                    cost += k*1;
-                    i+=k;
+                    char ch = s1[i];
+                    ch++;
+                    s2 = ch + s2;
+                    k = find(all(s),s1[i]) -s.begin();
+                    s[k] = ch;
+                }
+                else if(s[i] != s1[i] and s1[i] == '9')
+                {
+                    s2 = '9' + s2;
+                    k = find(all(s),s1[i]) -s.begin();
+                    swap(s[k],s[i]);
                 }
                 else
                 {
-                    cost += c;
-                    i+=k;
+                    s2 = s[i] + s2;
                 }
             }
-            cout << cost << endl;
+            cout << s2 << endl;    
 
-
+            
         }
-        
 
+        
+        
 
 
 
