@@ -160,83 +160,38 @@ int main()
         ll n;
         cin >> n;
 
-        vll v,v1;
+        vll v;
         for(i=0;i<n;i++)
         {
             cin >> k;
             v.pb(k);
         }
-        for(i=0;i<n;i++)
-        {
-            cin >> k;
-            v1.pb(k);
-        }
-        ll c=0;
 
-        for(i=0;i<n;i++)
+        vll v1;
+        v1.pb(v[0]);
+        bool flag = false;
+        for(i=1;i<=n-1;i++)
         {
             k = v[i];
-            for(j=0;j<n;j++)
+            j = v1[i-1];
+            v1.pb(j+k);
+
+            if(j-k >=0 and j+k>=0 and k!=0)
             {
-                if(v1[j] == k)
-                {
-                    v.erase(v.begin()+i);
-                    v1.erase(v1.begin()+j);
-                    break;
-                }
+                flag = true;
             }
+
         }
 
-        if(sz(v) == 0 and sz(v1)==0)
+        if(flag)
         {
-            cout << c << endl;
+            cout << -1 << endl;
         }
         else
         {
-            for(auto i: v) cout << i << " ";
-            cout << endl;
             for(auto i: v1) cout << i << " ";
             cout << endl;
-            
-            for(i=0;i<sz(v);i++)
-            {
-                k = v[i];
-                string s1 = to_string(v[i]);
-                for(j=0;j<sz(v1);j++)
-                {
-                    ll p = v1[j];
-                    string s = to_string(v1[j]);
-                    
-                    cout << s1 << " " << s << endl;
-                    
-                    if(sz(s) == k or sz(s1) == p)
-                    {
-                        v.erase(v.begin()+i);
-                        v1.erase(v1.begin()+j);
-                        c++;
-                        break;
-                    }
-                }
-            }
-
-            
-
-            cout << c<< endl;
-
-            k=sz(v);
-            c += 2*k;
-            
-            cout << c << endl;
         }
-
-
-
-
-
-
-
-
-
         
 
     }

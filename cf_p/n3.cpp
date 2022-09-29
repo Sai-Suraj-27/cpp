@@ -12,7 +12,7 @@
 #define pb push_back
 #define mp make_pair
 #define vll vector<ll>
-constexpr ld PI = 3.141592653589793238462;
+//constexpr ld PI = 3.141592653589793238462;
 ll mod = 1e9 + 7;
 using namespace std;
 
@@ -120,15 +120,81 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 // cout << "hex_num = " << stoll(hex_num, nullptr, 16) << "\n";
 // cout << "binary_num = " << stoll(binary_num, nullptr, 2) << "\n";
 // cout << "dec_num = " << stoll(dec_num, nullptr, 10) << "\n ";
-  
+int modulo = 998244353;
 
 
 
 
+ll fact(ll n);
+ 
+ll nCr(ll n, ll r)
+{
+    ll p = fact(n)%modulo;
+    ll q = fact(r)%modulo;
+    ll s = fact(n-r)%modulo;
+
+    ll w = q*s;
+    w %= modulo;
+
+    return p/w;
+}
+ 
+// Returns factorial of n
+ll fact(ll n)
+{
+    if(n==0)
+      return 1;
+
+    ll ans = 1;
+    for(int i = 2; i <= n; i++)
+    {
+        ans = ans * i;
+        //ans %= modulo;
+    }
+    return ans;
+
+}
 
 
 
+unsigned long long power(unsigned long long x, int y, int p)
+{
+    unsigned long long res = 1;
+    x = x % p;
+    while (y > 0)
+    {
+        if (y & 1)
+            res = (res * x) % p;
 
+        y = y >> 1; // y = y/2
+        x = (x * x) % p;
+    }
+
+    return res;
+}
+ 
+unsigned long long modInverse(unsigned long long n, int p)
+{
+    return power(n, p - 2, p);
+}
+
+unsigned long long nCrModPFermat(unsigned long long n, int r, int p)
+{
+    if (n < r)
+        return 0;
+    if (r == 0)
+        return 1;
+    unsigned long long fac[n + 1];
+    
+    fac[0] = 1;
+    
+    for (int i = 1; i <= n; i++)
+        fac[i] = (fac[i - 1] * i) % p;
+ 
+    return (fac[n] * modInverse(fac[r], p) % p
+            * modInverse(fac[n - r], p) % p)
+           % p;
+}
 
 
 
@@ -160,74 +226,38 @@ int main()
         ll n;
         cin >> n;
 
-        vll v,v1;
-        for(i=0;i<n;i++)
-        {
-            cin >> k;
-            v.pb(k);
-        }
-        for(i=0;i<n;i++)
-        {
-            cin >> k;
-            v1.pb(k);
-        }
-        ll c=0;
+        ll a=0,b=0,c=1;
+        c = 1;
+        ll total = 0;
+        
+        // cout << fact(n) << " " << fact(n/2) << endl;
+        k = fact(n);
+        k /= fact(n/2);
+        k /= fact(n/2);
 
-        for(i=0;i<n;i++)
+        // cout << k << endl;
+        
+        if(n==4)
         {
-            k = v[i];
-            for(j=0;j<n;j++)
-            {
-                if(v1[j] == k)
-                {
-                    v.erase(v.begin()+i);
-                    v1.erase(v1.begin()+j);
-                    break;
-                }
-            }
+            cout << 3 << " " << 2 << " " << 1 << endl;
         }
-
-        if(sz(v) == 0 and sz(v1)==0)
+        else if(n==2)
         {
-            cout << c << endl;
+            cout << 1 << " " << 0 << " " << 1 << endl;
         }
         else
         {
-            for(auto i: v) cout << i << " ";
-            cout << endl;
-            for(auto i: v1) cout << i << " ";
-            cout << endl;
-            
-            for(i=0;i<sz(v);i++)
-            {
-                k = v[i];
-                string s1 = to_string(v[i]);
-                for(j=0;j<sz(v1);j++)
-                {
-                    ll p = v1[j];
-                    string s = to_string(v1[j]);
-                    
-                    cout << s1 << " " << s << endl;
-                    
-                    if(sz(s) == k or sz(s1) == p)
-                    {
-                        v.erase(v.begin()+i);
-                        v1.erase(v1.begin()+j);
-                        c++;
-                        break;
-                    }
-                }
-            }
+            a += fact(n-1)/fact((n/2) - 1);
+            a += fact(n-4)/ fact((n/2) - 1);
+            a += fact(n-5)/fact((n/2) - 2);
 
-            
+            b = total-a-1;
+            cout << a << " " << b << " " << 1 << endl;
 
-            cout << c<< endl;
-
-            k=sz(v);
-            c += 2*k;
-            
-            cout << c << endl;
         }
+        
+        
+
 
 
 

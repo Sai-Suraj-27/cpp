@@ -157,84 +157,36 @@ int main()
     {
         
         ll i,j,k;
-        ll n;
-        cin >> n;
+        ll n,m;
+        cin >> n >> m;
 
-        vll v,v1;
-        for(i=0;i<n;i++)
+        if(min(n,m) <= 1)
         {
-            cin >> k;
-            v.pb(k);
+            cout << 1 << " " << 1 << endl;
         }
-        for(i=0;i<n;i++)
+        else if(m==2 and n==2)
         {
-            cin >> k;
-            v1.pb(k);
-        }
-        ll c=0;
-
-        for(i=0;i<n;i++)
+            cout << 1 << " " << 1 << endl;
+        }        
+        else if(max(m,n) == 3)
         {
-            k = v[i];
-            for(j=0;j<n;j++)
+            if(n==3 and m==3)
             {
-                if(v1[j] == k)
-                {
-                    v.erase(v.begin()+i);
-                    v1.erase(v1.begin()+j);
-                    break;
-                }
+                cout << 2 << " " << 2 << endl;
             }
-        }
-
-        if(sz(v) == 0 and sz(v1)==0)
-        {
-            cout << c << endl;
+            else if(n==3)
+            {
+                cout << 2 << " " << 1 << endl;
+            }
+            else
+            {
+                cout << 2 << " " << 2 << endl;
+            }
         }
         else
         {
-            for(auto i: v) cout << i << " ";
-            cout << endl;
-            for(auto i: v1) cout << i << " ";
-            cout << endl;
-            
-            for(i=0;i<sz(v);i++)
-            {
-                k = v[i];
-                string s1 = to_string(v[i]);
-                for(j=0;j<sz(v1);j++)
-                {
-                    ll p = v1[j];
-                    string s = to_string(v1[j]);
-                    
-                    cout << s1 << " " << s << endl;
-                    
-                    if(sz(s) == k or sz(s1) == p)
-                    {
-                        v.erase(v.begin()+i);
-                        v1.erase(v1.begin()+j);
-                        c++;
-                        break;
-                    }
-                }
-            }
-
-            
-
-            cout << c<< endl;
-
-            k=sz(v);
-            c += 2*k;
-            
-            cout << c << endl;
+            cout << 2 << " " << 2 << endl;
         }
-
-
-
-
-
-
-
 
 
         
