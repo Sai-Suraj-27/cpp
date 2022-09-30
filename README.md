@@ -1,2 +1,2 @@
-# This is my repo for attempting contests, practicing c++, Problems.
+repo for attempting contests, practicing c++, Problems.
 🙂
