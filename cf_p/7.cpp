@@ -141,18 +141,6 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 int main()
 {
 	// your code goes here.
