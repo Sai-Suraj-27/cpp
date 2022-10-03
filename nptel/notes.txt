@@ -1,0 +1,26 @@
+// Greedy algorithms
+// DSU -> Destroying array, war problems.
+// Graphs implementation
+// BFS and DFS -> Diamond inheritance
+-> Bipartiteness 
+// SSSP (Single source shortest path problem)
+-> If uniform weights -> through BFS
+-> non -ve edge weights -> through dijkstra's algorithm
+-> negative edge weights with no negative cycles -> Modified dijkstra's algorithm
+-> printing shortest paths
+-> negative and cycles -> Bellman Ford algorithm
+-> Absence of negative edge weights -> Floyd-Warshall algorithm.
+
+
+// Minimum Spanning Trees
+-> Prim's algorithm and kurskal's algorithm.
+
+// MaxFlow
+-> Ford-Fulkerson algorithm for MaxFlow
+-> Edmonds-karp algorithm
+-> Maximum matching via MaxFlow
+
+// MaxFlow-Mincut Duality
+-> Vertex Covers.
+
+
