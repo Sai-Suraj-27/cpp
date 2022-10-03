@@ -35,6 +35,7 @@ template <typename T>
 class graph
 {
     public:
+
     unordered_map<T,vector<T>> adj;
     void addEdje(T u, T v, bool directed)
     {
@@ -58,6 +59,53 @@ class graph
         }
     }
 
+
+    // BFS -> O(N+E); , S.C -> O(N) for vis array;
+    void bfs(vector<bool> &vis,ll i)
+    {
+        queue<T> q;
+        vis[i] = true;
+        q.push(i);
+
+        while(!q.empty())
+        {
+            ll temp = q.front();
+            cout << temp << " ";
+            // vis[temp] = true;
+            q.pop();
+
+            for(auto i : adj[temp])
+            {
+                if(!vis[i])
+                {
+                    q.push(i);
+                    vis[i] = true;
+                }
+            }
+        }
+        return;
+
+    }
+
+    // DFS -> O(N+E), S.C -> O(N) for vis1 array;
+    void dfs(vector<bool> &vis1, ll i)
+    {
+        vis1[i] = true;
+        cout << i << " ";
+
+        for(auto j: adj[i])
+        {
+            if(!vis1[j])
+            {
+                dfs(vis1,j);
+            }
+        }
+        return;
+
+    }
+
+
+
 };
 
 
@@ -76,14 +124,31 @@ int main()
     for(i=1;i<=m;i++)
     {
         cin >> u >> v;
-        g.addEdje(u,v,true);
+        g.addEdje(u,v,false);
     }
 
     g.print_graph();
 
+    vector<bool> vis(n, false);
+    
+    for(i=0;i<n;i++)
+    {
+        if(!vis[i])
+        {
+            g.bfs(vis,i);
+        }
+    }
 
-
-
+    cout << endl;
+    
+    vector<bool> vis1(n,false);
+    for(i=0;i<n;i++)
+    {
+        if(!vis1[i])
+        {
+            g.dfs(vis1,i);
+        }
+    }
 
 
 
