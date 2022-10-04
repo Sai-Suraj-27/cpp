@@ -204,7 +204,13 @@ int main()
         cout << "NO" << endl;
     }
 
+    // Topological ordering is a valid ordering for a DAG graph
+    // Such that u appears before v in the ordering for every u-> v
+    // from the adjacency list of graph.
 
+// A valid topological ordering is not possible in case of a graph with a cycle in it.
+
+    
 
 
 
