@@ -104,6 +104,37 @@ class graph
 
     }
 
+    bool cyclicBFS(vector<bool> &vis2, ll i)
+    {
+        queue<ll> q;
+        unordered_map<ll,ll> parent;
+        parent[i] = -1; 
+        q.push(i);
+        vis2[i] = true;
+
+        while(!q.empty())
+        {
+            ll temp = q.front();
+            q.pop();
+
+            for(auto j: adj[temp])
+            {
+                if(!vis2[j])
+                {
+                    q.push(j);
+                    vis2[j] = true;
+                    parent[j]=temp;
+                }
+                else if(vis2[j] and parent[temp] != j)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+
+    }
+
 
 
 };
@@ -149,6 +180,33 @@ int main()
             g.dfs(vis1,i);
         }
     }
+
+    vector<bool> vis2(n,false);
+    bool cyclic = false;
+    for(i=0;i<n;i++)
+    {
+        if(!vis2[i])
+        {
+            if(g.cyclicBFS(vis2,i))
+            {
+                cyclic = true;
+            }
+        }
+    }
+    cout << endl;
+    
+    if(cyclic)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
+
+
+
+
 
 
 
