@@ -141,8 +141,6 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 
 
 
-
-
 int main()
 {
 	// your code goes here.
@@ -162,50 +160,88 @@ int main()
 
         string s;
         cin >> s;
-        string s1 = "";
-        while(m--)
-        {
-            s1 += s;
-        }
-        s = s1;
-        vll pref;
-        vll suff;
-        ll sum=0,tsum=0;
+        ll c1=0,c0=0;
 
-        for(i=0;i<sz(s);i++)
+        for(i=0;i<n;i++)
         {
             if(s[i] == '1')
             {
-                tsum += 1;
-            }
-        }
-
-        // cout << s << endl;
-        for(i=0;i<sz(s);i++)
-        {
-            if(s[i] == '1')
-            {
-                sum += 1;
-                pref.pb(sum);
-                suff.pb(tsum - sum + 1);
+                c1++;
             }
             else
-            {
-                pref.pb(sum);
-                suff.pb(tsum - sum);
-            }
+                c0++;
         }
-        //cout << sz(pref) << " " << sz(suff) << endl;
-        ll c=0;
-        suff.pb(suff[sz(suff)-1]);
-        for(i=0;i<sz(s);i++)
+
+        vll suff(n);
+        vll pref(n);
+        k=0;
+        //cout << c1 << endl;
+        for(i=0;i<n;i++)
         {
-            if(pref[i] == suff[i+1])
+            
+            suff[i] = c1-k;
+            if(s[i] == '1')
             {
-                c++;
+                k++;
             }
+            pref[i] = k;
         }
-        cout << c << endl;
+        ll c=0;
+
+        if(c0==n)
+        {
+            cout << n*m << endl;
+        }
+        else if(c1==n)
+        {
+            if(n%2==0)
+                cout << 1 << endl;
+            else
+                cout << 0 << endl;
+        }
+        else if(c1%2 == 1 and m%2==1)
+        {
+            cout << 0 << endl;
+        }
+        else if(m%2==0)
+        {
+            for(i=n-1;i>=0;i--)
+            {
+                if(s[i] == '1')
+                {
+                    j=i;
+                    break;
+                }
+            }
+            c+=n-j;
+            for(i=0;i<n;i++)
+            {
+                if(s[i] == '1')
+                {
+                    j=i;
+                    break;
+                }
+            }
+            c+=j;
+            cout << c << endl;
+        }
+        else
+        {
+            for(i=0;i<n-1;i++)
+            {
+                if(pref[i] == suff[i+1])
+                {
+                    c++;
+                }
+            }
+   
+            cout << c << endl;
+        }
+        
+
+
+
+
         
 
     }
