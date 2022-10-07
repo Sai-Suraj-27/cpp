@@ -157,14 +157,24 @@ int main()
     {
         
         ll i,j,k;
-        
+        double a,b,x,y;
+        cin >> a >> b >> x >> y;
 
+        double p = a/x;        
+        double q = b/y;
 
-
-
-
-        
-
+        if(p==q)
+        {
+            cout << "both" << endl;
+        }
+        else if(p<q)
+        {
+            cout << "chef" << endl;
+        }
+        else
+        {
+            cout << "chefina" << endl;
+        }
 
         
 
