@@ -6,6 +6,7 @@
 #define B(i,a,n) for(ll i=n-1;i>=a;i--)
 #define setbits(x)  __builtin_popcountll(x)
 #define zrobits(x)  __builtin_ctzll(x)
+#define ps(x,y)  fixed<<setprecision(y)<<x
 #define ll long long int
 #define ld long double
 #define pb push_back
@@ -155,62 +156,37 @@ int main()
     while(t--)
     {
         
-        ll i,j,k;
-        ll n,q;
-        cin >> n >> q;
+        ll i,j,k=0;
+        ll n;
+        cin >> n;
 
         vll v;
-        ll sum = 0;
-        ll eve=0,odd=0;
         for(i=0;i<n;i++)
         {
             cin >> k;
             v.pb(k);
-            sum += k;
-            if(k%2==0)
-                eve++;
-            else
-                odd++;
         }
-
-        while(q--)
+        string s;
+        cin >> s;
+        unordered_map<ll,vector<char>> mp;
+        for(i=0;i<n;i++)
         {
-            ll types,x;
-            cin >> types >> x;
-
-            if(types==0)
-            {
-                sum += eve*x;
-                cout << sum << endl;
-                if(x%2==1)
-                {
-                    odd=n;
-                    eve=0;
-                }
-            }
-            else
-            {
-                sum += odd*x;
-                cout << sum << endl;
-                if(x%2==1)
-                {
-                    odd=0;
-                    eve = n;
-                }
-            }
-
-
+            mp[v[i]].pb(s[i]);
         }
-
-
-
-
-
-
-
-
-
-
+        k=0;
+        for(auto i:mp)
+        {
+            if(!allEqual(i.second))
+            {
+                cout << "NO" << endl;
+                k++;
+                break;
+            }
+        }
+        if(k==0)
+        {
+            cout << "YES" << endl;
+        }
 
 
 
