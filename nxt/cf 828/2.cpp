@@ -156,14 +156,37 @@ int main()
     while(t--)
     {
         
-        ll i,j,k;
-        
+        ll i,j,k=0;
+        ll n;
+        cin >> n;
 
-
-
-
-
-
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+        string s;
+        cin >> s;
+        unordered_map<ll,vector<char>> mp;
+        for(i=0;i<n;i++)
+        {
+            mp[v[i]].pb(s[i]);
+        }
+        k=0;
+        for(auto i:mp)
+        {
+            if(!allEqual(i.second))
+            {
+                cout << "NO" << endl;
+                k++;
+                break;
+            }
+        }
+        if(k==0)
+        {
+            cout << "YES" << endl;
+        }
 
 
 

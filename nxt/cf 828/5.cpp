@@ -6,6 +6,7 @@
 #define B(i,a,n) for(ll i=n-1;i>=a;i--)
 #define setbits(x)  __builtin_popcountll(x)
 #define zrobits(x)  __builtin_ctzll(x)
+#define ps(x,y)  fixed<<setprecision(y)<<x
 #define ll long long int
 #define ld long double
 #define pb push_back
@@ -119,16 +120,6 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 // cout << "hex_num = " << stoll(hex_num, nullptr, 16) << "\n";
 // cout << "binary_num = " << stoll(binary_num, nullptr, 2) << "\n";
 // cout << "dec_num = " << stoll(dec_num, nullptr, 10) << "\n ";
-  
-
-
-
-
-
-
-
-
-
 
 
 
@@ -156,66 +147,37 @@ int main()
     {
         
         ll i,j,k;
-        ll n,q;
-        cin >> n >> q;
-
-        vll v;
-        ll sum = 0;
-        ll eve=0,odd=0;
-        for(i=0;i<n;i++)
+        ll a,b,c,d;
+        cin >> a >> b >> c >> d;
+        ll p=-1,q=-1;
+        if(a*b >a and a*b<=c)
         {
-            cin >> k;
-            v.pb(k);
-            sum += k;
-            if(k%2==0)
-                eve++;
-            else
-                odd++;
+            cout << a*b << " " << d << endl;
         }
-
-        while(q--)
+        else if(a*b >b and a*b<=d)
         {
-            ll types,x;
-            cin >> types >> x;
-
-            if(types==0)
-            {
-                sum += eve*x;
-                cout << sum << endl;
-                if(x%2==1)
-                {
-                    odd=n;
-                    eve=0;
-                }
-            }
-            else
-            {
-                sum += odd*x;
-                cout << sum << endl;
-                if(x%2==1)
-                {
-                    odd=0;
-                    eve = n;
-                }
-            }
-
-
+            cout << c << " " << a*b << endl;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
+        else if(2*a <=c  and 2*b<=d)
+        {   
+            cout << 2*a << " " << 2*b << endl;
+        }
+        else if((2*a>b and 2*a<=d) and (2*b>a and 2*b<=c))
+        {
+            cout << 2*b << " " << 2*a << endl;
+        }
+        else if((2*a>b and 2*a<=d) and (b>a and b<=c))
+        {
+            cout << b << " " << 2*a << endl;
+        }
+        else if((a>b and a<=d) and (2*b>a and 2*b<=c))
+        {
+            cout << 2*b << " " << a << endl;
+        }
+        else
+        {
+            cout << -1 << " " << -1 << endl;
+        }
 
     }
 

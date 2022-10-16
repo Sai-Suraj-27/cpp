@@ -125,7 +125,16 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 
 
 
-
+ll n2(ll n)
+{
+    ll c=0;
+    while((n%2)==0)
+    {
+        c++;
+        n = n/2 + n%2;
+    }
+    return c;
+}
 
 
 
@@ -157,7 +166,49 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+
+        vll v;
+        ll c=0;
+        ll c1=0;
+        vll v1;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+            c+=n2(k);
+            v1.pb(n2(i+1));
+        }
+
+        ll req = n-c;
+        ll p = floor(log2(n));
+        ll q = pow(2,p);
+        sort(all(v1));
+        //reverse(all(v1));
+        //cout << sz(v1) << endl;
+        //for(auto i:v1) cout << i << " ";
+        //cout << endl;
+        if(req<=0)
+        {
+            cout << 0 << endl;
+        }
+        else
+        {
+            //cout << req << endl;
+            while(req>0 and sz(v1) >0)
+            {
+                req -= v1[sz(v1)-1];
+                c1++;
+                v1.pop_back();
+            }
+            if(req<=0)
+                cout << c1 << endl;
+            else
+                cout << -1 << endl;
+        }
+
+
 
 
 

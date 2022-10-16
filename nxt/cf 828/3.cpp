@@ -157,7 +157,50 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+        char ch;
+        cin >> ch;
+
+        string s;
+        cin >> s;
+
+        if(ch == 'g')
+        {
+            cout << 0 << endl;
+        }
+        else
+        {
+            vll v,v1;
+            for(i=0;i<n;i++)
+            {
+                if(s[i] == ch)
+                {
+                    v.pb(i);
+                }
+                else if(s[i] == 'g')
+                {
+                    v1.pb(i);
+                }
+            }
+            ll maxi = INT_MIN;
+            for(i=0;i<sz(v);i++)
+            {
+                k = v[i];
+                if(v1[sz(v1)-1] > k)
+                {
+                    j = *upper_bound(all(v1),k) - k;
+                }
+                else
+                {
+                    j = v1[0] + n-k;
+                }
+                //cout << j << " ";
+                maxi = max(j,maxi);
+            }
+            cout << maxi << endl;
+
+        }
 
 
 
