@@ -149,93 +149,28 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll n;
-    cin >> n;
-    vll v;
-    ll i,j,k;
-    unordered_map<ll,ll> mp;
-    for(i=0;i<n;i++)
+    ll t;
+    cin >> t;
+
+
+    while(t--)
     {
-        cin >> k;
-        v.pb(k);
-        mp[k] += k;
-    }
-    vector<pair<ll,ll>> vp;
+        
+        ll i,j,k;
+        
 
-    for(auto i:mp)
-    {
-        vp.pb({i.first,i.second});
-    }
 
-    sort(all(vp));
-    reverse(all(vp));
 
-    ll sum1=0,sum2=0;
-    ll prev = vp[0].first;
-    
-    /*
-    sum1 += vp[0].second;
-    for(i=1;i<sz(vp);i++)
-    {
-        if(vp[i].first != prev-1)
-        {
-            sum1 += vp[i].second;
-            prev = vp[i].first;
-        }
-    }
-    sum2 += vp[1].second;
-    prev = vp[1].first;
 
-    for(i=2;i<sz(vp);i++)
-    {
-        if(vp[i].first != prev-1)
-        {
-            sum2 += vp[i].second;
-            prev = vp[i].first;
-        }
-    }
-    */
 
-    ll maxi = INT_MIN;
-    for(i=0;i<sz(vp);i++)
-    {
-        ll sum=0;
-        sum += vp[i].second;
-        prev = vp[i].first;
 
-        for(j=i+1;j<sz(vp);j++)
-        {
-            if(vp[j].first != prev-1)
-            {
-                sum += vp[j].second;
-                prev = vp[j].first;
-            }
-        }
-        //cout << sum << endl;
-        maxi = max(maxi,sum);
+
+
+
+
+        
 
     }
-    cout << maxi << endl;
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	return 0;
