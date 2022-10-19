@@ -71,7 +71,7 @@ ll btd(string n)
 // Short o(logn) code for btd
 // But this works only if input is in integer range;
 
-/*
+
 int btds(int n)
 {
     int num = n;
@@ -92,7 +92,7 @@ int btds(int n)
  
     return dec_value;
 }
-*/
+
 
 
 
@@ -157,12 +157,32 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+        string s,s1;
+        cin >> s >> s1;
+        unordered_map<char,ll> mp1;
+        unordered_map<char,ll> mp2;
+        vll v1;
+        for(i=0;i<n;i++)
+        {
+            mp1[s[i]]++;
+        }
+        for(i=0;i<n;i++)
+        {
+            mp2[s1[i]]++;
+        }
+        ll maxi = INT_MIN;
         
-
-
-
-
-
+        for(i=0;i<n;i++)
+        {
+            k = min(mp1[s[i]],mp2[s[i]]);
+            maxi = max(k,maxi);
+        }
+        if(maxi <= 0)
+            cout << 0 << endl;
+        else
+            cout << maxi << endl;
 
 
 

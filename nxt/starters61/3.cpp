@@ -123,55 +123,62 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
   
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ll a[200001],b[200001];
 int main()
 {
-	// your code goes here.
-    ios_base::sync_with_stdio(0);
-    cin.tie(0); cout.tie(0);
-  
     ll t;
-    cin >> t;
-
-
+    cin>>t;
     while(t--)
     {
-        
-        ll i,j,k;
-        
+        ll n;
+        cin >> n;
+        ll k;
+        ll i;
+        for(i = 1;i<=n;++i)
+        {
+            cin >> k;
+            a[i] = k;
+        }
+        if(n==1)
+        {
+            cout<< 1 <<endl;
+            continue;
+        }
+        for(i = 2;i<=n;++i)
+        {
+            b[i] = a[i] < a[i-1];
+        }
+        vector<pair<bool,ll>> vp;
+        vp.pb({b[2],1});
 
+        for(i = 3;i<=n;i++)
+        {
+            if(b[i] == vp[sz(vp)-1].first)
+            {
+                vp[vp.size()-1].second++;
+            }
+            else
+            {
+                vp.pb({b[i],1});
+            }
+        }
 
+        vp.pb({0,0});
 
+        ll c = 0;
 
-
-
-
-
-
-
-        
-
+        for(i = 0;i<sz(vp)-1;++i)
+        {
+            c += vp[i].second*(vp[i].second+1)/2;
+        }
+        for(i = 0;i<sz(vp)-1;++i)
+        {
+            if(vp[i].first == 1)
+            {
+                c += (vp[i].second) * (vp[i+1].second);
+            }
+        }
+        cout << c + n << endl;
     }
-
-
-	return 0;
+    return 0;
 }

@@ -120,24 +120,6 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 // cout << "hex_num = " << stoll(hex_num, nullptr, 16) << "\n";
 // cout << "binary_num = " << stoll(binary_num, nullptr, 2) << "\n";
 // cout << "dec_num = " << stoll(dec_num, nullptr, 10) << "\n ";
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -157,14 +139,48 @@ int main()
     {
         
         ll i,j,k;
-        
-
-
-
-
-
-
-
+        vll v;
+        ll c0=0,c1=0;
+        ll n;
+        cin >> n;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+            if(k==0)
+                c0++;
+            else
+                c1++;
+        }
+        if(n==1)
+        {
+            cout << 0 << endl;
+        }
+        else if(c1==0)
+        {
+            cout << 0 << endl;
+        }
+        else
+        {
+            ll c=0;
+            if(c1<=c0)
+            {
+                cout << c1 << endl;
+            }
+            else
+            {
+                c += c0;
+                c1 -= c0;
+                if(c1%3==0)
+                    c += c1/3;
+                else if(c1%3 == 1)
+                    c += c1/3;
+                else
+                    c += c1/3;
+                
+                cout << c << endl;
+            }
+        }
 
 
 
