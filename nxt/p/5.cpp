@@ -156,8 +156,28 @@ int main()
     while(t--)
     {
         
-        ll i,j,k;
-        
+        ll i,j,k=0;
+        ll n;
+        cin >> n;
+        string s;
+        cin >> s;
+
+        i=0,j=n-1;
+        while(i<j)
+        {
+            if(s[i] != s[j])
+            {
+                k++;
+            }
+            i++;
+            j--;
+        }
+        if(k%2==0)
+            cout << "YES" << endl;
+        else if(n%2==1 and k%2==1)
+            cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
 
 
 
