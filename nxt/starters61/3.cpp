@@ -157,121 +157,15 @@ int main()
     {
         
         ll i,j,k;
-        ll n;
-        cin >> n >> k;
-        string s;
-        cin >> s;
+        
 
-        string s1 = "";
-        if(s[0] == '1')
-        {
-            s1 += '0';
-        }
-        else
-        {
-            if(s[i+1] == '1')
-            {
-                s1 += '1';
-            }
-            else
-            {
-                s1 += '0';
-            }
-        }
-        cout << s1 << endl;
-        for(i=1;i<n-1;i++)
-        {
-            if(s[i] == '1')
-            {
-                s1 += '0';
-            }
-            else
-            {
-                if(s[i-1] == '1' or s[i+1] == '1')
-                {
-                    s1 += '1';
-                }
-                else
-                {
-                    s1 += '0';
-                }
-            }
-        }
-        cout << s1 << endl;
-        if(s[n-1] == '1')
-        {
-            s1 += '0';
-        }
-        else
-        {
-            if(s[i-1] == '1')
-            {
-                s1 += '1';
-            }
-            else
-            {
-                s1 += '0';
-            }
-        }
-        cout << s1 << endl;
 
-        vll v1;
-        for(i=0;i<n;i++)
-        {
-            if(s1[i] == '1')
-            {
-                v1.pb(i);
-            }
-        }
-        vll v;
 
-        if(sz(v1) == 0)
-        {
-            while(n--)
-            {
-                cout << '0';
-            }
-            cout << endl;
-        }
 
-        for(i=0;i<n;i++)
-        {
-            if(s1[i]=='1')
-            {
-                v.pb(0);
-            }
-            else if(s1[i] == '0' and i<v1[0])
-            {
-                ll d2 = *upper_bound(all(v1),i) - i;
-                v.pb(d2);
-            }
-            else if(s1[i] == '0' and i<v1[sz(v1)-1] and i>v1[0])
-            {
-                auto it = lower_bound(all(v1),i);
-                it--;
-                ll d1 = i - *it;
-                ll d2 = *upper_bound(all(v1),i) - i;
-                v.pb(min(d1,d2));
-            }
-            else if(s1[i]=='0')
-            {
-                v.pb(i-v1[sz(v1)-1]);
-            }
-        }
 
-        for(auto i:v) cout << i << " ";
-        cout << endl;
 
-        vll kval;
-        j=0;
-        for(i=0;i<sz(s1);i++)
-        {
-            if(s1[i] == '1')
-            {
-                kval.pb(k-1);
-            }
-            
-        }
+
+
 
 
         
