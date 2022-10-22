@@ -162,14 +162,49 @@ int main()
         adj[v].pb(u);
     }
     // a+b = n; 
-    if((n)%2 == 0)
+    queue<ll> q;
+    q.push(1);
+    vector<bool> vis(n+1,false);
+    ll a=0,b=0;
+    q.push(-1);
+    bool flag = true;
+    while(!q.empty())
     {
-        cout << pow(n/2,2) - (n-1) << endl;
-    }
-    else
-    {
-        cout << (n/2)*(n/2 + 1) - (n-1) << endl;
-    }
+        
+        ll temp = q.front();
+        if(temp != -1)
+            vis[temp] = true;
+        q.pop();
+        //cout << "sda" << " " << temp << endl;
+        //cout << temp << " " << flag << endl;
+        if(temp == -1)
+        {
+            flag = !flag;
+        }
+        else if(flag)
+        {
+            a++;
+        }
+        else
+        {
+            b++;
+        }
+        for(auto j:adj[temp])
+        {
+            if(!vis[j])
+            {
+                q.push(j);
+                vis[j] = true;
+            }
+        }
+        if(temp == -1 and !q.empty())
+        {
+            q.push(-1);
+        }
+        //cout << temp << " " << sz(q) << endl;
+
+    } 
+    cout << a*b - (n-1) << endl;
     
 
 
