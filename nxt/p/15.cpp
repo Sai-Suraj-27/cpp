@@ -149,28 +149,22 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
+    int n;
+    cin >> n;
 
-
-    while(t--)
+    if(n%2 == 1)
     {
-        
-        ll i,j,k;
-        
-
-
-
-
-
-
-
-
-
-
-        
-
+        cout << 0 << endl;
     }
+    else
+    {
+        ll k = pow(2,n/2);
+        cout << ps(k,3) << endl;
+    }
+
+
+
+
 
 
 	return 0;
