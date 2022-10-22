@@ -149,28 +149,28 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
-
-
-    while(t--)
+    
+    ll i,j,k;
+    ll n;
+    cin >> n;
+    ll u,v;
+    unordered_map<ll,list<ll>> adj;
+    for(i=1;i<=n-1;i++)
     {
-        
-        ll i,j,k;
-        
-
-
-
-
-
-
-
-
-
-
-        
-
+        cin >> u >> v;
+        adj[u].pb(v);
+        adj[v].pb(u);
     }
+    // a+b = n; 
+    if((n)%2 == 0)
+    {
+        cout << pow(n/2,2) - (n-1) << endl;
+    }
+    else
+    {
+        cout << (n/2)*(n/2 + 1) - (n-1) << endl;
+    }
+    
 
 
 	return 0;

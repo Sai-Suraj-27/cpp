@@ -149,29 +149,48 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
-
-
-    while(t--)
+    ll i,j,k;
+    ll n,x;
+    cin >> n >> x;
+    vll v;
+    for(i=0;i<n;i++)
     {
-        
-        ll i,j,k;
-        
+        cin >> k;
+        v.pb(k);
+    }
+    vll v1(101,0);
+    
+    for(auto i:v)
+    {
+        v1[i]++;
+    }
+    ll c=0;
+    for(i=0;i<x;i++)
+    {
+        if(v1[i] == 0)
+        {
+            c++;
+        }
+    }
 
-
-
-
-
-
-
-
-
-
-        
-
+    if(v1[x] == 0)
+    {
+        cout << c << endl;
+    }
+    else
+    {
+        c++;
+        cout << c << endl;
     }
 
 
+
+
+
+
+
+    
+    
+    
 	return 0;
 }
