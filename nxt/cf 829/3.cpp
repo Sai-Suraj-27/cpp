@@ -125,7 +125,33 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 
 
 
-
+pair<ll,ll> subArraySum(vll arr, int n, int sum)
+{
+    int currentSum = arr[0], start = 0, i;
+ 
+    /* Add elements one by one to currentSum and
+    if the currentSum exceeds the sum,
+    then remove starting element */
+    for (i = 1; i <= n; i++) {
+        // If currentSum exceeds the sum,
+        // then remove the starting elements
+        while (currentSum > sum && start < i - 1) {
+            currentSum = currentSum - arr[start];
+            start++;
+        }
+ 
+        // If currentSum becomes equal to sum,
+        // then return true
+        if (currentSum == sum) {
+                return {start,i-1};
+        }
+ 
+        // Add this element to currentSum
+        if (i < n)
+            currentSum = currentSum + arr[i];
+    }
+    return 0;
+}
 
 
 
@@ -158,6 +184,94 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+
+        vll v;
+        vll v1,v2;
+        ll c1=0,c0=0;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+            if(k==-1)
+            {
+                c0++;
+                v1.pb(i);
+            }    
+            else
+            {
+                c1++;
+                v2.pb(i);
+            }
+        }
+
+        if(c1==0 or c0==0)
+        {
+            if(n%2==0)
+            {
+                cout << 1 << endl;
+                cout << 1 << " " << n << endl;
+            }
+            else
+            {
+                cout << -1 << endl;
+            }
+        }
+        else if(c1==c0)
+        {
+            cout << n << endl;
+            for(i=1;i<=n;i++)
+            {
+                cout << i << " " << i << endl;
+            }
+        }
+        else
+        {
+            if(n%2==1)
+            {
+                cout << - 1 << endl;
+            }
+            else 
+            {
+                if(c1>c0)
+                {
+                    cout << 1 + c0 << endl;
+                    pair<ll,ll> pr = subArraySum(v,n,c1-c0);
+                    for(i=0;i<sz(v1);i++)
+                    {
+                        cout << v1[i] + 1 << " " << v1[i] + 1 << endl;
+                    }
+                    for(i=0;i<sz(v1);i++)
+                    {
+                        cout << v2[i] + 1 << " " << v2[i] + 1 << endl;
+                    }
+                    cout << v2[i] + 1 << " " << v2[sz(v2)-1] + 1 << endl;
+                }
+                else
+                {
+                    cout << 1 + c1 << endl;
+                    for(i=0;i<sz(v2);i++)
+                    {
+                        cout << v2[i] + 1 << " " << v2[i] + 1 << endl;
+                    }
+                    for(i=0;i<sz(v2);i++)
+                    {
+                        cout << v1[i] + 1 << " " << v1[i] + 1 << endl;
+                    }
+                    cout << v1[i] + 1 << " " << v1[sz(v2)-1] + 1 << endl;
+                }
+            }
+
+
+        }
+
+
+
+
+
+
+
         
 
 
@@ -166,7 +280,7 @@ int main()
 
 
 
-
+ 
 
 
         
