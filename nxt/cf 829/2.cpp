@@ -158,7 +158,58 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+
+        vll v(n+1,0);
+
+        if(n%2==0)
+        {
+            i=n/2+1;
+            j=0;
+            ll mid = n/2;
+            ll c=0;
+            while(c<n)
+            {
+                i = i-1;
+                cout << i << " " << i+n/2 << " ";
+                c+=2;
+            }
+            cout << endl;
+
+        }
+        else
+        {
+            k = (n-1)/2;
+            i=1;
+            ll c=0;
+
+            i=1;
+            while(i<=n)
+            {
+                cout << i << " ";
+                i += k;
+                c++;
+            }
+            j=1;
+            ll mid = n/2 + 1;
+            while(c<n)
+            {
+                i = mid-j;
+                while(i<n)
+                {
+                    cout << i << " ";
+                    i+=k;
+                    c++;
+                }
+                j++;
+            }
+            cout << endl;
+
+        }
+
+
+
 
 
 
