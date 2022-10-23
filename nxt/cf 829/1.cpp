@@ -158,14 +158,46 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+
+        string s;
+        cin >> s;
+
+        vll v,v1;
+        for(i=0;i<n;i++)
+        {
+            if(s[i] == 'A')
+                v.pb(i);
+            else
+                v1.pb(i);
+        }
+
+        for(i=0;i<sz(v1);i++)
+        {
+            k = v1[i];
+            if(upper_bound(all(v),k) == v.end())
+            {
+                cout << "NO" << endl;
+                break;
+            }
+            else
+            {
+                v.erase(upper_bound(all(v),k));
+            }
+        }
+        if(i==sz(v1) and count(all(s),'A') >= count(all(s),'Q'))
+        {
+            cout << "YES" << endl;
+        }
+        else if(i==sz(v1))
+        {
+            cout << "NO" << endl;
+        }
+
+
+
         
-
-
-
-
-
-
-
 
 
 
