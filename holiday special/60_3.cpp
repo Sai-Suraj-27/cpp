@@ -175,6 +175,12 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 // cout << "dec_num = " << stoll(dec_num, nullptr, 10) << "\n ";
   
 
+// for printing a vector;
+void print(vll v)
+{
+    for(auto i:v) cout << i << " ";
+    cout << endl;
+}
 
 
 
@@ -210,7 +216,42 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n >> k;
+
+        vll v1(2*n + 1,0);
+
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> j;
+            v.pb(j);
+            v1[j]++;
+        }
+
+        vll v2;
+        for(i=1;i<sz(v1);i++)
+        {
+            if(v1[i] == 0)
+                v2.pb(i);
+        }
+        //print(v2);
+        ll ans=0;
+        i=0;
+        while(i<k)
+        {
+            ans += v2[i];
+            i++;
+        }
+        //print(v2);
         
+        ll ans1=0,ans2=0;
+        
+        ans1 += (*max_element(all(v2)))*(k-1) - ans + v2[k-1];
+        ans2 += (*max_element(all(v)))*k - ans;
+
+
+        cout << max(ans1,ans2) << endl;
 
 
 
