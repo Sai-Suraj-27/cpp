@@ -261,12 +261,12 @@ int main()
 
 
         ll mini = INT_MAX;
-        ll maxi = 0;
+        ll maxi = 1;
         for(auto i:mpa)
         {
             char ch = i.first;
-            mini = min({mpa[ch],mpb[ch]});
-            //cout << mini << endl;
+            //cout << mpa[ch] << " " << mpb[ch] << endl;
+            mini = min({mini,mpa[ch],mpb[ch]});
             maxi = max(maxi,mini);
         }
 
