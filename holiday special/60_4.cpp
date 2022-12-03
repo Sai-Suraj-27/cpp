@@ -7,6 +7,11 @@
 #define setbits(x)  __builtin_popcountll(x)
 #define zrobits(x)  __builtin_ctzll(x)
 #define ps(x,y)  fixed<<setprecision(y)<<x
+#define gcd(a,b) __gcd(a,b)
+#define lcm(a,b) (1LL*(a/gcd(a,b))*b)
+#define MAX(x) *max_element(all(x))
+#define MIN(x) *min_element(all(x))
+#define SUM(a) accumulate(all(a),0LL)
 #define ll long long int
 #define ld long double
 #define pb push_back
@@ -14,7 +19,7 @@
 #define vll vector<ll>
 #define vpll vector<pair<ll,ll>>
 constexpr ld PI = 3.141592653589793238462;
-ll mod = 1e9 + 7;
+
 using namespace std;
 
 /* inline bool isPalindrome(const string& s) {
@@ -38,19 +43,6 @@ ll n_uniq(vector<ll> v)
 // xor of a nber x with a nber with all 1's gives the nber with every bit of x flipped.
 ll bit_all_1 = 4294967295;
 
-
-// Very large power very large nber modulo...
-ll long_power_long(ll x, ll n)
-{
-    ll result = 1;
-    while (n) {
-        if (n & 1)
-            result = result * x % mod;
-        n = n / 2;
-        x = x * x % mod;
-    }
-    return result;
-}
 
 string multiply(string num1, string num2)
 {
@@ -173,11 +165,45 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 // cout << "hex_num = " << stoll(hex_num, nullptr, 16) << "\n";
 // cout << "binary_num = " << stoll(binary_num, nullptr, 2) << "\n";
 // cout << "dec_num = " << stoll(dec_num, nullptr, 10) << "\n ";
-  
+
+ll mod = 1e9 + 7;
+ll modu = 998244353;
+const int N = 2005;
+vector<long long>fact(N),inv(N),invfact(N);
+void pre()
+{
+    inv[0]=inv[1]=fact[0]=invfact[0]=1;
+    // Based on what mod we should use (as given in the problem) we can change here.
+    ll mod=modu;
+    for(ll i=2; i<N; i++)
+        inv[i]=mod-mod/i*inv[mod%i]%mod;
+    for(ll i=1; i<N; i++)
+    {
+        fact[i]=fact[i-1]*i%mod;
+        invfact[i]=invfact[i-1]*inv[i]%mod;
+    }
+}
+long long ncr(long long n,long long r)
+{
+    if(r>n)
+        return 0;
+    ll tmp=invfact[n-r]*invfact[r]%modu;
+    return (fact[n]*tmp)%modu;
+}
 
 
-
-
+// Very large power very large nber modulo...
+ll long_power_long(ll x, ll n)
+{
+    ll result = 1;
+    while (n) {
+        if (n & 1)
+            result = result * x % modu;
+        n = n / 2;
+        x = x * x % modu;
+    }
+    return result;
+}
 
 
 
@@ -205,12 +231,31 @@ int main()
     ll t;
     cin >> t;
 
-
+    pre();
     while(t--)
     {
         
         ll i,j,k;
+        ll n,m;
+        cin >> n >> m;
         
+        ll path = n+m-1;
+        if(path%2==1)
+        {
+            cout << 0 << endl;
+        }
+        else
+        {
+            ll f = (ncr(path,path/2))*(ncr(n+m-2,m-1));
+            f %= modu;
+            f *= (long_power_long(2,n*m-(n+m-1)));
+            f %= modu;
+            
+            cout << f << endl;
+            
+            
+            
+        }
 
 
 
