@@ -210,7 +210,7 @@ ll long_power_long(ll x, ll n)
     return result;
 }
 
-ll mod(string num, ll a)
+ll mod_of_large_num(string num, ll a)
 {
     ll res = 0;
     for (ll i = 0; i < num.length(); i++)
@@ -250,6 +250,40 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+
+        vll v1;
+        for(i=1;i<n-1;i++)
+        {
+            if(v[i] > v[i-1] and v[i] > v[i+1])
+            {
+                v1.pb(i);
+            }
+        }
+
+        ll ans=0;
+        ll prev=0;
+        // Expect the subarray which 1st increase and then decrease all other subarrays can be werid.
+        for(i=0;i<sz(v1);i++)
+        {
+            k = v1[i] - prev + 1;
+            ans += k*(k+1)/2;
+            prev = v1[i];
+        }
+        k = n-prev;
+        ans += k*(k+1)/2;
+         
+        ans -= sz(v1); // As they are counted twice.
+
+        cout << ans << endl;
         
 
 
