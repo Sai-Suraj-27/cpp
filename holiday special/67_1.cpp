@@ -250,6 +250,35 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+        vll v;
+        ll tsum = 0;
+        ll nod = 0;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+            tsum += k;
+            if(k%2==1)
+                nod++;
+        }
+
+        if(tsum %2 == 1)
+        {
+            cout << "NO" << endl;
+        }
+        else
+        {
+            k=0;
+            if(nod>=1)
+                cout << "YES" << endl;
+            else
+                cout << "NO" << endl;
+        }
+
+
+
         
 
 
