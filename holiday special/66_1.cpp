@@ -210,7 +210,7 @@ ll long_power_long(ll x, ll n)
     return result;
 }
 
-ll mod(string num, ll a)
+ll mod_of_large_num(string num, ll a)
 {
     ll res = 0;
     for (ll i = 0; i < num.length(); i++)
@@ -249,13 +249,26 @@ int main()
     while(t--)
     {
         
-        ll i,j,k;
-        
+        ll i,j;
+        ll n,m,x,k;
+        cin >> n >> m >> k >> x;
 
+        ll cycle = (k-1)*n + n+m;
+        ll us = x/cycle;
 
-
-
-
+        x -= cycle*us;
+        if(k==1 or x==0)
+        {
+            cout << "YES" << endl;
+        }
+        else if(x>(k-1)*n and x<=cycle)
+        {
+            cout << "YES" << endl;
+        }
+        else
+        {
+            cout << "NO" << endl;
+        }
 
 
 

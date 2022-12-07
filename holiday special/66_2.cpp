@@ -210,7 +210,7 @@ ll long_power_long(ll x, ll n)
     return result;
 }
 
-ll mod(string num, ll a)
+ll mod_of_large_num(string num, ll a)
 {
     ll res = 0;
     for (ll i = 0; i < num.length(); i++)
@@ -250,22 +250,6 @@ int main()
     {
         
         ll i,j,k;
-        ll n;
-        cin >> n;
-
-        vll v,v1;
-
-        for(i=0;i<n;i++)
-        {
-            cin >> k;
-            v.pb(k);
-        }
-        for(i=0;i<n;i++)
-        {
-            cin >> k;
-            v1.pb(k);
-        } 
-
         
 
 
