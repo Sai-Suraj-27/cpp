@@ -18,7 +18,7 @@
 #define mpr make_pair
 #define vll vector<ll>
 #define vpll vector<pair<ll,ll>>
-constexpr ld PI = 3.141592653589793238462;
+const long double pi=3.14159265358979323846264338327950288419716939937510582097494459230;
 
 using namespace std;
 

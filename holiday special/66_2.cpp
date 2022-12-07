@@ -250,7 +250,28 @@ int main()
     {
         
         ll i,j,k;
-        
+        string s;
+        cin >> s;
+        ll c0=0,c1=0;
+        for(i=0;i<sz(s)-1;i++)
+        {
+            if(s[i] == '0' and s[i+1] == '1')
+            {
+                c0++;
+            }
+            else if(s[i] == '1' and s[i+1] == '0')
+            {
+                c1++;
+            }
+        }
+
+        ll diff = max(c0,c1) - min(c0,c1);
+        if(diff == 0)
+        {
+            cout << sz(s) - 2 << endl;
+        }
+        else
+            cout << 2 << endl;
 
 
 
