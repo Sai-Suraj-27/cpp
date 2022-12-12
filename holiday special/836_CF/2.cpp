@@ -250,17 +250,28 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
 
-
-
-
-
-
-
-
-
-
+        if(n%2==1)
+        {
+            i=n;
+            while(i--)
+            {
+                cout << 1 << " ";
+            }
+            cout << endl;
+        }        
+        else
+        {
+            cout << 1 << " " << 3 << " ";
+            i = n-2;
+            while(i--)
+            {
+                cout << 2 << " ";
+            }
+            cout << endl;
+        }
         
 
     }
