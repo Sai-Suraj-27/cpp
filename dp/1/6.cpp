@@ -250,9 +250,22 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n,m;
+        cin >> n >> m >> k;
 
+        ll cost = m-1;
+        cost += (n-1)*m;
 
+        // cost = n*m-1; always
+
+        if(k == cost)
+        {
+            cout << "YES" << endl;
+        }
+        else
+        {
+            cout << "NO" << endl;
+        }
 
 
 
