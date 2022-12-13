@@ -240,8 +240,7 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
+    ll t=1;
     
     // here...
     // we might have to precompute using pre(); 
@@ -250,7 +249,28 @@ int main()
     {
         
         ll i,j,k;
+        string s;
+        cin >> s;
+        ll c=0;
+        i=0;
         
+        vll v,v1;
+        for(i=0;i<sz(s);i++)
+            if(s[i] == 'Q')
+                v.pb(i+1);
+            else if(s[i] == 'A')
+                v1.pb(i+1);
+
+        //for(auto i:v1) cout << i << " ";
+        //cout << endl;
+        for(i=0;i<sz(v1);i++)
+        {
+            k = lower_bound(all(v),v1[i]) - v.begin();
+            j = sz(v) - k;
+
+            c += k*j;
+        }
+        cout << c << endl;
 
 
 
