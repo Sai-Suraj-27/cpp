@@ -240,9 +240,7 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
-    
+    ll t=1;
     // here...
     // we might have to precompute using pre(); 
 
@@ -250,9 +248,29 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
 
+        // The denominations are such that all the lower ones are factors
+        // of larger ones in this case greedy approach will work
 
+        ll c=0;
+
+        c += n/100;
+        n %= 100;
+
+        c += n/20;
+        n %= 20;
+
+        c += n/10;
+        n %= 10;
+
+        c += n/5;
+        n %= 5;
+
+        c += n/1;
+
+        cout << c << endl;
 
 
 
