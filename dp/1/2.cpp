@@ -250,7 +250,42 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+
+        vll v;
+        ll c1=0,c2=0;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+            if(k==1)
+                c1++;
+            else
+                c2++;
+        }
+
+        ll sum = SUM(v);
         
+        if(sum%2==1)
+            cout << "NO" << endl;
+        else
+        {
+            if(c2%2==0 and c1%2==0)
+            {
+                cout << "YES" << endl;
+            }
+            else if(c2%2==1 and c1%2==0)
+            {
+                if(c1==0)
+                    cout << "NO" << endl;
+                else
+                    cout << "YES" << endl;
+            }
+
+        }
+
+
 
 
 
