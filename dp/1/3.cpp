@@ -240,8 +240,7 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
+    ll t=1;
     
     // here...
     // we might have to precompute using pre(); 
@@ -250,7 +249,35 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+
+        i=0;
+        j=1;
+        ll maxi = INT_MIN;
+
+        while(i<n and j<n and i<j)
+        {
+            if(v[j] > v[j-1])
+            {
+                j++;
+            }
+            else
+            {
+                maxi = max(maxi,j-i);
+                i=j;
+                j++;
+            }
+        }
+        maxi = max(maxi,j-i);
+
+        cout << maxi << endl;
 
 
 
