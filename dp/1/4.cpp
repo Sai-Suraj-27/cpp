@@ -250,7 +250,21 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+
+        ll p1 = max_element(all(v)) - v.begin();
+        ll p2 = min_element(all(v)) - v.begin();
+        //cout << p1 << " " << p2 << endl;
+
+        cout << min({max(p1,p2) + 1, (min(p1,p2) + n-max(p1,p2) + 1), max(n-p1,n-p2)}) << "\n";
 
 
 
