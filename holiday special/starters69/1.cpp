@@ -249,8 +249,53 @@ int main()
     while(t--)
     {
         
-        ll i,j,k;
-        
+        ll i,j,k,p;
+        ll n;
+        cin >> n >> p;
+
+        vll v,v1;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v1.pb(k);
+        }
+
+        if(n_uniq(v) < p)
+        {
+            cout << -1 << endl;
+        }
+        else
+        {
+            unordered_map<ll,vll> mp;
+            for(i=0;i<sz(v);i++)
+            {
+                mp[v[i]].pb(v1[i]);
+            }
+
+            vll minis;
+            for(auto i: mp)
+            {
+                k = *min_element(all(i.second));
+                minis.pb(k);
+            }
+
+            sort(all(minis));
+            //for(auto i:minis) cout << i << " ";
+           // cout << endl;
+
+            ll sum=0;
+            for(i=0;i<p;i++)
+            {
+                sum += minis[i];
+            }
+            cout << sum << endl;
+
+        }
 
 
 
