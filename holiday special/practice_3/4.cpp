@@ -249,16 +249,37 @@ int main()
     while(t--)
     {
         
-        ll i,j,k;
+        double i,j,k;
+        ll n;
+        cin >> n;
+        bool flag = false;
         
+        ll c=0;
+        while(n%4==0)
+        {
+            c++;
+            n /= 4;
+        }
 
+        
+        for(i=1;i<=sqrt(n);i++)
+        {
+            k = pow(i,2);
+            j = n - k;
+            j = sqrt(j);
 
+            if(j == (int)j)
+            {
+                flag = true;
+                cout << ps(i*pow(2,c),0) << " " << ps(j*pow(2,c),0) << endl;
+                break;
+            }
+        }
 
-
-
-
-
-
+        if(!flag)
+        {
+            cout << -1 << endl;
+        }
 
 
         
