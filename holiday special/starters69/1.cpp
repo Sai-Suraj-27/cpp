@@ -219,24 +219,7 @@ ll mod_of_large_num(string num, ll a)
     return res;
 }
 
-int mostFrequent(vll v, int n)
-{
 
-    unordered_map<int, int> hash;
-    for (int i = 0; i < n; i++)
-        hash[v[i]]++;
- 
-    int max_count = 0, res = -1;
-    for (auto i : hash) {
-        if (max_count < i.second)
-        {
-            res = i.first;
-            max_count = i.second;
-        }
-    }
- 
-    return res;
-}
 
 
 
@@ -267,78 +250,12 @@ int main()
     {
         
         ll i,j,k;
-        ll n;
-        cin >> n;
-        vll v;
-        for(i=0;i<n;i++)
-        {
-            cin >> k;
-            v.pb(k);
-        }
-
-        vll v1;
-        unordered_map<ll,ll> mp;
-
-        for(i=0;i<sz(v);i++)
-        {
-            mp[v[i]]++;
-        }
         
-        for(auto i:mp)
-        {
-            v1.pb(i.first);
-        }
 
-        // for(auto i:v1) cout << i << " ";
-        // cout << endl;
 
-        if(sz(v1)==1)
-        {
-            cout << 0 << endl;
-        }
-        else if(sz(v1) == 2)
-        {
-            k = (v1[0] ^ v1[1]);
-            if(k <=1)
-            {
-                cout << 0 << endl;
-            }
-            else
-            {
-                cout << min(mp[v[0]],mp[v[1]]) << endl;
-            }
-        }
-        else
-        {
-            sort(all(v1));
-            vector<pair<ll,ll>> vp;
-            for(i=0;i<sz(v1)-1;i++)
-            {
-                k = (v1[i]^v1[i+1]);
-                if(k<=1)
-                {
-                    vp.pb({v1[i],v1[i+1]});
-                }
-            }
-            //for(auto i:vp) cout << i.first << " " << i.second;
-            //cout << endl;
 
-            ll mini = INT_MAX;
-            for(i=0;i<sz(vp);i++)
-            {
-                k = mp[vp[i].first] + mp[vp[i].second];
-                mini = min(mini, n-k);
-            }
-            if(sz(vp) == 0)
-            {
-                k = mostFrequent(v,sz(v));
-                cout << n-mp[v[k]] << endl;
-            }
-            else
-                cout << mini << endl;
-        }
 
-        
+
 
 
 
