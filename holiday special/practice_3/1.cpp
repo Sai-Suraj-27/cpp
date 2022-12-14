@@ -250,14 +250,27 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n,q;
+        cin >> n >> q;
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+        ll sum = SUM(v);
 
-
-
-
-
-
-
+        while(q--)
+        {
+            ll l,r;
+            cin >> l >> r;
+            k = r-l;
+            if(k%2==0)
+            {
+                sum++;
+            }
+        }
+        cout << sum << endl;
 
 
 

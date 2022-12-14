@@ -250,6 +250,12 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+
+        string s;
+        cin >> s;
+
         
 
 
