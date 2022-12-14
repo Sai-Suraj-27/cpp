@@ -250,7 +250,22 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll a,b;
+        cin >> a >> b;
+
+
+        if(b%a == 0)
+        {
+            cout << "YES" << endl;
+        }
+        else if(b<2*a)
+        {
+            cout << "NO" << endl;
+        }
+        else
+        {
+            cout << "YES" << endl;
+        }
         
 
 
