@@ -250,8 +250,29 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+        vll v;
+        vll v1;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+            v1.pb(k%3);
+        }
 
+        ll c1 = count(all(v1),1);
+        ll c2 = count(all(v1),2);
+
+        if(c1==c2)
+        {
+            cout << c1 << endl;
+        }
+        else
+        {
+            ll left = max(c1,c2) - min(c1,c2);
+            cout << left*3 << endl;
+        }
 
 
 
