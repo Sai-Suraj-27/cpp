@@ -95,19 +95,25 @@ string multiply(string num1, string num2)
     return s;
 }
 
+ll mod = 1e9 + 7;
+
 
 ll btd(string n)
 {
     ll dec_value = 0;
- 
-    // Initializing base value to 1, i.e 2^0
     ll base = 1;
  
     ll len = n.length();
-    for (ll i = len - 1; i >= 0; i--) {
+    for (ll i = len - 1; i >= 0; i--)
+    {
         if (n[i] == '1')
             dec_value += base;
+        
         base = base * 2;
+        base %= mod;
+        dec_value %= (1000000000+7);
+    
+        
     }
  
     return dec_value;
@@ -168,7 +174,7 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 
 
 
-ll mod = 1e9 + 7;
+
 ll modu = 998244353;
 const int N = 2005;  // Based on max n in calculation of ncr (we can get it from the input range)
 vector<long long>fact(N),inv(N),invfact(N);
@@ -250,7 +256,77 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+        string s;
+        cin >> s;
+
+
+        ll l1,r1,l2,r2;
+        ll c1=0,c0=0;
+        for(i=0;i<n;i++)
+        {
+            if(s[i] == '0')
+                c0++;
+            else
+                c1++;
+        }
+
+        if(max(c0,c1) == n)
+        {
+            cout << 0 << endl;
+        }
+        else
+        {
+            i=1;
+            while(s[i] == s[0] and i<sz(s))
+            {
+                i++;
+            }
+            l2 = i;
+            r2 = n-1;
+            ll length = r2-l2;
+
+            i = l2+1;
+            while(s[i] == s[l2] and i<sz(s))
+            {
+                i++;
+            }
+            ll nxt = i;
+
+            if(i<sz(s))
+            {
+                l1 = l2-(nxt-l2);
+                r1 = l1 + length;
+                l1 = max(l1,(ll)0);
+            }
+            else
+            {
+                l1 = 0;
+                r1 = l1 + length;
+            }
+            string f = "";
+
+            i=0;
+            while(i<=length)
+            {
+                if(s[l1+i]!=s[l2+i]){
+                  f +='1';
+                }
+                else{
+                    f+='0';
+                }
+                i++;
+            }
+            //cout << l1 << " " << r1 << " " << l2 << " " << r2 << endl;
+            //cout << f << endl;
+
+            cout << btd(f) << endl;
+
+
+
+
+        }
 
 
 
