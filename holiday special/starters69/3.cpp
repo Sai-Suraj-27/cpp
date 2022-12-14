@@ -223,7 +223,24 @@ ll mod_of_large_num(string num, ll a)
 
 
 
+string dtb(ll n)
+{
+    string s1 = "";
+    for (ll i = 31; i >= 0; i--) {
+        ll k = n >> i;
+        if (k & 1)
+            s1 += "1";
+        else
+            s1 += "0";
+    }
+    return s1;
+}
 
+ll setBitNumber(int n)
+{
+    int k = __builtin_clz(n);
+    return 1 << (31 - k);
+}
 
 
 
@@ -250,7 +267,87 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+        vector<string> vs;
+        vll v1;
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+            string s = dtb(k); 
+            reverse(all(s));
+            vs.pb(s);
+            v1.pb(log2(setBitNumber(k)));
+        }
+
+        ll maxi = *max_element(all(v1));
+        //cout << maxi << endl;
+        if(count(all(v1),maxi) == 1)
+        {
+            cout << -1 << endl;
+        }
+        else
+        {
+            vll covered(maxi+1);
+            vector<vector<ll>> vf(n,vll(32));
+            for(i=0;i<sz(vs);i++)
+            {
+                for(j=0;j<=maxi;j++)
+                {
+                    if(vs[i][j] == '1')
+                    {
+                        covered[j]++;
+                        vf[i].pb(j+1);
+                    }
+                }
+            }
+            bool flag = false;
+            for(i=0;i<sz(covered);i++)
+            {
+                if(covered[i] == 1)
+                {
+                    cout << -1 << endl;
+                    flag = true;
+                    break;
+                }
+            }
+
+            if(!flag)
+            {
+                k = pow(2,maxi+1) - 1;
+                j = count(all(v),k);
+                if(j>=1)
+                {
+                    ll p1 = find(all(v),k) - v.begin();
+                    ll p2;
+                    i = sz(v)-1;
+                    while(i>=0)
+                    {
+                        if(v[i] == k)
+                        {
+                            p2 = i;
+                            break;
+                        }
+                        i--;
+                    }
+                    ll ans = max(n-p1,p2);
+                    
+
+                }
+                else
+                {
+
+                }
+            }
+
+
+        }
+
         
+
+
 
 
 
