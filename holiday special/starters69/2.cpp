@@ -250,7 +250,50 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+        string s;
+        cin >> s;
+        ll c1=0,c0=0;
+        vll v,v1;
+        for(i=0;i<sz(s);i++)
+        {
+            if(s[i] == '0')
+            {
+                c0++;
+                v.pb(i+1);
+            }
+            else
+            {
+                c1++;
+                v1.pb(i+1);
+            }
+        }
+        if(c0==0 or c1==0)
+        {
+            cout << -1 << endl;
+        }
+        else if(c0==c1)
+        {
+            for(auto i:v) cout << i <<  " ";
+            cout << endl;
+        }
+        else if(c0 > c1)
+        {
+            for(i=0;i<n;i++)
+            {
+                cout << v[i] << " ";
+            }
+            cout << endl;
+        }
+        else
+        {
+            for(i=0;i<n;i++)
+            {
+                cout << v1[i] << " ";
+            }
+            cout << endl;
+        }
 
 
 
