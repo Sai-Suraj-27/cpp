@@ -250,27 +250,8 @@ int main()
     {
         
         ll i,j,k;
-        string s;
-        cin >> s;
-        string s1 = "Yes";
-        for(i=0;i<65;i++)
-        {
-            s1 += "Yes";
-        }
-        k=0;
-        int n = sz(s);
-        for(i=0;i<sz(s1);i++)
-        {
-            string s2 = s1.substr(i,n);
-            if(s2==s)
-            {
-                cout << "YES" << endl;
-                k++;
-                break;
-            }
-        }
-        if(!k)
-            cout << "NO" << endl;
+        
+
 
 
 
