@@ -250,15 +250,40 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> k >> n;
 
+        vll diff;
 
+        for(i=1;i<=n-1;i++)
+        {
+            diff.pb(i);
+        }
 
-
-
-
-
-
+        i=1;
+        j=1;
+        if(k==n)
+        {
+            for(i=1;i<=n;i++)
+            {
+                cout << i << " ";
+            }
+        }
+        else
+        {
+            while(k--)
+            {
+                cout << i << " ";
+                //cout << k-1 << " " << j << endl;
+                if(i+j <= n and  (i + j + (k-1)) <=n)
+                    i += j;
+                else
+                    i++;
+                
+                j++;
+            }
+        }
+        cout << endl;
 
 
         
