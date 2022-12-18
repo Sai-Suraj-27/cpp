@@ -250,10 +250,13 @@ int main()
     {
         
         ll i,j,k;
-        
+        string s;
+        cin >> s;
 
+        int a = (int) s[0] - 48;
+        int b = (int) s[2] - 48;
 
-
+        cout << a+b << endl;
 
 
 
