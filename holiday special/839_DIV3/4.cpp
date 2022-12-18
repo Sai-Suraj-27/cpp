@@ -250,9 +250,78 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+        ll val0,val1,val2;
+        for(i=1;i<sz(v)-1;i++)
+        {
+            if(v[i] > v[i-1] and v[i] > v[i+1])
+            {
+                count++;
+                val0 = v[i-1];
+                val1 = v[i];
+                val2 = v[i+1];
+            }
+            else if(v[i] < v[i-1] and v[i] < v[i+1])
+            {
+                count++;
+                val0 = v[i-1];
+                val1 = v[i];
+                val2 = v[i+1];
+            }
+        }
 
 
+        if(is_sorted(all(v)))
+        {
+            cout << 0 << endl;
+        }
+        else if(is_sorted(allr(v)))
+        {
+            cout << *max_element(all(v)) << endl;
+        }
+        else
+        {
+            if(n_uniq(v) == 2)
+            {
+                ll maxi = *max_element(all(v));
+                ll mini = *min_element(all(v));
+                if((maxi + mini)%2==0)
+                {
+                    cout << (maxi + mini)/2 << endl;
+                }
+                else
+                {
+                    cout << -1 << endl;
+                }
+            }
+            else
+            {
+                if(count == 1)
+                {
+                    k = (val1 + val2)/2 + (val1 + val2)%2;
+                    ll k1 = (val1 + val0)/2 + (val0 + val0)%2;
+
+                    cout << max(k,k1) << endl;
+
+                }
+                else
+                {
+                    cout << -1 << endl;
+                }
+                
+            }
+        }
+
+
+ 
 
 
 
