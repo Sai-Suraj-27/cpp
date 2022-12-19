@@ -250,7 +250,45 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+        vll v;
+        vll v1;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+
+        if(SUM(v)%2==0)
+            cout << 0 << endl;
+        else
+        {
+            for(i=0;i<n;i++)
+            {
+                ll count = 0;
+                k = v[i];
+                if(k%2==1)
+                {
+                    while(k%2==1)
+                    {
+                        k /= 2;
+                        count++;
+                    }
+                    v1.pb(count);
+                }
+                else
+                {
+                    while(k%2==0)
+                    {
+                        k /= 2;
+                        count++;
+                    }
+                    v1.pb(count);
+                }
+            }
+            cout << *min_element(all(v1)) << endl;
+        }
 
 
 
