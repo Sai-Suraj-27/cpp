@@ -241,7 +241,7 @@ int main()
     cin.tie(0); cout.tie(0);
   
     ll t;
-    cin >> t;
+    t=1;
     
     // here...
     // we might have to precompute using pre(); 
@@ -250,7 +250,31 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n,q;
+        cin >> n >> q;
+
+        string s;
+        cin >> s;
+        ll ans=0;
+        vll pref;
+        pref.pb(0);
+
+        for(i=0;i<sz(s);i++)
+        {
+            k = s[i] - '0' - 48;
+            ans += k;
+            pref.pb(ans);
+        }
+
+
+        while(q--)
+        {
+            ll l,r;
+            cin >> l >> r;
+            cout << (pref[r] - pref[l-1]) << endl;
+
+
+        }
 
 
 

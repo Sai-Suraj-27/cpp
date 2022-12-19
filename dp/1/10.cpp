@@ -250,7 +250,35 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+        vll v;
         
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+
+        sort(all(v));
+
+        ll ans=0;
+        i=0;
+        while(i<sz(v))
+        {
+            k = upper_bound(all(v),v[i]) - lower_bound(all(v),v[i]);
+            if(k==1)
+                ans++;
+            else if(!binary_search(all(v),v[i]+1))
+                ans += 2;
+            else
+                ans++;
+            i += k;
+        }
+
+        cout << ans << endl;
+
+
 
 
 
