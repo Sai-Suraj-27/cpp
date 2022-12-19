@@ -256,6 +256,23 @@ int main()
         string s;
         cin >> s;
 
+        if(s.substr(0,4) == "2020" or s.substr(sz(s)-4,4) == "2020")
+        {
+            cout << "YES" << endl;
+        }
+        else if((s.substr(0,3) == "202" and s.substr(sz(s)-1,1)=="0") or (s.substr(0,1) == "2" and s.substr(sz(s)-3,3)=="020"))
+        {
+            cout << "YES" << endl;
+        }
+        else if(s.substr(0,2) == "20" and s.substr(sz(s)-2,2) == "20")
+        {
+            cout << "YES" << endl;
+        }
+        else
+        {
+            cout << "NO" << endl;
+        }
+
         
 
 
