@@ -250,9 +250,20 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+
+        string s = "BAN";
+        i=1;
+        while(i<n)
+        {
+            s += "BAN";
+            i++;
+        }
+
+        //cout << s << endl;
+
         
-
-
 
 
 
