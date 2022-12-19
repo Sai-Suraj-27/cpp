@@ -250,19 +250,7 @@ int main()
     {
         
         ll i,j,k;
-        ll n;
-        cin >> n;
-
-        string s;
-        cin >> s;
-
-        for(i=0;i<sz(s)-1;i++)
-        {
-            if(s[i] == '1' and s[i+1] == '0')
-            {
-                
-            }
-        }
+        
 
 
 
