@@ -250,7 +250,15 @@ int main()
     {
         
         ll i,j,k;
+        string s;
+        cin >> s;
         
+        sort(all(s));
+        string s1 = s;
+        reverse(all(s1));
+        s += s1;
+
+        cout << s << endl;
 
 
 
