@@ -5,20 +5,20 @@ DP -> Tabulation
       overlapping subproblems
       optimal substructures
     
-DP -> Recursive or backtracking with + Catching/saving the required value.
+DP -> [Recursive or backtracking] with + Catching/saving the required value.
 
 Frame work to solve any problem;    
     1. Recognize the form (patterns)
-    2. what is the states?, what we are computing? (90% of the times this is problem that is asked).
+    2. what is the states?, what we are computing? (90% of the times this is = problem that is asked).
     3. Transition modeling
     4. Catch and return
     5. Code
 
 
 Level   : Cuurent states or item or iterating over whole search space efficiently
-Choice  : What choices we have for our Cuurent state/item.
-Check   : How many of these choices for this curr state/item are valid or which are making sense/correct to explore them further.
-Move    : For every valid chance save required info and move to the next state/item/travel through the search space furhter.
+Choice  : What choices we have for our Current state/item.
+Check   : How many of these choices that we have for this curr (state/item) are valid or which are making sense/correct to explore them further.
+Move    : For every valid choice save required info and move to the next (state/item)/travel through the search space furhter.
 
 
 
