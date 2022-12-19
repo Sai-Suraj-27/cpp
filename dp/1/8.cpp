@@ -240,9 +240,7 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
-    
+    ll t=1;
     // here...
     // we might have to precompute using pre(); 
 
@@ -250,7 +248,11 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+
+        cout << pow(n-1,2) + pow(n,2) << endl;
+        // nth order rhombus will have n^2 more cells.
 
 
 
