@@ -1,0 +1,82 @@
+AlmaBetter is an EdTech platform to educate and prepare
+students for modern-day careers by combining the
+best aspects of MOOCs, vocational schools, apprenticeships, and
+bootcamps.
+
+Shivam Dutta - Co-Founder and CEO - AlmaBetter
+Ravi kumar gupta, vikash
+
+2020 - IITKGP and IIT Delhi.
+
+Raised 2.7 Million dollars. Kalaari capital and polygon.
+
+
+Supervised learning algorithms are trained using labeled data.
+Unsupervised learning algorithms are trained using unlabeled data. => Clustering.
+Grouping unlabeled examples is called clustering.
+
+
+Regression models will be trained to understand the
+relationship between different independent variables and an outcome. 
+
+Most common use of regression analysis in business is for forecasting
+future opportunities and threats.  Demand analysis, for example, forecasts the amount of
+things a customer is likely to buy.
+
+-> Simple Linear Regression
+Plots a st.line within data points to minimize the error. The relationship between 
+the independent(X) and dependent variables(Y) is assumed to be linear in this case.
+Outliers are common because of best line of fit.
+Y = aX + b;
+- Real Estate prediction
+- Salary vs experience prediction.
+- Sales Estimates.
+
+
+-> Multiple Linear Regression
+Ex: Polynomial Regression, curve line fitted to the data points.
+Used when Multiple independent variables are involved
+Multiple variabels might have the same degree.
+
+
+Polynomial Regression
+Models the non-linear data set. by finding a best fit non-linear curve.
+Y= b0+b1x+ b2x^2+ b3x^3+.....+ bnx^n.
+X => Input or independent variable.
+Single varibale with Multiple degrees.
+
+
+
+-> Logistic Regression
+Logistic Regression is used when the dependent variable can have values like true or false;
+success or failure. 
+Generally A sigmoid curve is used to plot the relationship between dependent and independent 
+varialbes.
+we have dependent variables in a binary or discrete format such as 0 or 1.
+
+f(x) = 1/+e^(-x);
+
+Binary (T/F, pass/fail), Multi (diff animals)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
