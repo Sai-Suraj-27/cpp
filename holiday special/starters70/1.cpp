@@ -254,7 +254,32 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+        string s;
+        cin >> s;
+        vll v;
+        for(i=0;i<sz(s);i++)
+        {
+            if(s[i] == '1')
+                v.pb(i);
+        }
+        ll mini = INT_MAX;
+        for(i=0;i<sz(v)-1;i++)
+        {
+            k = v[i+1]-v[i];
+            j = k%2;
+            if(j==0)
+            {
+                k = 2;
+            }
+            else
+            {
+                k=1;
+            }
+            mini = min(k,mini);
+        }
+        cout << mini << endl;
 
 
 

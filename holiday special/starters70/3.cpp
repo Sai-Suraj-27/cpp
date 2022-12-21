@@ -226,11 +226,14 @@ bool comp(pair<ll,ll> a, pair<ll,ll> b)
 
 
 
+// Sai Suraj
 
 
+void bfs(unordered_map<ll,vll> &mp, vll &v1, ll i)
+{
 
 
-
+}
 
 
 
@@ -243,32 +246,81 @@ int main()
 	// your code goes here.
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-  
+
+
     ll t;
     cin >> t;
-    
-    // here...
-    // we might have to precompute using pre(); 
 
     while(t--)
     {
-        
+
+        ll n;
         ll i,j,k;
-        
+        cin >> n;
+        vll v;
+
+        // sai 
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+
+        ll v1[n + 1] {};
+
+        map<ll, ll> mp;
+
+        ll p = 0, c = 0;
+        vll f;
+
+        for(i=0; i<n;i++)
+        {
+            if (v[i] > n)
+            {
+                c = n + 1;
+                break;
+            }
+            if(v1[v[i]] == 0)
+            {
+                p++;
+                mp[v[i]] = p;
+                v1[v[i]] = v[i] - 1;
+                c += v[i];
+                f.push_back(p);
+            }
+            else
+            {
+                f.push_back(mp[v[i]]);
+                v1[v[i]]--;
+            }
+        }
+
+        if(c!=n)
+        {
+            cout << -1 << endl;
+        }
+        else
+        {
+            for (auto i:f) cout << i << " ";
+            cout << endl;
+        }
 
 
 
 
 
+    // Sai Suraj
 
 
 
 
-
-        
+            
 
     }
 
 
 	return 0;
 }
+
+// Sai Suraj
+// Sai Suraj

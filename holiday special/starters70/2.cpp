@@ -254,7 +254,21 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+        string s;
+        cin >> s;
+        string s1;
+        cin>>s1;
+
+        if(count(all(s),'0') != count(all(s1),'0'))
+        {
+            cout << "NO" << endl;
+        }
+        else
+        {
+            cout << "YES" << endl;
+        }
 
 
 
