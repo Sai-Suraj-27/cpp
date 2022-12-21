@@ -250,7 +250,43 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+        vll v;
+        ll c0=0,c1=0;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+            if(k==0)
+                c0++;
+            else 
+                c1++;
+        }
+
+        ll pre=0;
+        for(i=0;i<n-1;i++)
+        {
+            if(v[i] != v[i+1])
+                pre++;
+        }
+        if(v[0] != v[n-1])
+            pre++;
+
+        ll maxi = min(c0,c1)*2;
+        ll left = maxi-pre;
+
+        ll a = left/2;
+
+        if(a%2==0)
+        {
+            cout << "Bob" << endl;
+        }
+        else
+            cout << "Alice" << endl;
         
+
+
 
 
 
