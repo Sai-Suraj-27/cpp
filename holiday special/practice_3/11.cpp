@@ -222,7 +222,10 @@ ll mod_of_large_num(string num, ll a)
 
 
 
-
+bool comp(pair<ll,ll> a, pair<ll,ll> b)
+{
+    return (a.first*b.second) > (a.second*b.first);
+}
 
 
 
@@ -250,15 +253,36 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+        vll v,v1;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v1.pb(k);
+        }
+
+        vpll vp;
         
+        for(i=0;i<n;i++)
+        {
+            vp.pb({v[i],v1[i]});
+        }
 
-
-
-
-
-
-
-
+        sort(all(vp), comp);
+        ll ans = 0;
+        ll pos = 0;
+        for(i=0;i<sz(vp);i++)
+        {
+            ans += (pos)*(vp[i].second);
+            pos += vp[i].first;
+        }
+        cout << ans << endl;
 
 
         

@@ -219,6 +219,11 @@ ll mod_of_large_num(string num, ll a)
     return res;
 }
 
+bool comp(pair<ll,ll> a, pair<ll,ll> b)
+{
+    return (a.first*b.second) > (a.second*b.first);
+}
+
 
 
 
