@@ -250,7 +250,41 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+
+        sort(all(v));
+        ll sum = SUM(v);
+        if(allEqual(v))
+        {
+            cout << 0 << endl;
+        }
+        else
+        {
+            ll count=0,k=0;
+            while(true and sz(v) > 1)
+            {
+                k += v[sz(v)-1];
+                //cout << k << endl;
+                count++;
+                ll need = v[sz(v)-2]*(n-count);
+                ll present = sum-k;
+                v.erase(v.begin() + sz(v)-1);
+                //for(auto i:v) cout << i << " ";
+                //cout << endl;
+                if(need-present <= k)
+                {
+                    break;
+                }
+            }
+            cout << count << endl;
+        }
 
 
 
