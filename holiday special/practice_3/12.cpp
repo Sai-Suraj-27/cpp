@@ -22,9 +22,10 @@ const long double pi=3.141592653589793238462643383279502884197169399375105820974
 
 using namespace std;
 
-/* inline bool isPalindrome(const string& s) {
+inline bool isPalindrome(const string& s)
+{
     return equal(s.begin(), s.end(), s.rbegin());
-}*/
+}
 
 template<typename T>
 bool allEqual(std::vector<T> const &v) {
@@ -255,7 +256,79 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+        string s;
+        cin >> s;
+
+        ll c0 = count(all(s),'0');
+        ll c1 = count(all(s),'1');
+        // s[0] != s[n-1] or (n%2==0 and c0!=c1) or (n%2==1 and abs(c0-c1) !=1)
         
+        if(c0==0 or c1==0)
+        {
+            cout << -1 << endl;
+        }
+        else if(!isPalindrome(s))
+        {
+            cout << 1 << endl;
+            cout << 2*n << endl;
+        }
+        else
+        {
+            if(s[0] == '1')
+            {
+                ll pos = find(all(s),'0') - s.begin();
+                ll l1 = pos+1;
+                string s1 = "";
+                for(i=pos+1;i<sz(s);i++)
+                {
+                    s1 += s[i];
+                }
+                if(isPalindrome(s1))
+                {
+                    l1++;
+                    cout << 2 << endl;
+                    cout << l1 <<  " " << 2*n-l1 << endl;
+                }
+                else if(2*n-l1 == 1)
+                {
+                    cout << -1 << endl;
+                }
+                else
+                {
+                    cout << 2 << endl;
+                    cout << l1 <<  " " << 2*n-l1 << endl;
+                }
+            }
+            else
+            {
+                ll pos = find(all(s),'1') - s.begin();
+                ll l1 = pos+1;
+                string s1 = "";
+                for(i=pos+1;i<sz(s);i++)
+                {
+                    s1 += s[i];
+                }
+                if(isPalindrome(s1))
+                {
+                    l1++;
+                    cout << 2 << endl;
+                    cout << l1 <<  " " << 2*n-l1 << endl;
+                }
+                else if(2*n-l1 == 1)
+                {
+                    cout << -1 << endl;
+                }
+                else
+                {
+                    cout << 2 << endl;
+                    cout << l1 <<  " " << 2*n-l1 << endl;
+                }
+            }
+
+        }
+
 
 
 
