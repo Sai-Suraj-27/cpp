@@ -254,15 +254,16 @@ int main()
     {
         
         ll i,j,k;
+        string s;
+        cin >> s;
+        string s1 = "";
         
+        sort(all(s));
+        s1 += s;
+        reverse(all(s1));
 
-
-
-
-
-
-
-
+        s += s1;
+        cout << s << endl;
 
 
         
