@@ -244,56 +244,40 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
   
-    ll t;
-    cin >> t;
-    
+    ll t=1;    
     // here...
     // we might have to precompute using pre(); 
 
     while(t--)
     {
         
-        ll i,j,k;
-        vll v;
-        vll pref;
+        ll i,j,k=0;
+        string s;
+        cin >> s;
 
-        ll n;
-        cin >> n;
-        ll sum=0;
-        for(i=0;i<n;i++)
+        vector<char> vc;
+        ll a = count(all(s),'a');
+        ll b = count(all(s),'b');
+        ll d = count(all(s),'c');
+        for(i=0;i<sz(s);i++)
         {
-            cin >> k;
-            v.pb(k);
-            sum += k;
-            pref.pb(sum);
-        }
-
-        ll c=0;
-        for(i=0;i<sz(v);i++)
-        {
-            if(pref[i] == 0)
-                c++;
-            else
+            if(!binary_search(all(vc), s[i]))
+                vc.pb(s[i]);
+            else if(s[i] != s[i-1])
             {
-                if(v[i] == 0)
-                {
-                    
-                }
+                k++;
+                cout << "NO" << endl;
+                break;
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
+        string s1 = "";
+        for(auto i:vc)
+            s1 += i;
         
+        if(s1 == "abc" and k==0 and (d==a or d==b))
+            cout << "YES" << endl;
+        else if(k==0)
+            cout << "NO" << endl;
 
     }
 
