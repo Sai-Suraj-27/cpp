@@ -254,13 +254,44 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+
+        ll mini = *min_element(all(v));
+        vector<pair<ll,ll>> v1;
         
+        for(i=0;i<sz(v);i++)
+        {
+            v1.pb({v[i],i});
+        }
+        
+        sort(all(v1));
+        cout << n << endl;
+        cout << v1[0].second + 1 << " " << 0 << endl;
+        for(i=1;i<n;i++)
+        {
+            if(v1[i].first != v1[i-1].first)
+            {
+                ll x = v1[i].first/v1[i-1].first;
+                x++;
+                ll y = x*v1[i-1].first;
+                ll z = y - v1[i].first;
+                v1[i].first += z;
+                cout << v1[i].second + 1 << " " << z << endl;
+            }
+            else
+                cout << v1[i].second + 1 << " " << 0 << endl;
+        }
 
-
-
-
-
-
+        // for(auto i:v1) cout << i.first << " ";
+        // cout << endl;
 
 
 
