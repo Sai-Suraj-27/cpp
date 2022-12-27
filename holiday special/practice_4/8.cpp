@@ -254,7 +254,34 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+        string s;
+        cin >> s;
+
+        ll ans = 0, curr_len=0;
         
+        
+        for(i=0;i<sz(s);i++)
+        {
+            ll dis = 0;
+            unordered_map<char,ll> mp;
+            ll maxi = INT_MIN;
+
+            for(j=i;j<sz(s) and mp[s[j]]<= 10; j++)
+            {
+                mp[s[j]]++;
+                maxi = max(maxi, mp[s[j]]);
+
+                if(mp[s[j]] == 1)
+                    dis++;
+                
+                if(maxi <= dis)
+                    ans++;
+            }
+        }
+        cout << ans << endl;
+
 
 
 

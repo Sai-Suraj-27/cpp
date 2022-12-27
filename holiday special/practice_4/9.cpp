@@ -254,7 +254,35 @@ int main()
     {
         
         ll i,j,k;
-        
+        vll v;
+        vll pref;
+
+        ll n;
+        cin >> n;
+        ll sum=0;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+            sum += k;
+            pref.pb(sum);
+        }
+
+        ll c=0;
+        for(i=0;i<sz(v);i++)
+        {
+            if(pref[i] == 0)
+                c++;
+            else
+            {
+                if(v[i] == 0)
+                {
+                    
+                }
+            }
+        }
+
+
 
 
 
