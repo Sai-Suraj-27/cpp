@@ -254,12 +254,32 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n,m;
+        cin >> n >> m;
+        vll v(n+1,n);
 
+        while(m--)
+        {
+            ll x,y;
+            cin >> x >> y;
+            if(x>y)
+                swap(x,y);
+            
+            v[x] = min(v[x], y-1);
+        }
 
+        for(i=n-1;i>=0;i--)
+        {
+            v[i] = min(v[i], v[i+1]);
+        }
 
+        ll ans = 0;
+        for(i=1;i<=n;i++)
+        {
+            ans += (v[i] - i) + 1;
+        }
 
-
+        cout << ans << endl;
 
 
 
@@ -272,3 +292,4 @@ int main()
 
 	return 0;
 }
+
