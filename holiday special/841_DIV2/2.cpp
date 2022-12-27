@@ -254,76 +254,14 @@ int main()
     {
         
         ll i,j,k;
-        ll n;
-        cin >> n;
-        ll k1,k2;
-        cin >> k1 >> k2;
+        
 
-        vll v;
-        vll v1;
 
-        for(i=0;i<n;i++)
-        {
-            cin >> k;
-            v.pb(k);
-        }
-        for(i=0;i<n;i++)
-        {
-            cin >> k;
-            v1.pb(k);
-        }
 
-        vector<pair<ll,ll>> vp;
 
-        for(i=0;i<n;i++)
-        {
-            vp.pb({v[i]-v1[i], i});
-        }
-        sort(all(vp));
 
-        reverse(all(vp));
 
-        for(i=0;i<sz(vp);i++)
-        {
-            k = vp[i].first;
-            if(k<0)
-            {
-                k += min(-k,k1);
-                k1 -= min(-k,k1);
-            }
-            else
-            {
-                ll p = k;
-                k -= min(k,k2);
-                k2 -= min(p,k2);
-            }
-            vp[i].first = k;
-        }
 
-        ll left = abs(k1-k2);
-        ll l = left/n;
-        ll r = left%n;
-        ll ans1=0;
-        for(i=0;i<sz(vp);i++)
-        {
-            ans1 += pow(vp[i].first,2);
-        }
-        if(ans1 !=0)
-            cout << ans1 << endl;
-        else
-        {
-            if(l==0)
-            {
-                cout << left << endl;
-            }
-            else
-            {
-                ll ans = 0;
-                ans += (r)*pow(l+r,2);
-                ans += (n-r)*l;
-                cout << ans << endl;
-            }
-        }
 
 
 
