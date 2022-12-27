@@ -254,7 +254,26 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+
+        if(n%2==1)
+        {
+            for(i=1;i<=n;i++)
+                cout << 1 << " ";
+            
+            cout << endl;
+        }
+        else
+        {
+            cout << 1 << " " << 3 << " ";
+            k=n-2;
+            while(k--)
+            {
+                cout << 2 << " ";
+            }
+            cout << endl;
+        }
 
 
 
