@@ -254,14 +254,28 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+
+        ll maxi = *max_element(all(v)) - *min_element(all(v));
+
+        j = count(all(v), *min_element(all(v)));
+        k = count(all(v), *max_element(all(v)));
+        if(allEqual(v))
+        {
+            cout << j*(j-1) << endl;
+        }
+        else
+            cout << 2*j*k << endl;
+
         
-
-
-
-
-
-
-
 
 
 
