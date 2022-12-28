@@ -225,7 +225,6 @@ bool comp(pair<ll,ll> a, pair<ll,ll> b)
 }
 
 
-
 ll moduloMultiplication(ll a, ll b, ll mod)
 {
     ll ans = 0; 
@@ -241,6 +240,7 @@ ll moduloMultiplication(ll a, ll b, ll mod)
     
     return ans;
 }
+
 
 
 
@@ -268,18 +268,17 @@ int main()
     {
         
         ll i,j,k;
-        ll n;
-        cin >> n;
+        
 
-        j = moduloMultiplication(n,n,mod);
-        j = moduloMultiplication(4,j,mod);
-        k = moduloMultiplication(n,3,mod);
 
-        i = j + k - 1;
-        i = moduloMultiplication(i,n,mod);
-        i = moduloMultiplication(i,337,mod);
 
-        cout << i << endl;
+
+
+
+
+
+
+
         
 
     }
