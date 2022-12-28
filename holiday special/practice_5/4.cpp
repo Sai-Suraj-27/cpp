@@ -268,7 +268,28 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n,x;
+        cin >> n >> x;
+
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+
+        ll a=0,b=0;
+        ll p,q;
+        for(i=1;i<n;i++)
+        {
+            p = max((v[i]^(v[i-1]+x)) + b, a + (v[i]^(v[i-1])));
+            q = max((v[i-1]^(v[i] + x)) + a, b + ((v[i-1] + x)^(v[i] + x)));
+            
+            a = p;
+            b = q;
+        }
+
+        cout << max(a,b) << endl;
 
 
 
