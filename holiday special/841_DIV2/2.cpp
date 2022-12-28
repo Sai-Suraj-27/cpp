@@ -227,8 +227,10 @@ bool comp(pair<ll,ll> a, pair<ll,ll> b)
 
 
 
-
-
+ll squaresum(ll n)
+{
+    
+}
 
 
 
@@ -254,13 +256,39 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+        ll sum=0;
+
+        k = n*(n-1);
+        j = long_power_long(n,2) - n;
+        j %= mod;
+        k %= mod;
+        k *= (2*n-1);
+        k %= mod;
+        k /= 3;
+        k%= mod;
 
 
+        j /= 2;
 
 
+        ll p = 2*long_power_long(n,3);
+        p %= mod;
+        p -= 3*long_power_long(n,2);
+        p %= mod;
+        p += n;
+        p%= mod;
+        p /= 3;
 
 
+        sum = j + k;
+        sum += n*n;
+
+        sum *= 2022;
+
+        sum %= 1000000007;
+        cout << sum << endl;
 
 
 

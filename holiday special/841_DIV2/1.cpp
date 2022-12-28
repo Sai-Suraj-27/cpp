@@ -224,7 +224,22 @@ bool comp(pair<ll,ll> a, pair<ll,ll> b)
     return (a.first*b.second) > (a.second*b.first);
 }
 
+ll moduloMultiplication(ll a, ll b, ll mod)
+{
+    ll res = 0; 
+    a %= mod;
+ 
+    while (b)
+    {
+        if (b & 1)
+            res = (res + a) % mod;
+        a = (2 * a) % mod;
+        b >>= 1;
+    }
+ 
+    return res;
 
+}
 
 
 
@@ -254,14 +269,22 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
         
+        k = moduloMultiplication(n,n,mod);
+        j = moduloMultiplication(k,n,mod);
+        j = moduloMultiplication(j,4,mod);
+        k = moduloMultiplication(k,3,mod);
 
+        ll sum = j+k;
+        sum -= n;
 
+        sum /= 6;
 
+        cout << sum << endl;
 
-
-
-
+         
 
 
 
