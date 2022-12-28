@@ -268,7 +268,27 @@ int main()
     {
         
         ll i,j,k;
-        
+        vll v;
+        ll n;
+        cin >> n;
+        ll c=0;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+            if(k%2==0)
+                c++;
+        }
+
+        if(SUM(v)%2==1)
+            cout << "NO" << endl;
+        else
+        {
+            if(c==n)
+                cout << "NO" << endl;
+            else
+                cout << "YES" << endl;
+        }
 
 
 

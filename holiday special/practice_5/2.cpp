@@ -268,9 +268,15 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n,x1,x2,y1,y2;
+        cin >> n >> x1 >> y1 >> x2 >> y2;
 
+        ll a1 = abs(x1-x2) + abs(y1-y2);
 
+        ll a2 = min({x1,y1,n-x1+1,n-y1+1});
+        ll a3 = min({x2,y2,n-x2+1,n-y2+1});
+
+        cout << min(a1,a2+a3) << endl;
 
 
 

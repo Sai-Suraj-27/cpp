@@ -7,8 +7,6 @@
 #define setbits(x)  __builtin_popcountll(x)
 #define zrobits(x)  __builtin_ctzll(x)
 #define ps(x,y)  fixed<<setprecision(y)<<x
-#define gcd(a,b) __gcd(a,b)
-#define lcm(a,b) (1LL*(a/gcd(a,b))*b)
 #define MAX(x) *max_element(all(x))
 #define MIN(x) *min_element(all(x))
 #define SUM(a) accumulate(all(a),0LL)
@@ -161,16 +159,54 @@ auto it = std::remove_if(str.begin(), str.end(), [](char const &c) {
 // sort(v.begin(), v.end(), [](int a, int b) { return abs(a)<abs(b); });
 
 
-
 // cout << "hex_num = " << stoll(hex_num, nullptr, 16) << "\n";
 // cout << "binary_num = " << stoll(binary_num, nullptr, 2) << "\n";
 // cout << "dec_num = " << stoll(dec_num, nullptr, 10) << "\n ";
+
+
+pair<ll,ll> fib(ll n)
+{
+    // Returns F(n), F(n+1) as a pair
+    if (n == 0)
+        return {0, 1};
+
+    auto p = fib(n >> 1);
+    ll c = p.first * (2 * p.second - p.first);
+    ll d = p.first * p.first + p.second * p.second;
+    if (n & 1)
+        return {d, c + d};
+    else
+        return {c, d};
+}
+
+vector<bool> primes()
+{
+    // To find all the primes between 0 and M;
+    ll M = 100000;
+    vector<bool> is_prime(M, true);
+
+    is_prime[0] = false;
+    is_prime[1] = false;
+    for (ll i = 2; i * i <= M; i++)
+    {
+        if (is_prime[i])
+        {
+            for (ll j = i * i; j <= M; j += i)
+                is_prime[j] = false;
+        }
+    }
+    return is_prime;
+
+}
+
+
 
 
 
 ll mod = 1e9 + 7;
 ll modu = 998244353;
 const int N = 2005;  // Based on max n in calculation of ncr (we can get it from the input range)
+
 vector<long long>fact(N),inv(N),invfact(N);
 void pre()
 {
@@ -197,7 +233,14 @@ long long ncr(long long n,long long r)
 }
 
 
+
+
+
 // Very large power very large nber modulo...
+// This is also => binary Exponentiation with modulo (m)...
+// The module operator doesn't interfere with multiplications
+// a*b = ((a%m) * (b%m))%m;
+// x^n % m
 ll long_power_long(ll x, ll n)
 {
     ll result = 1;
@@ -209,6 +252,13 @@ ll long_power_long(ll x, ll n)
     }
     return result;
 }
+
+
+ll lcm(ll a, ll b)
+{
+    return (a /__gcd(a, b)) * b;
+}
+
 
 ll mod_of_large_num(string num, ll a)
 {
