@@ -318,7 +318,59 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+        vll v;
+
+        unordered_map<ll,ll> mp;
+
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+            mp[k]++;
+        }
+        j=0;
+        for(auto i:mp)
+        {
+            if(i.second%i.first != 0)
+            {
+                j++;
+                break;
+            }
+        }
+        if(j>0)
+        {
+            cout << -1 << endl;
+        }
+        else
+        {
+            j = 1;
+            vll v1;
+            unordered_map<ll,ll> mp1;
+
+            for(i=0;i<n;i++)
+            {
+                if(mp[v[i]]%v[i] == 0)
+                {
+                    mp[v[i]]--;
+                    v1.pb(j);
+                    mp1[v[i]] = j;
+                    j++;
+                }
+                else
+                {
+                    v1.pb(mp1[v[i]]);
+                    mp[v[i]]--;
+                }
+            }
+
+            for(auto i:v1) cout << i << " ";
+            cout << endl;
+
+        }
+
+
 
 
 
