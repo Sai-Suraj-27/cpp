@@ -295,13 +295,6 @@ ll moduloMultiplication(ll a, ll b, ll mod)
 
 
 
-
-
-
-
-
-
-
 int main()
 {
 	// your code goes here.
@@ -317,17 +310,27 @@ int main()
     while(t--)
     {
         
-        ll i,j,k;
+        ll i,j,k;   
+        ll n;
+        cin >> n;
 
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
 
+        vll v1;
+        for(i=0;i<n-1;i++)
+        {
+            for(j=i+1;j<n;j++)
+            {
+                v1.pb(v[j] - v[i]);
+            }
+        }
 
-
-
-
-
-
-
-
+        cout << n_uniq(v1) << "\n";
 
         
 
