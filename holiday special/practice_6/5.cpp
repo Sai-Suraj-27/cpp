@@ -318,15 +318,32 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+        string s;
+        
+        cin >> s;
+        string s1 = "";
+        s1 += s[0];
+        for(i=1;i<n;i++)
+        {
+            if(s[i] < s[0] and s[i] <= s[i-1])
+            {
+                s1 += s[i];
+            }
+            else 
+            {
+                break;
+            }
+        }
 
+        string s2 = s1;
+        reverse(all(s1));
 
+        s2 += s1;
 
-
-
-
-
-
-
+        
+        cout << s2 << endl;
 
 
         
