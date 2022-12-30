@@ -318,16 +318,40 @@ int main()
     {
         
         ll i,j,k;
+        string v;
+        cin >> v;
+        ll c=0;
+        ll n = sz(v);
+        string s1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!#$@0123456789";
+        j=0;
+        for(i=0;i<n-2;i++)
+        {
+            if(j>=sz(s1))
+            {
+                j=0;
+            }
+            if(v[i] == v[i+1])
+            {
+                c++;
+                v[i+1] = s1[j];
+                //cout << i+1 << " ";
+                j++;
+            }
+            if(v[i] == v[i+2])
+            {
+                c++;
+                v[i+2] = s1[j];
+                //cout << i+1 << " ";
+                j++;
+            }
+        }
+        if(v[i] == v[i+1])
+        {
+            c++;
+            //cout << i+1 << " ";
+        }
 
-
-
-
-
-
-
-
-
-
+        cout << c << endl;
 
         
 
