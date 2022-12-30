@@ -318,7 +318,39 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+        vll v;
+        unordered_map<ll,ll> mp;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+            mp[k]=0;
+        }
+        vll v1;
+        for(i=0;i<n;i++)
+        {
+            if(mp[v[i]] > 0)
+            {
+                mp[-v[i]]++;
+            }
+            else
+            {
+                mp[v[i]]++;
+            }
+        }
 
+        for(auto i:mp)
+        {
+            v1.pb(i.first);
+        }
+
+        cout << sz(v1) << "\n";
+
+
+
+        
 
 
 
