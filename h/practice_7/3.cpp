@@ -293,8 +293,10 @@ ll moduloMultiplication(ll a, ll b, ll mod)
 
 
 
+ll solve(vll v, ll i, ll &sum)
+{
 
-
+}
 
 
 
@@ -318,15 +320,45 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        string s;
+        cin >> n;
+        cin >> s;
+
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+        ll sum=0;
+
+
+        solve(v,n,sum);
         
+        for(i=1;i<n;i++)
+        {
+            if(s[i] == '1' and s[i-1] == '0')
+            {
+                cout << i << " ";
+                if(v[i] < v[i-1])
+                {
+                    s[i-1] = '1';
+                    s[i] = '0'; 
+                }
+            }
+        }
 
+        cout << s << endl;
+        for(i=0;i<n;i++)
+        {
+            if(s[i] == '1')
+            {
+                sum += v[i];
+            }
+        }
 
-
-
-
-
-
-
+        cout << sum << endl;
 
 
         
