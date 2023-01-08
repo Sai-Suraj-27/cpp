@@ -318,7 +318,20 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+        n = 10-n;
+        k = (n)*(n-1)/2;
+        j = 6;
+
+        cout << k*j << endl;
 
 
 
