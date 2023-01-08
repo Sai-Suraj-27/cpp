@@ -318,7 +318,22 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+        j=1;
+        for(i=1;i<=n;i++)
+        {
+            if(i%2==1)
+            {
+                cout << j << " ";
+            }
+            else
+            {
+                cout << n+1-j << " ";
+                j++;
+            }
+        }
+        cout << endl;
 
 
 
