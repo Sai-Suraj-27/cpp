@@ -318,8 +318,97 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
 
+        vector<vector<ll>> v(n, vll(n));
+        ll row = n;
+        ll col = n;
+        
+        ll total = row * col; 
+        ll count = 0; 
+
+        ll rs = 0; 
+        ll re = row - 1; 
+
+        ll cs= 0; 
+        ll ce = col - 1; 
+        ll diff = n*n-1;
+        j = 1;
+        bool flag = true;
+        while(count < total)
+        {
+            for(ll Index = cs; count < total && Index <= ce; Index++)
+            {
+                v[rs][Index] = j;
+                if(flag)
+                {
+                    j += diff;
+                }
+                else{
+                    j -= diff;
+                }
+                diff--;
+                count++;
+                flag = !flag;
+            }
+            rs++;
+            for(ll Index  = rs; count < total && Index <= re; Index++)
+            {
+                v[Index][ce] = j;
+                if(flag)
+                {
+                    j += diff;
+                }
+                else{
+                    j -= diff;
+                }
+                diff--;
+                count++;
+                flag = !flag;
+            }
+            ce--;
+            for(ll Index =ce; count < total && Index >= cs; Index--)
+            {
+                v[re][Index] = j;
+                if(flag)
+                {
+                    j += diff;
+                }
+                else{
+                    j -= diff;
+                }
+                diff--;
+                count++;
+                flag = !flag;
+            }
+            re--;
+            for(ll Index =re; count < total && Index >= rs; Index--)
+            {
+                v[Index][cs] = j;
+                if(flag)
+                {
+                    j += diff;
+                }
+                else{
+                    j -= diff;
+                }
+                diff--;
+                count++;
+                flag = !flag;
+            }
+            cs++;
+        }
+
+
+        for(i=0;i<n;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+                cout << v[i][j] << " ";
+            }
+            cout << endl;
+        }
 
 
 
