@@ -318,7 +318,51 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n,m;
+        cin >> n >> m;
+
+        vll v;
+
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+        }
+
+        sort(all(v));
+        ll count=0,sum=0;
+        for(i=0;i<n;i++)
+        {
+            if(sum + v[i] > m)
+                break;
+
+            sum += v[i];
+            count++;
+        }
+
+        // cout << count << endl;
+
+        vll v1,v2;
+        v2 = v;
+        v2.pb(m);
+        sort(allr(v2));
+        for(auto i:v) cout << i << " ";
+        cout << endl;
+        i=0;
+        while(i<n)
+        {
+            j = upper_bound(all(v),v[i]) - lower_bound(all(v),v[i]);
+            cout << j << " ";
+            k = (n+1) - j - i;
+            v1.pb(k);
+            i++;
+        }
+
+        sort(allr(v1));
+
+        for(auto i:v1) cout << i << " ";
+        cout << endl;
+
 
 
 
