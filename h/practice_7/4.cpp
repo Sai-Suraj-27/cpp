@@ -297,11 +297,6 @@ ll moduloMultiplication(ll a, ll b, ll mod)
 
 
 
-
-
-
-
-
 int main()
 {
 	// your code goes here.
@@ -318,16 +313,28 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n >> k;
 
+        vll v;
+        for(i=0;i<n;i++)
+        {
+            cin >> j;
+            v.pb(j);
+        }
 
-
-
-
-
-
-
-
+        j=1;
+        ll c = 0;
+        for(i=0;i<n;i++)
+        {
+            if(v[i] == j)
+            {
+                j++;
+                c++;
+            }
+        }
+        //cout << c << "\n";
+        cout << ceil((n-c)/(k*1.0)) << "\n";
 
         
 
