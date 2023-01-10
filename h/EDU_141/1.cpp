@@ -318,8 +318,44 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
 
+        vll v;
+        deque<ll> dq;
+        for(i=0;i<n;i++)
+        {
+            cin >> k;
+            v.pb(k);
+            dq.pb(k);
+        }
+
+        sort(all(dq));
+
+        if(allEqual(v))
+        {   
+            cout << "NO" << endl;
+        }
+        else
+        {
+            cout << "YES" << endl;
+            i=1;
+            while(sz(dq) > 0)
+            {
+                if(i%2==1)
+                {
+                    cout << dq.front() << " ";
+                    dq.pop_front();
+                }
+                else
+                {
+                    cout << dq.back() << " ";
+                    dq.pop_back();
+                }
+                i++;
+            }
+            cout << endl;
+        }
 
 
 
