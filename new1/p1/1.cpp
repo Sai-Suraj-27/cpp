@@ -318,7 +318,27 @@ int main()
     {
         
         ll i,j,k;
-        
+        ll n;
+        cin >> n;
+        vll v;
+        ll g = 0;
+        for(i=0;i<n;i++)
+        {
+          cin >> k;
+          v.pb(k);
+          g = __gcd(g,k);
+        }
+        j=0;
+        for(auto i:v)
+        {
+            if(i!=g)
+            {
+                j++;
+            }
+        }
+
+        cout << j << endl;
+
 
 
 
