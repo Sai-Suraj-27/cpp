@@ -318,7 +318,10 @@ int main()
     {
         
         ll i,j,k;
+        ll n,s;
+        cin >> n >> k >> s;
 
+        
 
 
 

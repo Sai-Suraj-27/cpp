@@ -319,18 +319,25 @@ int main()
         
         ll i,j,k;
         ll n;
-        cin >> n;
+        cin >> n >> k;
         vll v;
-        
-        for(i=0;i<2*n;i++)
+        for(i=0;i<n;i++)
         {
-          cin >> k;
-          v.pb(k);
+            cin >> j;
+            v.pb(j);
         }
+        if(n==1 and v[0]==k)
+        {
+            cout << "YES" << endl;
+        }
+        else if(find(all(v),k) != v.end() and !(count(all(v),k)==1 and v[n-1]==k))
+        {
+            cout << "YES" << endl;
+        }
+        else
+            cout << "NO" << endl;
 
-        k = n_uniq(v);
 
-        
 
 
 

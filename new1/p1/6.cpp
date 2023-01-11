@@ -318,6 +318,27 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+        unordered_map<ll,ll> mp;
+        for(i=0;i<2*n;i++)
+        {
+            cin >> k;
+            mp[k]++;
+        }
+        j=0;
+        for(auto i:mp)
+        {
+            if(i.second >= 3)
+            {
+                cout << "NO" << endl;
+                j=1;
+                break;
+            }
+        }
+        if(j!=1)
+            cout << "YES" << endl;
+
 
 
 
