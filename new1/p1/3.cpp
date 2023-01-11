@@ -318,6 +318,20 @@ int main()
     {
         
         ll i,j,k;
+        ll n;
+        cin >> n;
+        vll v;
+        
+        for(i=0;i<2*n;i++)
+        {
+          cin >> k;
+          v.pb(k);
+        }
+
+        k = n_uniq(v);
+
+        
+
 
 
 

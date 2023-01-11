@@ -182,7 +182,7 @@ pair<ll,ll> fib(ll n)
 vector<bool> primes()
 {
     // To find all the primes between 0 and M;
-    ll M = 100000;
+    ll M = 1000000000;
     vector<bool> is_prime(M, true);
 
     is_prime[0] = false;
@@ -318,7 +318,30 @@ int main()
     {
         
         ll i,j,k;
-
+        ll n;
+        cin >> n;
+        vll v;
+        for(i=1;i<=sqrt(n);i++)
+        {
+            if(n%i==0)
+            {
+                v.pb(i);
+            }
+            if(n%i == 0 and n/i != i)
+            {
+                v.pb(n/i);
+            }
+        }
+        if(sz(v) == 2)
+            cout << -1 << endl;
+        else if(sz(v) == 3)
+        {
+            cout << -1 << endl;
+        }
+        else
+        {
+            cout << 1 << " " << v[3] << " " << v[2] << endl; 
+        }
 
 
 
