@@ -1,2 +1,2 @@
-# Repo for becomming better at c++, attempting contests, and practicing good problems.
+# Repo for Becomming better at C++, Attempting Contests, and Practicing Good Problems.
 # 🙂
